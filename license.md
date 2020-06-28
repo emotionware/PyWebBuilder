@@ -1,8 +1,4 @@
-https://creativecommons.org/licenses/by-nc/3.0/legalcode
-
-https://creativecommons.org/licenses/by-nc/3.0/es/
-
-Creative Commons Attribution-NonCommercial 3.0 
+Creative Commons Attribution-NonCommercial 3.0
 
 License
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
@@ -59,3 +55,19 @@ If any provision of this License is invalid or unenforceable under applicable la
 No term or provision of this License shall be deemed waived and no breach consented to unless such waiver or consent shall be in writing and signed by the party to be charged with such waiver or consent.
 This License constitutes the entire agreement between the parties with respect to the Work licensed here. There are no understandings, agreements or representations with respect to the Work not specified here. Licensor shall not be bound by any additional provisions that may appear in any communication from You. This License may not be modified without the mutual written agreement of the Licensor and You.
 The rights granted under, and the subject matter referenced, in this License were drafted utilizing the terminology of the Berne Convention for the Protection of Literary and Artistic Works (as amended on September 28, 1979), the Rome Convention of 1961, the WIPO Copyright Treaty of 1996, the WIPO Performances and Phonograms Treaty of 1996 and the Universal Copyright Convention (as revised on July 24, 1971). These rights and subject matter take effect in the relevant jurisdiction in which the License terms are sought to be enforced according to the corresponding provisions of the implementation of those treaty provisions in the applicable national law. If the standard suite of rights granted under applicable copyright law includes additional rights not granted under this License, such additional rights are deemed to be included in the License; this License is not intended to restrict the license of any rights under applicable law.
+
+
+This projects uses third-party components from this JQWidgets and Devextreme.
+
+This two providers allows to use their components on open source and non-commercial projects like this.
+
+Here we show the license agreement for every provider.
+
+JQWidgets
+https://www.jqwidgets.com/license/
+
+Devextreme License Agreement
+https://js.devexpress.com/EULAs/DevExtremeNonCommercial/
+
+
+Thanks to DevExtreme and JQWidgets
