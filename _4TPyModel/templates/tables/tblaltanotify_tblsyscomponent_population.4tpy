@@ -1,1 +1,0 @@
-select * from tblaltanotify_tblsyscomponent order by IDALTANOTIFY_tblsyscomponent ASC 

@@ -1,1 +1,0 @@
-select * from tblestatusnotify_tblproductividad order by IDESTATUSNOTIFY_tblproductividad ASC 

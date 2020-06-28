@@ -1408,10 +1408,10 @@ def dameperspectivas():
     pathx = os.path.join(app.root_path, 'static', 'pivot', 'perspectiva', query)
     onlyfiles = [f for f in listdir(pathx) if isfile(join(pathx, f))]
 
-    losfiles = '<table style="border: 1px solid black;width:550px"   ><tr><td style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >PERSPECTIVA</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >MOSTRAR</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;">ELIMINAR</td></tr>'
+    losfiles = '<table style="border: 1px solid black;width:550px"   ><tr><td style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >PERSPECTIVE</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >SHOW</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;">DELETE</td></tr>'
     for cadafile in onlyfiles:
 
-        losfiles += '<tr><td style="margin-right:20px;border: 1px solid black;" >' + cadafile + '</td><td style="margin-right:20px;border: 1px solid black;"  > <a  target="_self" href="/static/pivot/index.html?query=' + query + '&perspectiva=' + cadafile + '" >' + 'Ver Perspectiva' + '</a> </td><td  style="margin-right:20px;border: 1px solid black;"   > <a href=''javascript:deldiagram("deleteperspectiva?query=' + query + '&filename=' + cadafile.replace(' ','%20') + '") >Eliminar Perspectiva</a> </td></tr>'
+        losfiles += '<tr><td style="margin-right:20px;border: 1px solid black;" >' + cadafile + '</td><td style="margin-right:20px;border: 1px solid black;"  > <a  target="_self" href="/static/pivot/index.html?query=' + query + '&perspectiva=' + cadafile + '" >' + 'See Perspective' + '</a> </td><td  style="margin-right:20px;border: 1px solid black;"   > <a href=''javascript:deldiagram("deleteperspectiva?query=' + query + '&filename=' + cadafile.replace(' ','%20') + '") >Delete Perspective</a> </td></tr>'
 
     return losfiles + '</table>'
 
@@ -1421,10 +1421,10 @@ def damediagramas():
     pathx = os.path.join(app.root_path, 'static', 'diagramas', 'diagramas')
     onlyfiles = [f for f in listdir(pathx) if isfile(join(pathx, f))]
 
-    losfiles = '<table style="border: 1px solid black;width:550px"   ><tr><td style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >DIAGRAMA</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >EDITAR</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;">ELIMINAR</td></tr>'
+    losfiles = '<table style="border: 1px solid black;width:550px"   ><tr><td style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >DIAGRAM</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;" >EDIT</td> <td  style="background-color:lightblue;margin-right:20px;border: 1px solid black;">DELETE</td></tr>'
     for cadafile in onlyfiles:
 
-        losfiles += '<tr><td style="margin-right:20px;border: 1px solid black;" >' + cadafile + '</td><td style="margin-right:20px;border: 1px solid black;"  > <a  target="_self" href="/static/diagramas/index.html?diagrama=' + cadafile + '" >Editar Diagrama</a> </td><td  style="margin-right:20px;border: 1px solid black;"   > <a href=''javascript:deldiagram("deletediagram?filename=' + cadafile + '"'') >Eliminar Digrama</a> </td></tr>'
+        losfiles += '<tr><td style="margin-right:20px;border: 1px solid black;" >' + cadafile + '</td><td style="margin-right:20px;border: 1px solid black;"  > <a  target="_self" href="/static/diagramas/index.html?diagrama=' + cadafile + '" >Edit Diagram</a> </td><td  style="margin-right:20px;border: 1px solid black;"   > <a href=''javascript:deldiagram("deletediagram?filename=' + cadafile + '"'') >Delete Diagram</a> </td></tr>'
 
     return losfiles + '</table>'
 

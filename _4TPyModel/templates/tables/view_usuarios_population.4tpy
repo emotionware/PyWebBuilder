@@ -1,1 +1,0 @@
-select IDSYSUSER,USERNAME,NAME,EMAIL,CONVERT_TZ(FECHAALTA,'+00:00','+06:00') as FECHAALTA ,USER_LINK, concat('<a style="color:blue;" href="javascript:modoedicion(',IDSYSUSER,');">Editar</a>') as EDITAR from view_usuarios  order by IDSYSUSER desc

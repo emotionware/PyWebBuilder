@@ -1,1 +1,0 @@
-select * from tblaltanotify_tblvoiceaction order by IDALTANOTIFY_tblvoiceaction ASC 

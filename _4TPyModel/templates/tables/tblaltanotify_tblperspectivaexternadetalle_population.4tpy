@@ -1,1 +1,0 @@
-select * from tblaltanotify_tblperspectivaexternadetalle order by IDALTANOTIFY_tblperspectivaexternadetalle ASC 

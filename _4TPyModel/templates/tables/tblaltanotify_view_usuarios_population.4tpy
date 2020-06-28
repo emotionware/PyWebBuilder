@@ -1,1 +1,0 @@
-select * from tblaltanotify_view_usuarios order by IDALTANOTIFY_view_usuarios ASC 

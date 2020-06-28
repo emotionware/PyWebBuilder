@@ -1,1 +1,0 @@
-select * from tblaltanotify_tblsysmasterdetail order by IDALTANOTIFY_tblsysmasterdetail ASC 
