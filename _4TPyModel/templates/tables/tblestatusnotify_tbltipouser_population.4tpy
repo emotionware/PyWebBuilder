@@ -1,0 +1,1 @@
+select * from tblestatusnotify_tbltipouser order by IDESTATUSNOTIFY_tbltipouser ASC 

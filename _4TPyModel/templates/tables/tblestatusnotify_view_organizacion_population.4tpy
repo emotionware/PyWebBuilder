@@ -1,0 +1,1 @@
+select * from tblestatusnotify_view_organizacion order by IDESTATUSNOTIFY_view_organizacion ASC 
