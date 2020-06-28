@@ -53,7 +53,6 @@ tblcustomer, tblprovider, tblsell,e tc...
 3. The first field is the keyfield is INT (11) auto increment and not null. IT's a keyfield.
 #### All fields must be UPPERCASED
 
-
 ### Field Types
 PyWebBulder understand some field types. PyWebBulder checks the comment made on every field on mysql comments field area. This is the key concept for PyWebBuilder understand what kind of control must create.
 
@@ -63,6 +62,80 @@ Please see this video for understand this better.
 LINK TO VIDEO ABOUT CREATING FIELDS
 
 
+# Building
 
+# Sysbuild
+
+# Systable
+
+# Master/detail
+
+# Attachments and notes
+
+# Calendar
+
+# Blocking Records
+
+# Deleting Records
+
+# Clone Records
+
+# Hide fields on form
+
+# Hide fields on grid
+
+# Not editable fields
+
+# Store Procedures AFTER INSERT, AFTER UPDATE, REFRESCADOR
+
+# Grid Buttons
+
+# Form Buttons
+
+# Grid Inclusions
+
+# Form Inclusions
+
+# Status item
+
+# On Value Change Trigger
+
+# Blocky Development Integration
+
+# Help text
+
+# User Types (levels)
+
+# Permissions
+
+# Login and users creation
+
+# Main menu config
+
+# Graphical menu config
+
+# Making diagrams
+
+# Voice integration
+
+# SMTP
+
+# Form Config (captions, field order, etc..)
+
+# Adding custom controls
+
+# Mobile version
+
+# Google Form Integration
+
+# Templates
+
+# Admin Template
+
+# Home Template Redirection
+
+# External Perspetives
+
+# Mobile Menu
 
 
