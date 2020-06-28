@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es">
+<head>
+    <title>Admin Zona</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen" />
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+    
+    
+    
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+    
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+
+
+	<script type='text/javascript'>
+
+			var eldestino='';
+		var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) {
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+
+if (eldestino=='action'){
+
+                 $.ajax({
+                        url: "/voiceaction" + '?voice=' + saidText
+                    }).then(function (data) {
+
+//window.open(data,'_self');
+window.parent.parent.addtabplus(data);
+
+                    });
+
+}
+
+
+
+
+
+		}
+
+
+		function startRecording(destino){
+			eldestino=destino;
+			recognition.start();
+		}
+
+
+
+
+
+		</script>
+
+
+
+
+</head>
+<body>
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+
+            //check log in/////////////
+            if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+
+                if (Cookies.get('esadmin') == '0') {
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename={{ tablename | safe }}", "_self");
+                }
+
+
+            }
+            else {
+                //Redirect to login
+                window.open("login", "_self");
+            }
+
+
+
+
+                    //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "/validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("login", "_self");
+                        }
+
+                    });
+                 });
+
+
+
+
+
+    </script>
+
+
+
+
+<div style="position:relative;left:10px">
+
+    <h4>AdminZona</h4>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxNavigationBar
+            $("#jqxNavigationBar").jqxNavigationBar({
+                width: 800,
+                height: 400,
+                animationType: "slide",
+                collapseAnimationDuration: 500,
+                expandMode: "singleFitHeight",
+                theme: theme
+            });
+
+        });
+    </script>
+    <script>
+
+
+    </script>
+
+
+
+
+
+
+
+    <div id='jqxWidget' style="float: left;">
+        <div id='jqxNavigationBar'>
+
+
+
+            <div>
+                HERRAMIENTAS
+            </div>
+            <div>
+                <ul>
+
+                    <table>
+
+                        <tr>
+                            <td>
+                                <a href="/static/diagramas/index.html"  >Diagramas</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblbackup")' ">BackUps</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <a href="/static/stimulsoft/reportdesigner.html">Report Designer</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="/static/stimulsoft/dashboarddesigner.html">Dashboard Designer</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="/static/stimulsoft/reportviewer.html">Report Viewer</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="/static/stimulsoft/dashboardviewer.html">Dashboard Viewer</a>
+                            </td>
+                        </tr>
+                        
+                        
+
+                        <tr>
+                            <td>
+                                <a href="/static/terminal/consola/terminal.html" >Web Terminal</a>
+                            </td>
+                        </tr>
+
+
+
+
+
+
+
+
+                    </table>
+
+
+                </ul>
+            </div>
+
+
+
+
+
+
+            <div>
+                DATABASE
+            </div>
+            <div>
+                <ul>
+                    <table>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/acecode.html?archivo=dbstring.py&tipo=python")' >Database Connection</a>
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+
+
+                </ul>
+            </div>
+            
+            
+             <div>
+                DESARROLLO
+            </div>
+            <div>
+                <ul>
+                    <table>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("/static/help/GuiaCreaciónInterfaces.docx")' >Guía Creación de Interfaces</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblvoiceaction")' >Voice Actions</a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+
+                </ul>
+            </div>
+
+            <div>
+                SMTP
+            </div>
+            <div>
+                <ul>
+                    <table>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/acecode.html?archivo=smtp.py&tipo=python")' target="_self">SMTP Config</a>
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+
+
+                </ul>
+            </div>
+
+
+            <div>
+                TABLAS DE SISTEMA
+            </div>
+            <div>
+                <ul>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsysbuild")' target="_self">Sys Build</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsysconfig")' target="_self">Sys Config</a>
+                            </td>
+                        </tr>
+                        
+                        
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsyscomponent")' target="_self">Sys Components</a>
+                            </td>
+                        </tr>
+                        
+            			<tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblincrustador")' target="_self">Incrustador</a>
+                            </td>
+                        </tr>
+                        
+                           
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsysmasterdetail")' target="_self">Master Detail</a>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsystable")' target="_self">Nombre Tablas/Acceso Admin</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tbltipouser")' target="_self">Tipos de Usuario</a>
+                            </td>
+                        </tr>
+
+                    <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tbldocumentacioninterna")' target="_self">Documentación Interna</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsysuser")' target="_self">Usuarios</a>
+                            </td>
+                        </tr>
+
+                         <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsyspermiso")' target="_self">Permisos</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblgerente")' target="_self">Gerentes</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblsupervisor")' target="_self">Supervisores</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblagente")' target="_self">Agentes</a>
+                            </td>
+                        </tr>
+
+						<tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("rendergrid?grid=tables/tblperspectivaexterna")' target="_self">Perspectiva Externa</a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+
+                </ul>
+            </div>
+            <div>
+                TEMPLATES
+            </div>
+            <div>
+                <ul>
+                    <table>
+                         
+
+
+                        <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=config/login.html&tipo=html")' target="_self">Login</a>
+
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=config/home.html&tipo=html")' target="_self">Home</a>
+
+                            </td>
+                        </tr>
+
+
+
+                       
+
+
+
+
+                        <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=config/adminzone.html&tipo=html")' target="_self">Admin Zona</a>
+
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=loginperspectiva.html&tipo=html")' target="_self">Login de Perspectiva</a>
+
+                            </td>
+                        </tr>
+                        
+                                                <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=templateperspectiva.html&tipo=html")' target="_self">Template Perspectiva Reportes</a>
+
+                            </td>
+                        </tr>
+
+                                                <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=loginperspectiva.html&tipo=html")' target="_self">Template Perspectiva Login</a>
+
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td>
+
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=config/topmenu.html&tipo=html")' target="_self">Top Menú</a>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="/static/ace/ace.html?archivo=config/topmenu.html&tipo=html" target="_blank">Config Top Menu Desktop</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <a href="/static/ace/ace.html?archivo=config/topmenu2.html&tipo=html" target="_blank">Config Top Menu Mobile</a>
+                            </td>
+                        </tr>                        
+
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=templateform.html&tipo=html")' target="_self">Template Form</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href='javascript:window.parent.parent.addtabplus("/static/ace/ace.html?archivo=templategrid.html&tipo=html")' target="_self">Template Grid</a>
+                            </td>
+                        </tr>
+                        
+
+                        
+                        
+                        
+
+                    </table>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+    window.parent.parent.tabtible('Admin-Zone');
+
+</script>
+
+</body>
+</html>

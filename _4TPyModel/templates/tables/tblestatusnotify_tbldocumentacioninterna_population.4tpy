@@ -1,0 +1,1 @@
+select * from tblestatusnotify_tbldocumentacioninterna order by IDESTATUSNOTIFY_tbldocumentacioninterna ASC 

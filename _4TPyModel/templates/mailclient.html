@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ tabletitle | safe }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/scripts/moment.js"></script>
+    <style>
+
+
+        .ocultar {
+            visibility: hidden;
+            display: none
+        }
+
+        .ajustarposicion {
+            position: relative;
+            left: 10px;
+        }
+
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cuerpo').jqxEditor({
+                height: "220px", width: "540px", tools: 'bold italic underline | left center right | size outdent indent | html'
+            });
+        });
+    </script>
+
+
+    <script>
+
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</head>
+<body>
+
+    <div id="zonamenu">
+        {{ topmenu | safe }}
+    </div>
+
+
+
+    <div style="position:relative;left:20px;top:0px">
+
+        <script>
+
+
+            //check log in/////////////
+            if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+                //Show the page
+
+            }
+            else {
+                //Redirect to login
+                window.open("login", "_self");
+            }
+
+
+        </script>
+
+
+
+
+        <h2> Cliente de correo</h2>
+
+        <table>
+            <tr>
+                <td>Para</td>
+                <td style="visibility:hidden">CC</td>
+                <td style="visibility:hidden">BCC</td>
+            </tr>
+
+            <tr>
+                <td><input id="para" style="width:540px" type="text" /></td>
+                <td><input id="cc" style="visibility:hidden" type="text" /></td>
+                <td><input id="bcc" style="visibility:hidden" type="text" /></td>
+            </tr>
+
+
+            <tr>
+                <td>Asunto</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+                <td><input id="asunto" style="width:540px" type="text" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Correo de Respuesta</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td><input id="emailrespuesta" style="width:540px" type="text" disabled /></td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>Cuerpo</td>
+            </tr>
+            <tr>
+                <td>
+
+
+                    <textarea id="cuerpo" style="width:540px;height:200px"></textarea>
+
+
+
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right;"> <input type="button" id="enviar" onclick="enviarcorreo(); return false;" value="Enviar" />  </td>
+            </tr>
+
+            <tr>
+                <td>Archivo Adjunto</td>
+            </tr>
+            <tr>
+
+                <td>
+
+                    <input id="adjuntos" style="width:540px;" disabled />
+
+                </td>
+            </tr>
+        </table>
+
+
+        <script>
+
+            function enviarcorreo() {
+
+                alert("Pulse aceptar para enviar el correo. Al pulsar aceptar deberá esperar hasta que aparezca el mensaje de confirmación de envio correcto.");
+
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+
+
+                var folder1 = url.searchParams.get("folder1");
+                var folder2 = url.searchParams.get("folder2");
+                var elnombre = url.searchParams.get("elnombre");
+
+
+
+                $.ajax({
+                    async: true,
+                    url: "/enviaremail" + '?subject=' + document.getElementById('asunto').value + '&destinatario=' + document.getElementById('para').value + '&bodytext=' + $('#cuerpo').val() + '&folder1=' + folder1 + '&folder2=' + folder2 + '&elnombre=' + elnombre
+                }).then(function (data) {
+
+                    if (data == 'ok') { alert('Email enviado correctamente'); }
+                    else { alert('Error. El email no se envió'); }
+                });
+
+
+            }
+
+
+        </script>
+
+    </div>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var para = url.searchParams.get("para");
+            var asunto = url.searchParams.get("asunto");
+            var elcuerpo = url.searchParams.get("cuerpo");
+
+            var folder1 = url.searchParams.get("folder1");
+            var folder2 = url.searchParams.get("folder2");
+            var elnombre = url.searchParams.get("elnombre");
+
+            document.getElementById('para').value = para;
+            document.getElementById('emailrespuesta').value = Cookies.get('emailrespuesta');
+            document.getElementById('asunto').value = asunto;
+
+
+
+
+
+            $("#cuerpo").jqxEditor('val', elcuerpo + '<br><br>Atentamente;<br>' + Cookies.get('emailrespuesta'));
+
+
+            document.getElementById("adjuntos").value = elnombre;
+        });
+
+    </script>
+</body>
+</html>

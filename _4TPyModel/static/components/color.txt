@@ -1,0 +1,11 @@
+<script>
+
+$(document).ready(function () {
+var color_ALEA_ = document.createElement("INPUT");
+color_ALEA_.setAttribute("type", "color");
+
+document.getElementById('_POS_').appendChild(color_ALEA_);
+});
+
+
+</script>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perspectivas</title>
+
+      <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+
+
+</head>
+<body>
+<table>
+    <tr>
+    <td><a href="../../" target="_self"  >Home</a></td>
+         <td> <a href="javascript:obtenerliga();" target="_self"  >Pivot Origen</a> </td>
+    </tr>
+</table>
+<hr/>
+
+<div id="listado" ></div>
+
+<script>
+    //Listar diagramas del folder mediante Ajax
+
+function deldiagram(ruta){
+
+
+     $(document).ready(function () {
+                    $.ajax({
+                        url: "/" + ruta
+                    }).then(function (data) {
+
+                        alert(data);
+                         document.getElementById('listado').innerHTML = '';
+                        damefiles();
+
+                    });
+                });
+
+
+
+}
+
+function obtenerliga(){
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var query = url.searchParams.get("query");
+
+
+            window.open('/static/pivot/index.html?query=' + query ,'_self');
+
+
+
+}
+
+
+ function damefiles() {
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var query = url.searchParams.get("query");
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/dameperspectivas?query=" + query
+                    }).then(function (data) {
+
+                        datos = String(data);
+                        document.getElementById('listado').innerHTML = datos;
+
+                    });
+                });
+
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/damefilesslider" + '?tabla=tblagenda&idobjeto=' + $('#IDOBJECT').val()
+                    }).then(function (data) {
+
+                        $('#slider').css("'visibility': 'hidden'");
+                        if (data.length > 10) {
+
+                            document.getElementById('slider').innerHTML = data;
+                            $('#slider').css("'visibility': 'visible'");
+                        }
+
+
+                    });
+                });
+
+
+
+
+
+
+
+                }
+
+
+                damefiles();
+
+
+
+</script>
+
+</body>
+</html>

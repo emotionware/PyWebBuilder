@@ -1,0 +1,74 @@
+<script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxButton widgets.
+            $("#Button1").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button2").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button3").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button4").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button5").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button6").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button7").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button8").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button9").jqxButton({ textPosition: "center", width: 120, theme: theme });
+
+
+
+            $('#Button1').on('click', function () {
+		alert("El Back aparecerá en la zona de adjuntos en unos segundos. Importante; descargue su Back Up y deposítelo en lugar seguro. Así sus datos permanecerán aseguradas ante cualquier situación. Haga esto regularmente.");
+
+                $.ajax({
+                    url: "/backup" + '?tablename={{ tablename | safe }}&id=' + $('#IDOBJECT').val()
+                }).then(function (data) {
+
+                    var res = data;
+
+             });
+
+            });
+            $('#Button2').on('click', function () {
+
+               var nombre=prompt('Escriba el nombre del archivo de backup que desea restaurar');
+               
+               
+				$.ajax({
+                    url: "/restaurarbackup" + '?name=' + nombre + '&tablename={{ tablename | safe }}&id=' + $('#IDOBJECT').val()
+                }).then(function (data) {
+
+                    var res = data;
+
+            });
+
+            });
+            $('#Button3').on('click', function () {   });
+            $('#Button4').on('click', function () {   });
+            $('#Button5').on('click', function () {
+
+
+            });
+            $('#Button6').on('click', function () {
+
+            });
+            $('#Button7').on('click', function () {   });
+            $('#Button8').on('click', function () {   });
+            $('#Button9').on('click', function () {   });
+
+
+
+        });
+</script>
+
+<div style="position:relative;left:700px;top:-35px;">
+    <table>
+        <tr>
+            <td><input type="button" style="visibility:visible;position:relative;top:13px;" value="BackUp Database" id='Button1' /></td>
+            <td><input type="button" style="visibility:visible;position:relative;top:13px;" value="Restaurar Backup" id='Button2' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button3' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button4' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button5' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button6' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button7' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button8' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top: 13px;"value="TextButton" id='Button9' /></td>
+        </tr>
+    </table>
+</div>

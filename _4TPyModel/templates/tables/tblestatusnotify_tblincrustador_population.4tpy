@@ -1,0 +1,1 @@
+select * from tblestatusnotify_tblincrustador order by IDESTATUSNOTIFY_tblincrustador ASC 

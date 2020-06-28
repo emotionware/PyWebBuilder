@@ -1,0 +1,1 @@
+select * from tblaltanotify_view_organizacion order by IDALTANOTIFY_view_organizacion ASC 

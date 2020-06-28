@@ -1,0 +1,1 @@
+select * from tblaltanotify_tblsysreport order by IDALTANOTIFY_tblsysreport ASC 

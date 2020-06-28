@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Agenda</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+    
+    
+    
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+    
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+
+
+
+    <!-- add the jQuery script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/scripts/moment.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <style>
+
+        .ocultar {
+            visibility: hidden;
+            display: none
+        }
+
+        .ajustarposicion {
+            position: relative;
+            left: 10px;
+        }
+
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+    </script>
+
+
+    <script>
+
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+    </script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var campofiltro = url.searchParams.get("campofiltro");
+            var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+            
+
+
+
+            // prepare the data
+            var source =
+            {
+                dataType: 'json',
+                dataFields: [
+                    { name: 'id', type: 'string' },
+                    { name: 'status', type: 'string' },
+                    { name: 'about', type: 'string' },
+                    { name: 'address', type: 'string' },
+                    { name: 'company', type: 'string' },
+                    { name: 'name', type: 'string' },
+                    { name: 'style', type: 'string' },
+                    { name: 'calendar', type: 'string' },
+                    { name: 'start', type: 'date', format: "yyyy-MM-dd HH:mm" },
+                    { name: 'end', type: 'date', format: "yyyy-MM-dd HH:mm" },
+                    { name: 'allDay', type: 'string' }, ,
+                    { name: 'background', type: 'string' }, ,
+                    { name: 'borderColor', type: 'string' }, ,
+                    { name: 'color', type: 'string' }, ,
+                    { name: 'draggable', type: 'string' }, ,
+                    { name: 'hidden', type: 'string' }, ,
+                    { name: 'recurrencePattern', type: 'string' }, ,
+                    { name: 'recurrenceException', type: 'string' }, ,
+                    { name: 'resizable', type: 'string' }, ,
+                    { name: 'resourceId', type: 'string' }, ,
+                    { name: 'readOnly', type: 'string' }, ,
+                    { name: 'tooltip', type: 'string' }, ,
+                    { name: 'timeZone', type: 'string' },
+                ],
+                id: 'id',
+                url: 'agendaget?campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro  
+            };
+            var adapter = new $.jqx.dataAdapter(source);
+            $("#scheduler").jqxScheduler({
+                width: '100%',
+                theme: theme,
+                height: 550,
+                source: adapter,
+                showLegend: true,
+                ready: function () {
+
+                },
+                localization: {
+                    // separator of parts of a date (e.g. '/' in 11/05/1955)
+                    '/': "/",
+                    // separator of parts of a time (e.g. ':' in 05:44 PM)
+                    ':': ":",
+                    // the first day of the week (0 = Sunday, 1 = Monday, etc)
+                    firstDay: 1,
+                    days: {
+                        // full day names
+                        names: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+                        // abbreviated day names
+                        namesAbbr: ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB", "DOM"],
+                        // shortest day names
+                        namesShort: ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"]
+                    },
+                    months: {
+                        // full month names (13 months for lunar calendards -- 13th month should be "" if not lunar)
+                        names: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "OCtubre", "Noviembre", "Diciembre", ""],
+                        // abbreviated month names
+                        namesAbbr: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic", ""]
+                    },
+                    // AM and PM designators in one of these forms:
+                    // The usual view, and the upper and lower case versions
+                    //      [standard,lowercase,uppercase]
+                    // The culture does not use AM or PM (likely all standard date formats use 24 hour time)
+                    //      null
+                    AM: ["AM", "am", "AM"],
+                    PM: ["PM", "pm", "PM"],
+                    eras: [
+                        // eras in reverse chronological order.
+                        // name: the name of the era in this culture (e.g. A.D., C.E.)
+                        // start: when the era starts in ticks (gregorian, gmt), null if it is the earliest supported era.
+                        // offset: offset in years from gregorian calendar
+                        { "name": "A.D.", "start": null, "offset": 0 }
+                    ],
+                    twoDigitYearMax: 2029,
+                    patterns: {
+                        // short date pattern
+                        d: "M/d/yyyy",
+                        // long date pattern
+                        D: "dddd, MMMM dd, yyyy",
+                        // short time pattern
+                        t: "h:mm tt",
+                        // long time pattern
+                        T: "h:mm:ss tt",
+                        // long date, short time pattern
+                        f: "dddd, MMMM dd, yyyy h:mm tt",
+                        // long date, long time pattern
+                        F: "dddd, MMMM dd, yyyy h:mm:ss tt",
+                        // month/day pattern
+                        M: "MMMM dd",
+                        // month/year pattern
+                        Y: "yyyy MMMM",
+                        // S is a sortable format that does not vary by culture
+                        S: "yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss",
+                        // formatting of dates in MySQL DataBases
+                        ISO: "yyyy-MM-dd hh:mm:ss",
+                        ISO2: "yyyy-MM-dd HH:mm:ss",
+                        d1: "dd.MM.yyyy",
+                        d2: "dd-MM-yyyy",
+                        d3: "dd-MMMM-yyyy",
+                        d4: "dd-MM-yy",
+                        d5: "H:mm",
+                        d6: "HH:mm",
+                        d7: "HH:mm tt",
+                        d8: "dd/MMMM/yyyy",
+                        d9: "MMMM-dd",
+                        d10: "MM-dd",
+                        d11: "MM-dd-yyyy"
+                    },
+                    backString: "Atrás",
+                    forwardString: "Adelante",
+                    toolBarPreviousButtonString: "Anterior",
+                    toolBarNextButtonString: "Siguiente",
+                    emptyDataString: "Sin eventos",
+                    loadString: "Cargando...",
+                    clearString: "Limpiar",
+                    todayString: "Hoy",
+                    dayViewString: "Dia",
+                    weekViewString: "Semana",
+                    monthViewString: "Mes",
+                    timelineDayViewString: "Timeline Diario",
+                    timelineWeekViewString: "TImeline Semanal",
+                    timelineMonthViewString: "Timeline Mensual",
+                    loadingErrorMessage: "Die Daten werden noch geladen und Sie können eine Eigenschaft nicht festgelegt oder eine Methode aufrufen . Sie können tun, dass, sobald die Datenbindung abgeschlossen ist. jqxScheduler wirft die ' bindingComplete ' Ereignis, wenn die Bindung abgeschlossen ist.",
+                    editRecurringAppointmentDialogTitleString: "Seleccionar modo de edición",
+                    editRecurringAppointmentDialogContentString: "¿Editar la ocurrencia o la serie?",
+                    editRecurringAppointmentDialogOccurrenceString: "Editar Ocurrencia",
+                    editRecurringAppointmentDialogSeriesString: "Editar la Serie",
+                    editDialogTitleString: "Edición de Cita",
+                    editDialogCreateTitleString: "Edición de Cita",
+                    contextMenuEditAppointmentString: "Editar Cita",
+                    contextMenuCreateAppointmentString: "Crear Cita",
+                    editDialogSubjectString: "Asunto",
+                    editDialogLocationString: "Ubicación",
+                    editDialogFromString: "Desde",
+                    editDialogToString: "Hasta",
+                    editDialogAllDayString: "Todo el dia",
+                    editDialogExceptionsString: "Excepción",
+                    editDialogResetExceptionsString: "Reset Excepción",
+                    editDialogDescriptionString: "Descripción",
+                    editDialogResourceIdString: "Recursos",
+                    editDialogStatusString: "Estatus",
+                    editDialogColorString: "Color",
+                    editDialogColorPlaceHolderString: "Seleccionar Color",
+                    editDialogTimeZoneString: "Zona Horaria",
+                    editDialogSelectTimeZoneString: "Seleccionar Zona Horaria",
+                    editDialogSaveString: "Guardar",
+                    editDialogDeleteString: "Eliminar",
+                    editDialogCancelString: "Cancelar",
+                    editDialogRepeatString: "Repetición",
+                    editDialogRepeatEveryString: "Cada",
+                    editDialogRepeatEveryWeekString: "Semanas",
+                    editDialogRepeatEveryYearString: "Años",
+                    editDialogRepeatEveryDayString: "Dias",
+                    editDialogRepeatNeverString: "Nunca",
+                    editDialogRepeatDailyString: "Diariamente",
+                    editDialogRepeatWeeklyString: "Semanal",
+                    editDialogRepeatMonthlyString: "Mensual",
+                    editDialogRepeatYearlyString: "Anual",
+                    editDialogRepeatEveryMonthString: "Cada Mes",
+                    editDialogRepeatEveryMonthDayString: "Cada día del Mes",
+                    editDialogRepeatFirstString: "Primero",
+                    editDialogRepeatSecondString: "Segundo",
+                    editDialogRepeatThirdString: "Tercero",
+                    editDialogRepeatFourthString: "Cuarto",
+                    editDialogRepeatLastString: "Último",
+                    editDialogRepeatEndString: "Fin",
+                    editDialogRepeatAfterString: "Después",
+                    editDialogRepeatOnString: "Am",
+                    editDialogRepeatOfString: "Después de",
+                    editDialogRepeatOccurrencesString: "Ocurrencias",
+                    editDialogRepeatSaveString: "Guardar Repetición",
+                    editDialogRepeatSaveSeriesString: "Guardar Series",
+                    editDialogRepeatDeleteString: "Eliminar Repetición",
+                    editDialogRepeatDeleteSeriesString: "Eliminar Series",
+                    editDialogStatuses:
+                    {
+                        free: "Libre",
+                        tentative: "Tentativo",
+                        busy: "Ocupado",
+                        outOfOffice: "Fuera de Oficina"
+                    }
+                },
+                appointmentDataFields:
+                {
+                    from: "start",
+                    to: "end",
+                    id: "id",
+                    description: "about",
+                    location: "address",
+                    subject: "name",
+                    style: "style",
+                    status: "status",
+                    allDay: "allDay",
+                    background: "background",
+                    borderColor: "borderColor",
+                    color: "color",
+                    draggable: "draggable",
+                    hidden: "hidden",
+                    recurrencePattern: "recurrencePattern",
+                    recurrenceException: "recurrenceException",
+                    resizable: "resizable",
+                    resourceId: "resourceId",
+                    readOnly: "readOnly",
+                    tooltip: "tooltip",
+                    timeZone: "timeZone"
+                },
+                view: 'weekView',
+                views:
+                    [
+
+                        { type: "weekView", showWeekends: true, timeRuler: { scaleStartHour: 7, scaleEndHour: 21 } },
+                        { type: "agendaView", showWeekends: true, timeRuler: { scaleStartHour: 7, scaleEndHour: 21 } },
+                        'monthView',
+                        { type: "dayView", showWeekends: true, timeRuler: { scaleStartHour: 7, scaleEndHour: 21 } },
+                        { type: "timelineDayView", showWeekends: true, timeRuler: { scaleStartHour: 7, scaleEndHour: 21 } },
+                        { type: "timelineWeekView", showWeekends: true, timeRuler: { scaleStartHour: 7, scaleEndHour: 21 } }
+
+                    ]
+            });
+
+
+
+            $("#scheduler").on('appointmentDelete', function (event) {
+                var args = event.args;
+                var appointment = args.appointment;
+                console.log("appointmentDelete is raised");
+                console.log(appointment);
+
+                $.ajax({
+                    url: "/agendasave" + '?timeZone=' + '' + '&tooltip=' + '' + '&readOnly=' + '' + '&resourceId=' + '' + '&resizable=' + '' + '&recurrenceException=' + String(appointment.recurrenceException) + '&recurrencePattern=' + String(appointment.recurrencePattern) + '&hidden=' + appointment.hidden + '&draggable=' + appointment.draggable + '&color=' + appointment.color + '&bordercolor=' + appointment.borderColor + '&background=' + appointment.background + '&allday=' + appointment.allDay + '&modo=delete&subject=' + appointment.subject + '&id=' + appointment.id + '&from=' + appointment.originalData.start + '&to=' + appointment.originalData.end + '&description=' + appointment.description + '&location=' + appointment.location + '&status=' + appointment.status
+                }).then(function (data) {
+
+                    var res = data;
+
+                });
+
+
+            });
+
+            $("#scheduler").on('appointmentAdd', function (event) {
+                var args = event.args;
+                var appointment = args.appointment;
+                console.log(appointment);
+
+                $.ajax({
+                    url: "/agendasave" + '?campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro + '&timeZone=' + '' + '&tooltip=' + '' + '&readOnly=' + '' + '&resourceId=' + '' + '&resizable=' + '' + '&recurrenceException=' + String(appointment.recurrenceException) + '&recurrencePattern=' + String(appointment.recurrencePattern) + '&hidden=' + appointment.hidden + '&draggable=' + appointment.draggable + '&color=' + appointment.color + '&bordercolor=' + appointment.borderColor + '&background=' + appointment.background + '&allday=' + appointment.allDay + '&modo=insert&subject=' + appointment.subject + '&id=' + appointment.id + '&from=' + appointment.originalData.start + '&to=' + appointment.originalData.end + '&description=' + appointment.description + '&location=' + appointment.location + '&status=' + appointment.status
+                }).then(function (data) {
+
+                    var res = data;
+
+                });
+
+
+
+
+
+            });
+
+
+
+
+
+
+
+            $("#scheduler").on('appointmentDoubleClick', function (event) {
+                var args = event.args;
+                var appointment = args.appointment;
+                // appointment fields
+                // originalData - the bound data.
+                // from - jqxDate object which returns when appointment starts.
+                // to - jqxDate objet which returns when appointment ends.
+                // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+                // resourceId - String which returns the appointment's resouzeId
+                // hidden - Boolean which returns whether the appointment is visible.
+                // allDay - Boolean which returns whether the appointment is allDay Appointment.
+                // resiable - Boolean which returns whether the appointment is resiable Appointment.
+                // draggable - Boolean which returns whether the appointment is resiable Appointment.
+                // id - String or Number which returns the appointment's ID.
+                // subject - String which returns the appointment's subject.
+                // location - String which returns the appointment's location.
+                // description - String which returns the appointment's description.
+                // tooltip - String which returns the appointment's tooltip.
+
+                $("#log").html("appointmentDoubleClick is raised");
+            });
+
+            $("#scheduler").on('cellClick', function (event) {
+                var args = event.args;
+                var cell = args.cell;
+
+                console.log("cellClick is raised");
+            });
+
+            $("#scheduler").on('cellDoubleClick', function (event) {
+                var args = event.args;
+                var cell = args.cell;
+
+                console.log("cellDoubleClick is raised");
+            });
+
+            $("#scheduler").on('contextMenuOpen', function (event) {
+                var args = event.args;
+                var menu = args.menu;
+                var appointment = args.appointment;
+
+                console.log("contextMenuOpen is raised");
+            });
+
+            $("#scheduler").on('contextMenuClose', function (event) {
+                var args = event.args;
+                var menu = args.menu;
+                var appointment = args.appointment;
+
+                console.log("contextMenuClose is raised");
+            });
+
+            $("#scheduler").on('contextMenuItemClick', function (event) {
+                var args = event.args;
+                var menu = args.menu;
+                var appointment = args.appointment;
+                var item = args.item;
+
+                console.log("contextMenuItemClick is raised");
+            });
+
+            $("#scheduler").on('viewChange', function (event) {
+                var args = event.args;
+                var from = args.from;
+                var to = args.to;
+                var date = args.date;
+                console.log("viewChange is raised");
+            });
+
+            $("#scheduler").on('dateChange', function (event) {
+                var args = event.args;
+                var from = args.from;
+                var to = args.to;
+                var date = args.date;
+                console.log("dateChange is raised");
+
+
+
+
+
+            });
+
+            $("#scheduler").on('contextMenuCreate', function (event) {
+                var args = event.args;
+                var menu = args.menu;
+                var appointment = args.appointment;
+                var item = args.item;
+
+                console.log("contextMenuCreate is raised");
+            });
+
+            $("#scheduler").on('editRecurrenceDialogOpen', function (event) {
+                var args = event.args;
+                var dialog = args.dialog;
+                var appointment = args.appointment;
+
+                console.log("editRecurrenceDialogOpen is raised");
+            });
+
+            $("#scheduler").on('editRecurrenceDialogClose', function (event) {
+                var args = event.args;
+                var dialog = args.dialog;
+                var appointment = args.appointment;
+
+                console.log("editRecurrenceDialogClose is raised");
+
+
+
+
+                $.ajax({
+                    url: "/agendasave" + '?campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro + '&timeZone=' + '' + '&tooltip=' + '' + '&readOnly=' + '' + '&resourceId=' + '' + '&resizable=' + '' + '&recurrenceException=' + String(appointment.recurrenceException) + '&recurrencePattern=' + String(appointment.recurrencePattern) + '&hidden=' + appointment.hidden + '&draggable=' + appointment.draggable + '&color=' + appointment.color + '&bordercolor=' + appointment.borderColor + '&background=' + appointment.background + '&allday=' + appointment.allDay + '&modo=update&subject=' + appointment.subject + '&id=' + appointment.id + '&from=' + appointment.originalData.start + '&to=' + appointment.originalData.end + '&description=' + appointment.description + '&location=' + appointment.location + '&status=' + appointment.status
+                }).then(function (data) {
+
+                    var res = data;
+
+                });
+
+
+
+            });
+
+            $("#scheduler").on('editDialogCreate', function (event) {
+                var args = event.args;
+                var dialog = args.dialog;
+                var appointment = args.appointment;
+                var fields = args.fields;
+
+                console.log("editDialogCreate is raised");
+            });
+
+            $("#scheduler").on('editDialogOpen', function (event) {
+                var args = event.args;
+                var dialog = args.dialog;
+                var appointment = args.appointment;
+                var fields = args.fields;
+
+                console.log("editDialogOpen is raised");
+            });
+
+            $("#scheduler").on('editDialogClose', function (event) {
+                var args = event.args;
+                var dialog = args.dialog;
+                var appointment = args.appointment;
+                var fields = args.fields;
+
+                $.ajax({
+                    url: "/agendasave" + '?campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro + '&timeZone=' + '' + '&tooltip=' + '' + '&readOnly=' + '' + '&resourceId=' + '' + '&resizable=' + '' + '&recurrenceException=' + String(appointment.recurrenceException) + '&recurrencePattern=' + String(appointment.recurrencePattern) + '&hidden=' + appointment.hidden + '&draggable=' + appointment.draggable + '&color=' + appointment.color + '&bordercolor=' + appointment.borderColor + '&background=' + appointment.background + '&allday=' + appointment.allDay + '&modo=update&subject=' + appointment.subject + '&id=' + appointment.id + '&from=' + appointment.originalData.start + '&to=' + appointment.originalData.end + '&description=' + appointment.description + '&location=' + appointment.location + '&status=' + appointment.status
+                }).then(function (data) {
+
+                    var res = data;
+
+                });
+
+
+                console.log("editDialogClose is raised");
+            });
+
+
+            $("#scheduler").on('appointmentChange', function (event) {
+                var args = event.args;
+                var appointment = args.appointment;
+                // appointment fields
+                // originalData - the bound data.
+                // from - jqxDate object which returns when appointment starts.
+                // to - jqxDate objet which returns when appointment ends.
+                // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+                // resourceId - String which returns the appointment's resouzeId
+                // hidden - Boolean which returns whether the appointment is visible.
+                // allDay - Boolean which returns whether the appointment is allDay Appointment.
+                // resiable - Boolean which returns whether the appointment is resiable Appointment.
+                // draggable - Boolean which returns whether the appointment is resiable Appointment.
+                // id - String or Number which returns the appointment's ID.
+                // subject - String which returns the appointment's subject.
+                // location - String which returns the appointment's location.
+                // description - String which returns the appointment's description.
+                // tooltip - String which returns the appointment's tooltip.
+                console.log(appointment);
+
+
+                $.ajax({
+                    url: "/agendasave" + '?campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro + '&timeZone=' + '' + '&tooltip=' + '' + '&readOnly=' + '' + '&resourceId=' + '' + '&resizable=' + '' + '&recurrenceException=' + String(appointment.recurrenceException) + '&recurrencePattern=' + String(appointment.recurrencePattern) + '&hidden=' + appointment.hidden + '&draggable=' + appointment.draggable + '&color=' + appointment.color + '&background=' + appointment.background + '&allday=' + appointment.allDay + '&modo=update&subject=' + appointment.subject + '&id=' + appointment.id + '&from=' + appointment.originalData.start + '&to=' + appointment.originalData.end + '&description=' + appointment.description + '&location=' + appointment.location + '&status=' + appointment.status
+                }).then(function (data) {
+
+                    var res = data;
+
+                });
+
+
+
+
+                console.log("appointmentChange is raised");
+            });
+
+            $("#scheduler").on('appointmentClick', function (event) {
+                var args = event.args;
+                var appointment = args.appointment;
+                // appointment fields
+                // originalData - the bound data.
+                // from - jqxDate object which returns when appointment starts.
+                // to - jqxDate objet which returns when appointment ends.
+                // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+                // resourceId - String which returns the appointment's resouzeId
+                // hidden - Boolean which returns whether the appointment is visible.
+                // allDay - Boolean which returns whether the appointment is allDay Appointment.
+                // resiable - Boolean which returns whether the appointment is resiable Appointment.
+                // draggable - Boolean which returns whether the appointment is resiable Appointment.
+                // id - String or Number which returns the appointment's ID.
+                // subject - String which returns the appointment's subject.
+                // location - String which returns the appointment's location.
+                // description - String which returns the appointment's description.
+                // tooltip - String which returns the appointment's tooltip.
+
+
+                $.ajax({
+                    url: "/agendasave" + '?campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro + '&timeZone=' + '' + '&tooltip=' + '' + '&readOnly=' + '' + '&resourceId=' + '' + '&resizable=' + '' + '&recurrenceException=' + String(appointment.recurrenceException) + '&recurrencePattern=' + String(appointment.recurrencePattern) + '&hidden=' + appointment.hidden + '&draggable=' + appointment.draggable + '&color=' + appointment.color + '&bordercolor=' + appointment.borderColor + '&background=' + appointment.background + '&allday=' + appointment.allDay + '&modo=update&subject=' + appointment.subject + '&id=' + appointment.id + '&from=' + appointment.originalData.start + '&to=' + appointment.originalData.end + '&description=' + appointment.description + '&location=' + appointment.location + '&status=' + appointment.status
+                }).then(function (data) {
+
+                    var res = data;
+
+                });
+
+                console.log("appointmentClick is raised");
+            });
+
+            $("#scheduler").on('appointmentDoubleClick', function (event) {
+                var args = event.args;
+                var appointment = args.appointment;
+                // appointment fields
+                // originalData - the bound data.
+                // from - jqxDate object which returns when appointment starts.
+                // to - jqxDate objet which returns when appointment ends.
+                // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+                // resourceId - String which returns the appointment's resouzeId
+                // hidden - Boolean which returns whether the appointment is visible.
+                // allDay - Boolean which returns whether the appointment is allDay Appointment.
+                // resiable - Boolean which returns whether the appointment is resiable Appointment.
+                // draggable - Boolean which returns whether the appointment is resiable Appointment.
+                // id - String or Number which returns the appointment's ID.
+                // subject - String which returns the appointment's subject.
+                // location - String which returns the appointment's location.
+                // description - String which returns the appointment's description.
+                // tooltip - String which returns the appointment's tooltip.
+
+                console.log("appointmentDoubleClick is raised");
+            });
+
+ 
+
+
+        });
+
+
+        function String(objeto) {
+
+            if (objeto == null) { return ''; } else { return objeto; }
+
+        }
+
+
+    </script>
+</head>
+<body class='default'>
+
+
+    <script>
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+
+
+
+
+        if ( window.location !== window.parent.location   ) {
+
+            document.getElementById('zonamenu').style.display = 'none';
+        }
+
+
+
+    </script>
+
+
+
+    <div id="zonamenu">
+
+
+    </div>
+    <center>
+        <div style="width:100%;" id="scheduler"></div>
+        
+    </center>
+</body>
+</html>

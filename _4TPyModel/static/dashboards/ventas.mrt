@@ -1,0 +1,439 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "f73e26d5094b51f5450ff398599f8473",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "ventas.mrt",
+  "ReportCreated": "/Date(1583905680000-0600)/",
+  "ReportChanged": "/Date(1583905680000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "IMPORTE",
+            "Index": -1,
+            "NameInSource": "IMPORTE",
+            "Alias": "IMPORTE",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_abiertas.root"
+      },
+      "1": {
+        "Ident": "StiDataTableSource",
+        "Name": "root2",
+        "Alias": "root2",
+        "Columns": {
+          "0": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "PERIODO",
+            "Index": -1,
+            "NameInSource": "PERIODO",
+            "Alias": "PERIODO",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_por_periodo.root"
+      },
+      "2": {
+        "Ident": "StiDataTableSource",
+        "Name": "root3",
+        "Alias": "root3",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "IDAGENTE",
+            "Index": -1,
+            "NameInSource": "IDAGENTE",
+            "Alias": "IDAGENTE",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_por_agente.root"
+      },
+      "3": {
+        "Ident": "StiDataTableSource",
+        "Name": "root4",
+        "Alias": "root4",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "APELLIDO",
+            "Index": -1,
+            "NameInSource": "APELLIDO",
+            "Alias": "APELLIDO",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "IDESTATUS_tbloportunidad",
+            "Index": -1,
+            "NameInSource": "IDESTATUS_tbloportunidad",
+            "Alias": "IDESTATUS_tbloportunidad",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "IDOPORTUNIDAD",
+            "Index": -1,
+            "NameInSource": "IDOPORTUNIDAD",
+            "Alias": "IDOPORTUNIDAD",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "IDPROSPECTO",
+            "Index": -1,
+            "NameInSource": "IDPROSPECTO",
+            "Alias": "IDPROSPECTO",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "IMPORTE",
+            "Index": -1,
+            "NameInSource": "IMPORTE",
+            "Alias": "IMPORTE",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "NOMBRE",
+            "Index": -1,
+            "NameInSource": "NOMBRE",
+            "Alias": "NOMBRE",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_oportunidades_abiertas.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_abiertas",
+        "Alias": "displayquery?query=view_cotizaciones_abiertas",
+        "PathData": "../../displayquery?query=view_cotizaciones_abiertas"
+      },
+      "1": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_por_periodo",
+        "Alias": "displayquery?query=view_cotizaciones_por_periodo",
+        "PathData": "../../displayquery?query=view_cotizaciones_por_periodo"
+      },
+      "2": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_por_agente",
+        "Alias": "displayquery?query=view_cotizaciones_por_agente",
+        "PathData": "../../displayquery?query=view_cotizaciones_por_agente"
+      },
+      "3": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_oportunidades_abiertas",
+        "Alias": "displayquery?query=view_oportunidades_abiertas",
+        "PathData": "../../displayquery?query=view_oportunidades_abiertas"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiDashboard",
+      "Name": "Ventas",
+      "Guid": "ee7640ecfbf0a43c624a357d431a503f",
+      "Brush": "solid:63,63,63",
+      "Components": {
+        "0": {
+          "Ident": "StiGaugeElement",
+          "Name": "GaugeElement1",
+          "Guid": "82d41576818b83bceee745d62348ec3d",
+          "ClientRectangle": "0,0,460,300",
+          "Border": "15;0,0,0;5;;",
+          "BackColor": "63,63,63",
+          "Ranges": {
+            "0": {
+              "End": 33
+            },
+            "1": {
+              "Color": "Yellow",
+              "Start": 33,
+              "End": 66
+            },
+            "2": {
+              "Color": "Green",
+              "Start": 66
+            }
+          },
+          "Minimum": 15,
+          "RangeType": "Color",
+          "Value": {
+            "Ident": "ValueGaugeMeter",
+            "Key": "7e9cac32e84b7daaa4f16f948267c15f",
+            "Expression": "Sum(root.IMPORTE)",
+            "Label": "IMPORTE"
+          },
+          "Title": {
+            "Text": "Cotizaciones Abiertas",
+            "ForeColor": "255,255,255",
+            "Font": ";;Bold;"
+          },
+          "ForeColor": "255,255,255",
+          "Font": ";13;;",
+          "DashboardInteraction": {
+            "Ident": "Gauge",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab",
+            "AllowUserSorting": false
+          }
+        },
+        "1": {
+          "Ident": "StiIndicatorElement",
+          "Name": "IndicatorElement1",
+          "Guid": "9962fd9ca9f3945df24f6b516a3c2ecc",
+          "ClientRectangle": "460,0,300,600",
+          "Border": "15;0,0,0;5;;",
+          "BackColor": "63,63,63",
+          "Value": {
+            "Ident": "ValueIndicatorMeter",
+            "Key": "bce3658a15143f20cde301aa5b29688f",
+            "Expression": "Sum(root3.CANTIDAD)",
+            "Label": "CANTIDAD"
+          },
+          "Series": {
+            "Ident": "SeriesIndicatorMeter",
+            "Key": "a9ad7295fe4da79935cf479ef4264d42",
+            "Expression": "root3.AGENTE",
+            "Label": "AGENTE"
+          },
+          "Title": {
+            "Text": "Cotizaciones por agente",
+            "ForeColor": "255,255,255",
+            "Font": ";;Bold;"
+          },
+          "ForeColor": "255,255,255",
+          "Font": ";13;;",
+          "IconSet": "Quarter",
+          "DashboardInteraction": {
+            "Ident": "Indicator",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        },
+        "2": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement1",
+          "Guid": "81db495ebe9bd90ea766fdd354961a2e",
+          "ClientRectangle": "0,300,460,300",
+          "Border": "15;0,0,0;5;;",
+          "BackColor": "63,63,63",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "892087e1aa00d720839e7a0ebebb05d0",
+              "Expression": "Sum(root2.CANTIDAD)",
+              "Label": "CANTIDAD",
+              "SeriesType": "ClusteredBar"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "1230e7757392b2dd1acdec45e90e9cd6",
+              "Expression": "root2.PERIODO",
+              "Label": "PERIODO"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Cotizaciones por Periodo",
+            "ForeColor": "255,255,255",
+            "Font": ";;Bold;"
+          },
+          "Series": {
+            "Ident": "SeriesChartMeter",
+            "Key": "4025080f66025f769d8f96b4ea0e0385",
+            "Expression": "root2.PERIODO",
+            "Label": "PERIODO"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "XAxis": {
+            "Labels": {
+              "Color": "255,255,255"
+            },
+            "Title": {
+              "Text": "Cantidad Cotizaciones",
+              "Color": "255,255,255"
+            }
+          },
+          "YAxis": {
+            "Title": {
+              "Text": "Importe Cotizaciones",
+              "Color": "255,255,255"
+            }
+          },
+          "Legend": {
+            "Title": {
+              "Text": "Periodos",
+              "Color": "255,255,255"
+            },
+            "Labels": {
+              "Font": ";;Bold;",
+              "Color": "255,255,255"
+            },
+            "Visible": false
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "None"
+          }
+        },
+        "3": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement2",
+          "Guid": "ba34357cafdd283cf362cc219f29a5a6",
+          "ClientRectangle": "760,0,440,600",
+          "Border": "15;0,0,0;5;;",
+          "BackColor": "63,63,63",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "e532043c6d22e2bd3fd285919c37a363",
+              "Expression": "sum(root4.IMPORTE)",
+              "Label": "IMPORTE",
+              "SeriesType": "Pie"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "a52cb28f2a367538f4a5555c45b11c20",
+              "Expression": "root4.AGENTE",
+              "Label": "AGENTE"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Oportunidades por Agente",
+            "ForeColor": "255,255,255",
+            "Font": ";;Bold;"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiCurrencyFormatService",
+            "NegativePattern": 8,
+            "DecimalSeparator": ",",
+            "GroupSeparator": ".",
+            "State": "CurrencySymbol",
+            "PositivePattern": 3
+          },
+          "Legend": {
+            "Visible": false
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "ForeColor": "255,255,255",
+            "Position": "Center",
+            "AutoRotate": true
+          }
+        }
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "BackColor": "63,63,63"
+    }
+  }
+}

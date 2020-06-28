@@ -1,0 +1,695 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "7dd48d403a4ce008ba280cae36c06609",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "cotizaciones.mrt",
+  "ReportCreated": "/Date(1583361381000-0600)/",
+  "ReportChanged": "/Date(1583361381000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root2",
+        "Alias": "root2",
+        "Columns": {
+          "0": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "IMPORTE",
+            "Index": -1,
+            "NameInSource": "IMPORTE",
+            "Alias": "IMPORTE",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_abiertas.root"
+      },
+      "1": {
+        "Ident": "StiDataTableSource",
+        "Name": "root3",
+        "Alias": "root3",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_por_agente.root"
+      },
+      "2": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "ID",
+            "Index": -1,
+            "NameInSource": "ID",
+            "Alias": "ID",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "Link",
+            "Index": -1,
+            "NameInSource": "Link",
+            "Alias": "Link",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_estatus_cotizaciones.root"
+      },
+      "3": {
+        "Ident": "StiDataTableSource",
+        "Name": "root4",
+        "Alias": "root4",
+        "Columns": {
+          "0": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "PERIODO",
+            "Index": -1,
+            "NameInSource": "PERIODO",
+            "Alias": "PERIODO",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_por_periodo.root"
+      },
+      "4": {
+        "Ident": "StiDataTableSource",
+        "Name": "root5",
+        "Alias": "root5",
+        "Columns": {
+          "0": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "SEMANA",
+            "Index": -1,
+            "NameInSource": "SEMANA",
+            "Alias": "SEMANA",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_por_semana.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_abiertas",
+        "Alias": "displayquery?query=view_cotizaciones_abiertas",
+        "PathData": "../../displayquery?query=view_cotizaciones_abiertas"
+      },
+      "1": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_por_agente",
+        "Alias": "displayquery?query=view_cotizaciones_por_agente",
+        "PathData": "../../displayquery?query=view_cotizaciones_por_agente"
+      },
+      "2": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_estatus_cotizaciones",
+        "Alias": "displayquery?query=view_estatus_cotizaciones",
+        "PathData": "../../displayquery?query=view_estatus_cotizaciones"
+      },
+      "3": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_por_periodo",
+        "Alias": "displayquery?query=view_cotizaciones_por_periodo",
+        "PathData": "../../displayquery?query=view_cotizaciones_por_periodo"
+      },
+      "4": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_por_semana",
+        "Alias": "displayquery?query=view_cotizaciones_por_semana",
+        "PathData": "../../displayquery?query=view_cotizaciones_por_semana"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiDashboard",
+      "Name": "Dashboard1",
+      "Guid": "ac73ea99c62e91cb2ab6a672083e211a",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement2",
+          "Guid": "eca7dcbbd3c687c6752500b868fcb29e",
+          "ClientRectangle": "280,80,280,140",
+          "Border": ";;;;",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "bd948f1b0a36ad313f3861cde6af2cc7",
+              "Expression": "Sum(root2.IMPORTE)",
+              "Label": "IMPORTE",
+              "SeriesType": "Pie"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "3174cf398e109bc1f8a1c661515cb9ee",
+              "Expression": "root2.IDCOTIZACION",
+              "Label": "IDCOTIZACION"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Chart",
+            "Visible": false
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "Center"
+          }
+        },
+        "1": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement1",
+          "Guid": "32e1cfe43792bbb46fd6850e281787c1",
+          "ClientRectangle": "20,0,1160,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "<font face=\"Arial\" size=\"20\"><text-align=\"center\"><b>ESTADÍSTICAS COTIZACIONES</b></text-align=\"center\"></font>",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        },
+        "2": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement3",
+          "Guid": "6c1264d3be5570797de18f82b226c982",
+          "ClientRectangle": "280,40,280,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "ABIERTAS POR IMPORTE",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        },
+        "3": {
+          "Ident": "StiTableElement",
+          "Name": "TableElement2",
+          "Guid": "ee63f381e6b1f3dcaa510950f67e9bc8",
+          "ClientRectangle": "560,80,360,140",
+          "Border": ";;;;",
+          "Columns": {
+            "0": {
+              "Ident": "DimensionColumn",
+              "Key": "94f4b48fd196c2f4823c2d3c6201e12a",
+              "Expression": "root3.AGENTE",
+              "Label": "AGENTE",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "1": {
+              "Ident": "DimensionColumn",
+              "Key": "0a24063ca3dc70e3c263c80202f5a6df",
+              "Expression": "root3.ESTATUS",
+              "Label": "ESTATUS",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "2": {
+              "Ident": "MeasureColumn",
+              "Key": "cb254e2e6cec6ef2fb611da5d29311bb",
+              "Expression": "Sum(root3.CANTIDAD)",
+              "Label": "CANTIDAD",
+              "HorAlignment": "Right",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "DecimalSeparator": ",",
+                "GroupSeparator": "."
+              },
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            }
+          },
+          "DataFilters": {
+            "0": {
+              "Key": "aa675563dfebfb67740752927de62cd1",
+              "Path": "root3.CANTIDAD",
+              "Condition": "GreaterThan",
+              "Value": "0",
+              "Value2": "0"
+            }
+          },
+          "HeaderFont": ";10;;",
+          "FooterFont": ";10;;",
+          "Title": {
+            "Text": "Table",
+            "Visible": false
+          },
+          "DashboardInteraction": {
+            "Ident": "Table",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        },
+        "4": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement1",
+          "Guid": "cc8987381427c5c44408846d341c99e0",
+          "ClientRectangle": "920,80,260,140",
+          "Border": ";;;;",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "184aededacc02692ddef37cb9e39381b",
+              "Expression": "Sum(root3.CANTIDAD)",
+              "Label": "CANTIDAD",
+              "SeriesType": "Pie"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "cca20544bc0e328bea20f8377df858c1",
+              "Expression": "root3.AGENTE",
+              "Label": "AGENTE"
+            },
+            "1": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "20e7218aefc86c924ebb8c1291b9af7d",
+              "Expression": "root3.ESTATUS",
+              "Label": "ESTATUS"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Chart",
+            "Visible": false
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "Center"
+          }
+        },
+        "5": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement2",
+          "Guid": "c7c0c575f1156ccb7ab156a548a4d5a7",
+          "ClientRectangle": "20,40,260,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "POR ESTATUS",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        },
+        "6": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement4",
+          "Guid": "fad3a947e8404a8f939f05c5dd8f0da7",
+          "ClientRectangle": "560,40,620,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "POR AGENTE",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        },
+        "7": {
+          "Ident": "StiTableElement",
+          "Name": "TableElement1",
+          "Guid": "f88e94341f1c909c3d73750761fc8619",
+          "ClientRectangle": "20,80,260,140",
+          "Border": ";;;;",
+          "Columns": {
+            "0": {
+              "Ident": "DimensionColumn",
+              "Key": "3f90a311de4e0d0b3969360002e9c3b2",
+              "Expression": "root.ESTATUS",
+              "Label": "ESTATUS",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "ShowHyperlink",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              },
+              "HyperlinkPattern": "{Row.Link}"
+            },
+            "1": {
+              "Ident": "MeasureColumn",
+              "Key": "b92512396059e80b9115abea2d0484cf",
+              "Expression": "Sum(root.CANTIDAD)",
+              "Label": "CANTIDAD",
+              "HorAlignment": "Right",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "DecimalSeparator": ",",
+                "GroupSeparator": "."
+              },
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "2": {
+              "Ident": "MeasureColumn",
+              "Key": "a14a15bc7651029be61e1c6001e9beba",
+              "Expression": "Sum(root.ID)",
+              "Label": "ID",
+              "HorAlignment": "Right",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "DecimalSeparator": ",",
+                "GroupSeparator": "."
+              },
+              "Visible": false,
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            }
+          },
+          "DataFilters": {
+            "0": {
+              "Key": "73ebbda8f8ab39965da4018ded433b59",
+              "Path": "root.CANTIDAD",
+              "Condition": "GreaterThan",
+              "Value": "0",
+              "Value2": "0"
+            }
+          },
+          "HeaderFont": ";10;;",
+          "FooterFont": ";10;;",
+          "Title": {
+            "Text": "Table",
+            "Visible": false
+          },
+          "DashboardInteraction": {
+            "Ident": "Table",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        },
+        "8": {
+          "Ident": "StiChartElement",
+          "Name": "TableElement3",
+          "Guid": "8ddf6c59f7c7313aa46d376fbbb8eaed",
+          "ClientRectangle": "20,220,380,220",
+          "Border": ";;;;",
+          "DataFilters": {
+            "0": {
+              "Key": "ab1386a04f168ea3a3dde6d39c8db9b3",
+              "Path": "root4.CANTIDAD",
+              "Condition": "GreaterThan",
+              "Value": "0",
+              "Value2": "0"
+            }
+          },
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "97db29dce0e3e1c55c2562c9ebe47703",
+              "Expression": "Sum(root4.CANTIDAD)",
+              "Label": "CANTIDAD"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "f82d6e5cf5a9e4bdafd9da668e3e6c66",
+              "Expression": "root4.PERIODO",
+              "Label": "PERIODO"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Table",
+            "Visible": false
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "None"
+          }
+        },
+        "9": {
+          "Ident": "StiChartElement",
+          "Name": "TableElement4",
+          "Guid": "c0f7cd7589f43a11fdd119a5e913ddb8",
+          "ClientRectangle": "400,220,780,220",
+          "Border": ";;;;",
+          "DataFilters": {
+            "0": {
+              "Key": "9ed34babaecf6eea34e8c094d9b3bc1a",
+              "Path": "root5.CANTIDAD",
+              "Condition": "GreaterThan",
+              "Value": "0",
+              "Value2": "0"
+            }
+          },
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "697c03f51c358ff7ec6168b290273b81",
+              "Expression": "Sum(root5.CANTIDAD)",
+              "Label": "CANTIDAD"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "e7a5a23b1f0bf02f7a4a2b2626832d10",
+              "Expression": "root5.SEMANA",
+              "Label": "SEMANA"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Table"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "None"
+          }
+        }
+      },
+      "Border": ";;2;;;;;solid:Black"
+    }
+  }
+}

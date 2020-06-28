@@ -1,0 +1,15 @@
+[Unit]
+Description=Arranca el servidor de python 4TPy
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/var/www/start4tprocess.sh
+WorkingDirectory=/var/www/4tprocess
+User=root
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

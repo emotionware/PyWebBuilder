@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Manager</title>
+
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.common.css" >
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.light.css" >
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx-diagram.min.css" >
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.3/js/dx.all.js"></script>
+
+
+
+</head>
+
+<style>
+    .photo-popup-content {
+    text-align: center;
+}
+.photo-popup-content .photo-popup-image {
+    height: 100%;
+    max-width: 100%;
+}
+
+
+
+</style>
+<body>
+ <div class="dx-viewport demo-container">
+        <div id="file-manager"></div>
+		<div id="photo-popup"></div>
+    </div>
+
+
+<script>
+    $(function () {
+    var provider = new DevExpress.fileManagement.RemoteFileSystemProvider({
+        endpointUrl: "https://js.devexpress.com/Demos/Mvc/api/file-manager-file-system-images"
+    });
+
+    $("#file-manager").dxFileManager({
+        name: "fileManager",
+        fileSystemProvider: provider,
+        currentPath: "Widescreen",
+        permissions: {
+            create: true,
+            copy: true,
+            move: true,
+            delete: true,
+            rename: true,
+            upload: true,
+            download: true
+        },
+		onSelectedFileOpened: function(e) {
+			var popup = $("#photo-popup").dxPopup("instance");
+            popup.option({
+                "title": e.fileItem.name,
+                "contentTemplate": "<img src=\"" + e.fileItem.dataItem.url + "\" class=\"photo-popup-image\" />"
+            });
+            popup.show();
+		}
+    });
+
+    $("#photo-popup").dxPopup({
+		maxHeight: 600,
+        closeOnOutsideClick: true,
+        onContentReady: function(e) {
+            var $contentElement = e.component.content();
+            $contentElement.addClass("photo-popup-content");
+          }
+	});
+});
+</script>
+</body>
+</html>

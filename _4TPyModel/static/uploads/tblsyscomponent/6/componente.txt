@@ -1,0 +1,19 @@
+<script>
+
+$(document).ready(function () {
+var boton_ALEA_ = document.createElement("BUTTON");
+boton_ALEA_.innerHTML = "Incrustar";
+boton_ALEA_.setAttribute("onclick", "metodo_ALEA_();return false;");
+boton_ALEA_.setAttribute("style","position:relative;left:140px");
+
+document.getElementById('_POS_').appendChild(boton_ALEA_);
+});
+
+function metodo_ALEA_(){
+
+    alert("Hola mundo");
+
+}
+
+
+</script>

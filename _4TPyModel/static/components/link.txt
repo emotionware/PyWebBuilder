@@ -1,0 +1,13 @@
+<script>
+$(document).ready(function () {
+var link_ALEA_ = document.createElement('a');
+var linkText = document.createTextNode("my title text");
+link_ALEA_.appendChild(linkText);
+link_ALEA_.title = "my title text";
+link_ALEA_.style="color:red";
+link_ALEA_.target="_blank";
+link_ALEA_.href = "http://example.com";
+document.getElementById('_POS_').appendChild(link_ALEA_);
+});
+</script>
+

@@ -1,0 +1,1 @@
+select IDAGENTE,AGENTE,IDSUPERVISOR,SUPERVISOR,IDGERENTE,GERENTE, concat('<a style="color:blue;" href="javascript:modoedicion(',IDAGENTE,');">Editar</a>') as EDITAR from view_organizacion  order by IDAGENTE desc

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/pages/login/assets/css/Login-Center.css">
+    <link rel="stylesheet" href="/static/pages/login/assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+    <script>
+
+        function deleteCookie(cname) {
+    var d = new Date(); //Create an date object
+    d.setTime(d.getTime() - (1000*60*60*24)); //Set the time to the past. 1000 milliseonds = 1 second
+    var expires = "expires=" + d.toGMTString(); //Compose the expirartion date
+    window.document.cookie = cname+"="+"; "+expires;//Set the cookie with name and the expiration date
+
+}
+
+        function limpiar() {
+
+            deleteCookie("token");
+            deleteCookie("username");
+            deleteCookie("esadmin");
+            deleteCookie("emailrespuesta");
+            deleteCookie("tipouser");
+            deleteCookie("idusername");
+            deleteCookie("theme");
+
+            /*
+            var token = '';
+            var username = '';
+            var esadmin = '';
+            var emailrespuesta =  '';
+
+        Cookies.set('token', token, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+            Cookies.set('username', username, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+            Cookies.set('esadmin', esadmin, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+            Cookies.set('emailrespuesta', emailrespuesta, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+*/
+
+             theme = Cookies.get('theme');
+
+     if (theme == null || theme == '' || theme == 'start') {
+
+             Cookies.set('theme', 'ui-redmond', { expires: 90 });
+
+        }
+
+
+        }
+
+
+    </script>
+
+     
+ 
+</head>
+
+<body  onload="limpiar();"  >
+    <div class="container">
+        <div class="row row-login">
+            <div class="col-10 col-sm-6 col-md-4 offset-1 offset-sm-3 offset-md-4">
+                <h1 class="text-center">SoluBoxes</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-danger">Login </h3>
+                        <form method="post" action="/checklogin" >
+                            <div class="form-group"><label>Usuario </label><input  name="username"    id="username" class="form-control" type="text"></div>
+                            <div class="form-group"><label>Password </label><input name="password" id="password" class="form-control" type="password"></div>
+                            <div class="form-group">
+                            </div><button class="btn btn-success btn-block"  type="submit"  >Login</button><a class="btn btn-link center-block" style="visibility:hidden;" role="button" href="#">Forget Password?</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

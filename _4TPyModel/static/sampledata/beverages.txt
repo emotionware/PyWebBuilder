@@ -1,0 +1,66 @@
+[{
+ "IDARTICULO": "1",
+ "NOMBRE": "Hot Chocolate",
+ "CIUDAD": "Chocolate Beverage",
+ "TELEFONO": "370",
+ }, {
+ "IDARTICULO": 2,
+ "NOMBRE": "Peppermint Hot Chocolate",
+ "CIUDAD": "Chocolate Beverage",
+ "TELEFONO": "440",
+}, {
+ "IDARTICULO": "3",
+ "NOMBRE": "Salted Caramel Hot Chocolate",
+ "CIUDAD": "Chocolate Beverage",
+ "TELEFONO": "450",
+}, {
+ "IDARTICULO": "4",
+ "NOMBRE": "White Hot Chocolate",
+ "CIUDAD": "Chocolate Beverage",
+ "TELEFONO": "420",
+}, {
+ "IDARTICULO": "5",
+ "NOMBRE": "Caffe Americano",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "15",
+}, {
+ "IDARTICULO": "6",
+ "NOMBRE": "Caffe Latte",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "190",
+}, {
+ "IDARTICULO": "7",
+ "NOMBRE": "Caffe Mocha",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "330",
+}, {
+ "IDARTICULO": "8",
+ "NOMBRE": "Cappuccino",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "120",
+}, {
+ "IDARTICULO": "9",
+ "NOMBRE": "Caramel Brulee Latte",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "420",
+}, {
+ "IDARTICULO": "10",
+ "NOMBRE": "Caramel Macchiato",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "240",
+}, {
+ "IDARTICULO": "11",
+ "NOMBRE": "Peppermint Hot Chocolate",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "440",
+}, {
+ "IDARTICULO": "12",
+ "NOMBRE": "Cinnamon Dolce Latte",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "260",
+}, {
+ "IDARTICULO": "13",
+ "NOMBRE": "Eggnog Latte",
+ "CIUDAD": "Espresso Beverage",
+ "TELEFONO": "460",
+}]

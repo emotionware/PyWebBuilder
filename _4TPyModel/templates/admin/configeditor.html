@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+
+
+
+    <script>
+        //load the html code of top menu with ajax
+
+        function obtenerdatos() {
+            $(document).ready(function () {
+                $.ajax({
+                    url: "/loadtopmenu"
+                }).then(function (data) {
+
+                    document.getElementById("editor").value = data
+
+                });
+            });
+        }
+
+
+
+
+
+        obtenerdatos();
+    </script>
+</head>
+<body>
+{{ topmenu | safe }}
+    <h4>
+        Top Menu Config Editor
+    </h4><hr />
+    <form action="/savetopmenu" method="post">
+        <textarea name="editor" id="editor" style="width:900px;height:450px">
+    </textarea>
+
+    
+
+        <table>
+            <tr>
+                <td> <input type="button" id="getdatos" onclick="obtenerdatos();return false" value="Load" /></td>
+                <td> <input type="submit" id="save" value="Save" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

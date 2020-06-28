@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Análisis</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <script src="/static/scripts/jquery.min.js"></script>
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+</head>
+<body>
+
+    <script>
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+    </script>
+
+
+
+    {{ navbar | safe }}
+</body>
+</html>

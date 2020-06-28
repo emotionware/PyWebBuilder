@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+    <script>
+
+
+        function procesar() {
+
+             //metiendo el token recibido
+
+        var token = '{{ token | safe }}';
+            var username = '{{ username | safe }}';
+            var esadmin = '{{ esadmin | safe }}';
+            var emailrespuesta = '{{ emailrespuesta | safe }}';
+            var idusername = '{{ idusername | safe }}';
+            var tipouser =  '{{ tipouser | safe }}';
+
+        Cookies.set('token', token, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+        Cookies.set('username', username, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+        Cookies.set('esadmin', esadmin, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+        Cookies.set('emailrespuesta', emailrespuesta, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+        Cookies.set('idusername', idusername, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+        Cookies.set('tipouser', tipouser, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+
+
+
+        window.open("/host", '_self');
+
+
+        }
+
+    </script>
+
+
+
+
+
+
+</head>
+<body   onload="procesar();" >
+
+</body>
+</html>

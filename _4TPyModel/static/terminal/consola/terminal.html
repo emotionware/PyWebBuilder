@@ -1,0 +1,262 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Web-Terminal</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="Description" content="JQuery Terminal Emulator" />
+    <script src="../js/jquery-1.7.1.min.js"></script>
+    <script src="../js/jquery.mousewheel-min.js"></script>
+    <script src="../js/jquery.terminal.min.js"></script>
+    <link href="../css/jquery.terminal.css" rel="stylesheet" />
+    <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+         <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+<script>
+
+
+            //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null  ) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("../../../login", "_self");
+        }
+
+
+        //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "../../../validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("../../../login", "_self");
+                        }
+
+                    });
+             });
+
+</script>
+
+
+
+</head>
+<body>
+
+    <form id="form1">
+        <div>
+
+            <script>
+
+                jQuery(function ($) {
+                    var id = 1;
+                    $('body').terminal(function (command, term) {
+                        if (command != null) {
+
+                            var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+
+                            comandos = [];
+                            comandos = command.split("|");
+
+                            if (command == 'ayuda') {
+                                term.echo('Comandos disponibles');
+                                term.echo('Comandos 1');
+                            }
+
+                            if (comandos[0] == 'az') {
+                                window.open(full + '/adminzone', '_blank');
+                            }
+
+                            if (comandos[0] == 'build') {
+                                window.open(full + '/builder?tablename=' + comandos[1], '_blank');
+
+                            }
+
+                            if (comandos[0] == 'kill') {
+                                window.open(full + '/kill', '_blank');
+
+                            }
+
+                            if (comandos[0] == 'edit') {
+                                window.open(full + '/static/blocky/builder.html?archivo=' + comandos[1] , '_blank');
+
+                            }
+
+                            if (comandos[0] == 'more') {
+                                //window.open(full + '/static/blocky/builder.html?archivo=' + comandos[1] , '_blank');
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../readjs?archivo=" + comandos[1]
+                    }).then(function (data) {
+
+                            term.echo(data);
+
+
+                    });
+                });
+
+
+
+                            }
+
+
+             if (comandos[0] == 'list') {
+                                //window.open(full + '/static/blocky/builder.html?archivo=' + comandos[1] , '_blank');
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../dameblocks"
+                    }).then(function (data) {
+
+                            term.echo(data);
+
+
+                    });
+                });
+
+
+
+                            }
+
+
+                            if (comandos[0] == 'exec') {
+                                //window.open(full + '/static/blocky/builder.html?archivo=' + comandos[1] , '_blank');
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../readjs?archivo=" + comandos[1]
+                    }).then(function (data) {
+
+                           term.echo('Ejecutando...');
+                           eval(data);
+
+
+
+                    });
+                });
+
+
+
+                            }
+
+                            if (comandos[0] == 'builderscript') {
+                                window.open(full + '/builderscript', '_blank');
+
+                            }
+
+
+                            if (comandos[0] == 'go') {
+                                window.open(full + '/rendergrid?grid=tables/' + comandos[1], '_blank');
+                            }
+
+
+
+
+                            if (comandos[0] == 'buildtables') {
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../dametablasbuild"
+                    }).then(function (data) {
+
+                        tablas = [];
+                        tablas = data.split(",");
+
+
+                           for(let i = 0; i < tablas.length; i++){
+
+                            term.echo(tablas[i]);
+
+
+                        }
+
+
+
+
+                    });
+                });
+
+
+
+                            }
+
+                            if (comandos[0] == 'buildsys') {
+
+                                term.echo('Procesando...');
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../dametablasbuild"
+                    }).then(function (data) {
+
+                        tablas = [];
+                        tablas = data.split(",");
+
+                        //recreando la caché
+                        term.echo('Regenerando caché de campos... ');
+                        $.get('../../../cacheregen');
+
+                       for(let i = 0; i < tablas.length; i++){
+
+                            term.echo('Building... ' + tablas[i]);
+                             $.get('../../../builder?tablename=' + tablas[i]);
+
+                        }
+                    });
+                });
+
+
+
+                            }
+
+
+
+                            term.echo('Comando...' + command + ' procesado.');
+
+                        } else if (command == "js") {
+                            term.push(function (command, term) {
+                                var result = window.eval(command);
+                                if (result != undefined) {
+                                    term.echo('Comando no reconocido');
+                                }
+                            }, {
+                                name: 'js',
+                                prompt: 'Javascript> '
+                            });
+                        }
+
+                    }, {
+                        greetings: "Web Terminal",
+                        onBlur: function () {
+                            // prevent loosing focus
+                            return false;
+                        }
+                    });
+                });
+
+
+
+
+                window.parent.parent.tabtible('WebTerminal');
+
+
+            </script>
+
+          
+        </div>
+    </form>
+</body>
+</html>

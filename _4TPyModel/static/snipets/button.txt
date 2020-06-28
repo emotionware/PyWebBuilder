@@ -1,0 +1,14 @@
+<script>
+	
+var btn = document.createElement("BUTTON");   // Create a <button> element
+btn.type= 'button';
+btn.id='elboton';
+btn.onclick=function test(){
+	alert("Hola");
+}
+
+btn.innerHTML = "Pulsar";                   // Insert text
+document.getElementById('left_IDPERSONA').appendChild(btn);
+ 
+	
+</script>

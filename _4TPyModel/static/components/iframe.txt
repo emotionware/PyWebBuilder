@@ -1,0 +1,14 @@
+<script>
+
+
+$(document).ready(function () {
+var iframe_ALEA_ = document.createElement("IFRAME");
+iframe_ALEA_.setAttribute("width", "500");
+iframe_ALEA_.setAttribute("height", "300");
+iframe_ALEA_.setAttribute("src", "https://www.w3schools.com");
+
+document.getElementById('_POS_').appendChild(iframe_ALEA_);
+});
+
+
+</script>

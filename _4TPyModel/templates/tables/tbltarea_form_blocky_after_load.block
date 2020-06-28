@@ -1,0 +1,98 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="bhGqB|+%~!G)g5zZVfa;">laorden</variable>
+    <variable id="`7LM[ro@i){]Vcr94sPh">resultado</variable>
+  </variables>
+  <block type="cargar_agente" id="?pk#/$(q:dy$+2Ta;on8" x="-270" y="-309">
+    <value name="nombre_agente">
+      <block type="text" id="edFb,XK;inN/x/W8QoKk">
+        <field name="TEXT">Merlin</field>
+      </block>
+    </value>
+    <value name="Mov X">
+      <block type="math_number" id="YYF-dZ[E!?:uen,na)h=">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <value name="Mov Y">
+      <block type="math_number" id="T`RY!3sXe)kYeyCHRQLb">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <value name="mensaje">
+      <block type="text" id=";Ig;]CRYcAWMIT8QE:9I">
+        <field name="TEXT">Hola Pendejo</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="U56bAG4A?D-bW5TW[!eL">
+        <field name="VAR" id="bhGqB|+%~!G)g5zZVfa;">laorden</field>
+        <value name="VALUE">
+          <block type="text" id="Qvz+6tFE}MW9cUxTd70d">
+            <field name="TEXT">select idsysuser from tblsysuser where idsysuser=1;</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id=".:.leo!~-./a13o2l|hq">
+            <field name="VAR" id="`7LM[ro@i){]Vcr94sPh">resultado</field>
+            <value name="VALUE">
+              <block type="text" id="caAzf%@o9_1*$-+)6c@V">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="valor_de_campo_2_var" id="5j4!Z?T;1MhIab@8qU,$">
+                <value name="sentencia">
+                  <block type="variables_get" id=":Xd8ws@V~?rktVEz_{lg">
+                    <field name="VAR" id="bhGqB|+%~!G)g5zZVfa;">laorden</field>
+                  </block>
+                </value>
+                <value name="NAME">
+                  <block type="variables_get" id="a]4@$k4~%/oDkBoy=gJM">
+                    <field name="VAR" id="`7LM[ro@i){]Vcr94sPh">resultado</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="pausar_ejecucion" id="Lz^P9IxyDz[Ylvc1fuTJ">
+                    <value name="segundos">
+                      <block type="math_number" id="91}c*=EVi6m/YkQ3XyZe">
+                        <field name="NUM">2000</field>
+                      </block>
+                    </value>
+                    <value name="NAME">
+                      <block type="text" id="2Wj]x^!v,,.~X==,fKm)">
+                        <field name="TEXT">mostrar</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="/ZFUqCPq;8%*qZ:4R~{-" x="-270" y="-30">
+    <field name="NAME">mostrar</field>
+    <comment pinned="false" h="80" w="160">Describe esta función...</comment>
+    <statement name="STACK">
+      <block type="animar_agente_cargado" id="$bh@a;UYbdXtwDY$ou[t">
+        <value name="Agente cargado - mensaje">
+          <block type="concatenador2" id="fpZ$tyz*v7`lu9Q-jO$L">
+            <value name="segmento1">
+              <block type="text" id="~nKeIImAe:afYv-48Bv%">
+                <field name="TEXT">El resultado es... </field>
+              </block>
+            </value>
+            <value name="segmento2">
+              <block type="variables_get" id="{%FOOsY1R%BVh!KQT^}?">
+                <field name="VAR" id="`7LM[ro@i){]Vcr94sPh">resultado</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

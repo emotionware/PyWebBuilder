@@ -1,0 +1,73 @@
+<div id='jqxMenu'>
+    <ul>
+    	 
+    	
+        <li><a href="mobile">Home</a></li>
+        <li><a href="host">Desktop</a></li>
+
+
+        
+        <li><a href="rendergrid?grid=tables/tbltarea_mobile">Tareas</a></li>
+
+
+      
+
+         
+         	<li>
+         		<a href="javascript:startRecording('action');">Voice Action</a>
+         		</li>
+         	
+
+         	
+         	<li><a href="login">Login</a></li>
+         	
+         	
+
+         		
+         		
+            </ul>
+        </li>
+     
+     
+      
+        
+      
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+
+
+    theme = Cookies.get('theme');
+
+    if (theme == null || theme == '' || theme == 'start') {
+
+        Cookies.set('theme', 'darkblue', { expires: 90 });
+
+    }
+
+    
+
+
+    $(document).ready(function () {
+        $("#jqxMenu").jqxMenu({ width: '100%', height: '30px', theme: theme , autoSizeMainItems: true});
+        var centerItems = function () {
+            var firstItem = $($("#jqxMenu ul:first").children()[0]);
+            firstItem.css('margin-left', 0);
+            var width = 0;
+            var borderOffset = 2;
+            $.each($("#jqxMenu ul:first").children(), function () {
+                width += $(this).outerWidth(true) + borderOffset;
+            });
+            var menuWidth = $("#jqxMenu").outerWidth();
+            firstItem.css('margin-left', (menuWidth / 2) - (width / 2));
+        }
+        centerItems();
+        $(window).resize(function () {
+            centerItems();
+        });
+
+        $("#jqxMenu").jqxMenu('minimize');
+    });
+</script>

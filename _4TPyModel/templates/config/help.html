@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ayuda</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+    
+    
+    
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+    
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+</head>
+<body>
+
+
+    {{ topmenu | safe }}
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+    </script>
+
+
+
+
+
+    <hr />
+    <center>
+        <embed src="/static/help/Solubox Crm.pdf" width="1200" height="500"></embed>
+    </center>
+
+
+
+</body>
+</html>

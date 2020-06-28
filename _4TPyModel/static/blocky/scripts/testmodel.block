@@ -1,0 +1,249 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="blockysystem" id="E%74yxO0,u#j14S~)KR*" x="30" y="30">
+    <value name="name">
+      <block type="text" id="qf)D}Jkd8KW{W]Pb?.o^">
+        <field name="TEXT">Empty</field>
+      </block>
+    </value>
+    <value name="database_name">
+      <block type="text" id="AEva,w#5E3LD2ZS|4bV^">
+        <field name="TEXT">testproject</field>
+      </block>
+    </value>
+    <value name="authorname">
+      <block type="text" id="lXf}?;A{pmUIX!R(UXh%">
+        <field name="TEXT">Fernando Castro</field>
+      </block>
+    </value>
+    <value name="autorhemail">
+      <block type="text" id="/ZUt#*`1mZ=W6rboHQ.v">
+        <field name="TEXT">fernando.castro@emotionware.net</field>
+      </block>
+    </value>
+    <value name="Description">
+      <block type="text" id="PThOG!dcmJocOsGnsmoe">
+        <field name="TEXT">Test Model</field>
+      </block>
+    </value>
+    <value name="customer">
+      <block type="text" id="mtt1Yud${w/)$gq%d~5e">
+        <field name="TEXT">No customer</field>
+      </block>
+    </value>
+    <next>
+      <block type="table" id="]dG7p*/%+|NK^6c%*yZ4">
+        <value name="tablename">
+          <block type="text" id="1,RI^/M@.[[@NwynSq]/">
+            <field name="TEXT">tblcliente</field>
+          </block>
+        </value>
+        <value name="description">
+          <block type="text" id="CCVV1V=|4$k5$nDK[7aF">
+            <field name="TEXT">Tabla General de Clientes</field>
+          </block>
+        </value>
+        <next>
+          <block type="type_varchar_255" id="UdQ;^G(PLX;-D2)Up}*X">
+            <value name="field_name">
+              <block type="text" id="fd~xom}v=wCt}i[d7irJ">
+                <field name="TEXT">NOMBRE</field>
+              </block>
+            </value>
+            <next>
+              <block type="field" id="]mo,,%)go+BpA7*Iwf[P">
+                <value name="field_name">
+                  <block type="text" id="N(1b;493b#65Z*h)4lO%">
+                    <field name="TEXT">TEL</field>
+                  </block>
+                </value>
+                <value name="Type">
+                  <block type="text" id="9Qk[VT|=/Y_3SWDtJW)C">
+                    <field name="TEXT">varchar</field>
+                  </block>
+                </value>
+                <value name="Lenght">
+                  <block type="text" id="_%P1@kz8~%}?c=+*W58`">
+                    <field name="TEXT">255</field>
+                  </block>
+                </value>
+                <value name="Comment">
+                  <block type="text" id=",[b0`.oM8];7pQ^EB|aX">
+                    <field name="TEXT">whatsapp</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="field" id="/asZ,Ez*//LNLXZv%,2/">
+                    <value name="field_name">
+                      <block type="text" id="UYnNc6d-_w5/ui]-YCi2">
+                        <field name="TEXT">EMAIL</field>
+                      </block>
+                    </value>
+                    <value name="Type">
+                      <block type="text" id="~=*ou,#P]]nec(m?`L-A">
+                        <field name="TEXT">varchar</field>
+                      </block>
+                    </value>
+                    <value name="Lenght">
+                      <block type="text" id="]|(8mRmG~hF3p2YzTgX;">
+                        <field name="TEXT">255</field>
+                      </block>
+                    </value>
+                    <value name="Comment">
+                      <block type="text" id=",CdQ+5@oV6gs9-O,}qsQ">
+                        <field name="TEXT">email</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="field" id=".8EFH6]8Je[WoY90Bnda">
+                        <value name="field_name">
+                          <block type="text" id="{NLD2@ho0GbMy^!hJwE+">
+                            <field name="TEXT">DOMICILIO</field>
+                          </block>
+                        </value>
+                        <value name="Type">
+                          <block type="text" id="lVa.pu_45rHyWc^Z4,g@">
+                            <field name="TEXT">varchar</field>
+                          </block>
+                        </value>
+                        <value name="Lenght">
+                          <block type="text" id="=T9mn9F!@T-Ht{D)V;TV">
+                            <field name="TEXT">255</field>
+                          </block>
+                        </value>
+                        <value name="Comment">
+                          <block type="text" id="xZml-{I1rWxWaEnt8=eg">
+                            <field name="TEXT">texto</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="field" id="06+-QCr.ftN=6T;5TuQ=">
+                            <value name="field_name">
+                              <block type="text" id="sjZaE~E/TFG94Ve)Djwa">
+                                <field name="TEXT">COLONIA</field>
+                              </block>
+                            </value>
+                            <value name="Type">
+                              <block type="text" id="k@91rB:j/$amh(vZ2Thz">
+                                <field name="TEXT">varchar</field>
+                              </block>
+                            </value>
+                            <value name="Lenght">
+                              <block type="text" id="S_-O0V#%:g];i9dG0F)l">
+                                <field name="TEXT">255</field>
+                              </block>
+                            </value>
+                            <value name="Comment">
+                              <block type="text" id="Lux#y8_`:#FWL4g#t}.e">
+                                <field name="TEXT">texto</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="field" id="L88Yyb_R.MK6uq3J4,s,">
+                                <value name="field_name">
+                                  <block type="text" id="Fd_+aVhgWj7oD[(|Lb_h">
+                                    <field name="TEXT">CODIGO_POSTAL</field>
+                                  </block>
+                                </value>
+                                <value name="Type">
+                                  <block type="text" id="h{)Rz/}gM$zR*YDJWyK0">
+                                    <field name="TEXT">varchar</field>
+                                  </block>
+                                </value>
+                                <value name="Lenght">
+                                  <block type="text" id="4rbBo/y:A_:)b9/=A#7b">
+                                    <field name="TEXT">255</field>
+                                  </block>
+                                </value>
+                                <value name="Comment">
+                                  <block type="text" id="Vy+8%x?0=5D~gl:@P]zb">
+                                    <field name="TEXT">texto</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="field" id="_f;Y#j!AYaZ2hE+UYQqZ">
+                                    <value name="field_name">
+                                      <block type="text" id="8V#H6w-P4Lb1VqMe}Djd">
+                                        <field name="TEXT">POBLACION</field>
+                                      </block>
+                                    </value>
+                                    <value name="Type">
+                                      <block type="text" id="6H*^OOxkA)IP65sjs=N@">
+                                        <field name="TEXT">varchar</field>
+                                      </block>
+                                    </value>
+                                    <value name="Lenght">
+                                      <block type="text" id="uDe5i?Q4DP|Z?{iiWWPa">
+                                        <field name="TEXT">255</field>
+                                      </block>
+                                    </value>
+                                    <value name="Comment">
+                                      <block type="text" id="VY@$2Vy)0q]#?1Ma*0pq">
+                                        <field name="TEXT">texto</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="field" id="q31F?[F{rjmakOezUv8A">
+                                        <value name="field_name">
+                                          <block type="text" id="L]K!?7G{)*CxjnVloa^c">
+                                            <field name="TEXT">ESTADO</field>
+                                          </block>
+                                        </value>
+                                        <value name="Type">
+                                          <block type="text" id="%X$sKeBR@fRSXqW.edln">
+                                            <field name="TEXT">varchar</field>
+                                          </block>
+                                        </value>
+                                        <value name="Lenght">
+                                          <block type="text" id="GEk18yBLzh?NPni)eFNL">
+                                            <field name="TEXT">255</field>
+                                          </block>
+                                        </value>
+                                        <value name="Comment">
+                                          <block type="text" id="9jJel[JYTn{u;Jd|BL4s">
+                                            <field name="TEXT">texto</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="field" id="mEyPIX-M6hd6-PvPk4FS">
+                                            <value name="field_name">
+                                              <block type="text" id="dm#T13EN{X*I5jhl/):V">
+                                                <field name="TEXT">PAIS</field>
+                                              </block>
+                                            </value>
+                                            <value name="Type">
+                                              <block type="text" id="pMD:zQXMXSji%|XJHGN8">
+                                                <field name="TEXT">varchar</field>
+                                              </block>
+                                            </value>
+                                            <value name="Lenght">
+                                              <block type="text" id=".n2Axwnx:pvtSYadE$HC">
+                                                <field name="TEXT">255</field>
+                                              </block>
+                                            </value>
+                                            <value name="Comment">
+                                              <block type="text" id="uT|E~Njuog!%uY+aj{4O">
+                                                <field name="TEXT">texto</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

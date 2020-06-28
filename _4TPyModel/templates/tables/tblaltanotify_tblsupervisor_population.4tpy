@@ -1,0 +1,1 @@
+select * from tblaltanotify_tblsupervisor order by IDALTANOTIFY_tblsupervisor ASC 

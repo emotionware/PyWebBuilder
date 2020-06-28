@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Config tblperspectivaexternadetalle</title>
+
+
+    <script>
+    window.parent.parent.tabtible('Config-tblperspectivaexternadetalle');
+</script>
+
+
+</head>
+<body>
+
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+
+            //check log in/////////////
+            if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+
+                if (Cookies.get('esadmin') == '0') {
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename=tblperspectivaexternadetalle", "_self");
+                }
+
+
+            }
+            else {
+                //Redirect to login
+                window.open("login", "_self");
+            }
+
+
+    </script>
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '') { theme = 'start'; }
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+    </script>
+
+
+
+
+    <h2>
+        Configuraciones tblperspectivaexternadetalle
+    </h2>
+    <div style="position:relative;left:30px">
+
+
+        INCLUSIONES GRID<br /><hr />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_grid_buttons.html&tipo=html">Botones Grid</a>
+
+        <br />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_body_inclusion.4tpy&tipo=html">Body Inclusión</a>
+
+        <br />
+
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_header_inclusion.4tpy&tipo=html">Header inclusión</a>
+
+        <hr />
+
+        GRID SELECT<br /><hr />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_population.4tpy&tipo=html">Vista de Grid</a>
+        <br>
+        <a style="position:relative;left:15px" href="resetpopulationquery?table=tblperspectivaexternadetalle_population.4tpy">Reset Population Query</a>
+
+        <hr />
+
+
+
+
+
+
+        INCLUSIONES FORM<br /><hr />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_form_buttons.html&tipo=html">Botones Form</a>
+
+        <br />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_body_form_inclusion.html&tipo=html">Body Form Inclusión</a>
+
+        <br />
+
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_header_form_inclusion.html&tipo=html">Header Form Form Inclusión</a>
+
+
+
+
+        <hr />
+
+
+
+        FUNCIONES <br /><hr />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_config_fields_value_change.js&tipo=html">Value Change</a>
+        <hr />
+
+
+
+        DATOS
+        <br /><hr />
+        <a style="position:relative;left:15px" href="configstatus?tablename=tblperspectivaexternadetalle">Configuración de Estatus</a>
+        <br />
+        <a style="position:relative;left:15px" href="configalta?tablename=tblperspectivaexternadetalle">Configuración de Notificación de Alta</a>
+        <br />
+        <a style="position:relative;left:15px" href="configestatusnotify?tablename=tblperspectivaexternadetalle">Configuración de Notificación de Cambio de Estatus</a>
+        <br /><br />
+        CSS
+        <br /><hr />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_css.css&tipo=html">Css</a>
+
+
+        <hr />
+
+ 
+
+        HERRAMIENTAS <br /><hr />
+        <a target="_blank" style="position:relative;left:15px" href="/builder?tablename=tblperspectivaexternadetalle">Regenerar Páginas</a>
+        <hr />
+
+
+        GOOGLE FORMS <br /><hr />
+        <a style="position:relative;left:15px" href="/static/ace/ace.html?archivo=tables/tblperspectivaexternadetalle_google_form.gs&tipo=html">Google Script</a>
+  <hr />
+
+
+        BLOCKY <br /><hr />
+        <a style="position:relative;left:15px" href="/static/blocky/index.html?tabla=tblperspectivaexternadetalle&archivo=tblperspectivaexternadetalle_grid_blocky_before_load">Grid Blocky Before Load</a><br>
+        <a style="position:relative;left:15px" href="/static/blocky/index.html?tabla=tblperspectivaexternadetalle&archivo=tblperspectivaexternadetalle_grid_blocky_after_load">Grid Blocky After Load</a><br>
+        <a style="position:relative;left:15px" href="/static/blocky/index.html?tabla=tblperspectivaexternadetalle&archivo=tblperspectivaexternadetalle_form_blocky_before_load">Form Blocky Before Load</a><br>
+        <a style="position:relative;left:15px" href="/static/blocky/index.html?tabla=tblperspectivaexternadetalle&archivo=tblperspectivaexternadetalle_form_blocky_after_load">Form Blocky After Load</a><br>
+
+
+  <hr />
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

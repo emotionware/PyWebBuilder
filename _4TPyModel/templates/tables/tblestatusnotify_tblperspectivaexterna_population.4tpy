@@ -1,0 +1,1 @@
+select * from tblestatusnotify_tblperspectivaexterna order by IDESTATUSNOTIFY_tblperspectivaexterna ASC 

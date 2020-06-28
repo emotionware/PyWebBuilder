@@ -1,0 +1,1 @@
+select * from tblaltanotify_tblagenda order by IDALTANOTIFY_tblagenda ASC 

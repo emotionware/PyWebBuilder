@@ -1,0 +1,498 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ tabletitle | safe }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+
+    <style type="text/css">
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+    </style>
+
+    <style>
+
+
+        @font-face {
+            font-family: pompadour;
+            src: url(/static/fonts/02_APompadourTextSample.ttf);
+        }
+
+
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+
+    <style>
+
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: oldlace;
+            text-decoration: none;
+        }
+
+        button {
+            border-radius: 4px;
+        }
+    </style>
+
+
+    <script>
+
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '' || theme == 'start') {
+
+            Cookies.set('theme', 'darkblue', { expires: 90 });
+
+        }
+
+
+
+
+
+
+
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+            // renderer for grid cells.
+            var numberrenderer = function (row, column, value) {
+                return '<div style="text-align: center; margin-top: 5px;">' + (1 + value) + '</div>';
+            }
+            // create Grid datafields and columns arrays.
+            var datafields = [
+
+
+
+                {{ datafields | safe }}
+
+
+            ];
+        var columns = [
+
+
+
+              {{ datafields2 | safe }}
+
+
+        ];
+            for (var i = 0; i < 26; i++) {
+                var text = String.fromCharCode(65 + i);
+                if (i == 0) {
+                    var cssclass = 'jqx-widget-header';
+                    if (theme != '') cssclass += ' jqx-widget-header-' + theme;
+                    columns[columns.length] = { pinned: true, exportable: false, text: "", columntype: 'number', cellclassname: cssclass, cellsrenderer: numberrenderer };
+                }
+                datafields[datafields.length] = { name: text };
+                columns[columns.length] = { text: text, datafield: text, width: 60, align: 'center' };
+            }
+            var source =
+            {
+                unboundmode: true,
+                totalrecords: 100,
+                datafields: datafields,
+                updaterow: function (rowid, rowdata) {
+                    // synchronize with the server - send update command
+                }
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            // initialize jqxGrid
+            $("#grid").jqxGrid(
+                {
+                    width: '100%',
+                    height:'450',
+                    source: dataAdapter,
+                    editable: true,
+                    columnsresize: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    columns: columns
+                });
+
+        var linkrenderer = function (row, column, value) {
+            if (value.indexOf('#') != -1) {
+                value = value.substring(0, value.indexOf('#'));
+            }
+            var format = { target: '"_blank"', style: 'border-radius: 4px;' };
+            var html = $.jqx.dataFormat.formatlink(value, format);
+            return html;
+        }
+
+
+
+        $("#grid").on('cellendedit', function (event) {
+            // event arguments.
+            var args = event.args;
+            // column data field.
+            var dataField = event.args.datafield;
+            // row's bound index.
+            var rowBoundIndex = event.args.rowindex;
+            // cell value
+            var value = args.value;
+            // cell old value.
+            var oldvalue = args.oldvalue;
+            // row's data.
+            var rowData = args.row;
+
+            var elvalor = '';
+
+            if (dataField == '{{ campokey | safe }}' && value!=null  ) {
+
+                //leer datos en la fila - volcar 
+
+{{asignaciones | safe  }}
+
+
+              //  $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "NOMBRE_TAREA",'CAPULLO'  ); 
+       
+
+            }
+
+        });
+
+
+
+
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var indices = url.searchParams.get("indices");
+            
+        if (indices != null) {
+
+            //precargando
+               partes = String(indices).split(",");
+
+
+
+               var arrayLength = partes.length;
+               for (var i = 0; i < arrayLength; i++) {
+                   console.log(partes[i]);
+
+                   var rowID = $('#grid').jqxGrid('getrowid', partes[i]);
+                   var data = $('#grid').jqxGrid('getrowdatabyid', rowID);
+
+                  $("#grid").jqxGrid('setcellvalue', i, "{{ campokey | safe }}", partes[i]);
+
+                   var value = partes[i];
+                   var rowBoundIndex = i;
+
+
+                   {{asignaciones | safe  }}
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+        $("#Afectar").jqxButton({ theme: theme });
+        $("#Afectar").click(function () {
+
+            //parse files check if there is any selected field inside
+            var cells = $('#grid').jqxGrid('getselectedcells');
+
+            var cellInfo = "";
+            for (var i = 0; i < cells.length; i++) {
+                var cell = cells[i];
+              //  cellInfo += "\nRow: " + cell.rowindex + ", " + cell.datafield;
+
+                //check if first columnd of every selected row is empty
+
+                var valorid= $('#grid').jqxGrid('getcellvalue', cell.rowindex, '{{ campokey | safe }}');
+                var value = $('#grid').jqxGrid('getcellvalue', cell.rowindex, cell.datafield);
+
+
+                if (valorid == '') {
+                    //insert
+                   // alert('insert' + cell.rowindex);
+
+
+
+
+                      var cadenainsert = '';
+                    cadenainsert = cadenainsert + ' insert into {{ tablename | safe }} ({{ loscampos | safe }}) values (';
+
+                    cadenainsert = cadenainsert + {{ losinserts | safe }};
+
+               // cadenainsert = cadenainsert + ' where {{ campokey | safe }}=' + $('#grid').jqxGrid('getcellvalue', cell.rowindex, "{{ campokey | safe }}");
+
+
+                cadenainsert = cadenainsert + ')';
+
+                cadenainsert = cadenainsert.replace(',)', ')');
+
+                cadenainsert = cadenainsert.replace("'undefined'", "Null");
+               
+                console.log(cadenainsert);
+
+               
+
+
+                //guardando
+                $.ajax({
+                     async:false,
+                    url: "/sqlexec2" + '?idusername=' + Cookies.get('idusername') + '&tablename={{ tablename | safe }}&sentencia=' + cadenainsert
+                }).then(function (data) {
+
+                     //recuperando el id para la primer columna
+                    $("#grid").jqxGrid('setcellvalue', cell.rowindex, "{{ campokey | safe }}", data);
+
+
+                     $('#mensaje').val(data);
+
+
+                    //recuperando datos
+                    var value = data;
+                var rowBoundIndex = cell.rowindex;
+                    {{asignaciones | safe  }}
+
+
+
+                });
+
+
+
+                $('#mensaje').val('Guardado Terminado');
+
+
+
+                }
+
+                if (valorid != '') {
+                    //update
+
+                    //  alert('update' + cell.rowindex);
+
+
+                    var cadenaupdate = '';
+                    cadenaupdate = cadenaupdate + ' update {{ tablename | safe }} set ';
+
+                    cadenaupdate = cadenaupdate + {{ losupdates | safe }};
+
+                cadenaupdate = cadenaupdate + ' where {{ campokey | safe }}=' + $('#grid').jqxGrid('getcellvalue', cell.rowindex, "{{ campokey | safe }}");
+
+            cadenaupdate = cadenaupdate.replace(', where', ' where ');
+
+
+
+
+            cadenaupdate = cadenaupdate.replace("=''", "=Null");
+
+
+                console.log(cadenaupdate);
+
+
+                
+
+                //guardando
+            $.ajax({
+                     async:false,
+                    url: "/sqlexec" + '?idobjeto=' + valorid + '&tablename={{ tablename | safe }}&sentencia=' + cadenaupdate
+                }).then(function (data) {
+
+                    var res = data;
+
+                    $('#mensaje').val('Afectando ID ' + valorid);
+
+                });
+
+
+
+            }
+
+
+             $('#mensaje').val('Guardado Terminado');
+
+        }
+
+        });
+
+
+
+
+
+
+        });
+
+        function checarnulos(tipo,valor) {
+
+            if (tipo == 'date') {
+
+                if (valor == null || valor=='') {
+
+                    return '1970-01-01T12:00:00Z';
+                    
+            }
+
+            }
+
+           
+            if (tipo != 'date') {
+
+                if (valor == null) {
+
+                    return '';
+                    
+            }
+
+            }
+
+
+        }
+
+
+ function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+
+    </script>
+
+</head>
+<body class='default'>
+
+
+    <div id="zonamenu">
+        {{ topmenu | safe }}
+    </div>
+
+
+    <div id='jqxWidget'>
+        <div id="encabezado">
+
+            <input id="mensaje" type="text" style="width:100%;height:20px;"  />
+
+        </div>
+        <div id="grid"></div>
+        <div style='margin-top: 20px;'>
+            <div style='float: left;'>
+               
+
+                <input type="button" value="Afectar" id='Afectar' />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+    <script>		 $(document).ready(function () {        $("#NOMBRE").on("change", function (event) {                    alert($("#NOMBRE").val());            });				 });	 	     </script>

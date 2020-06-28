@@ -1,0 +1,49 @@
+
+DROP trigger If EXISTS  {{ NOMBRETABLA | safe }}_FECHAALTA_I;
+ 
+DROP trigger If EXISTS   {{ NOMBRETABLA | safe }}_BU ;
+ 
+
+DROP TABLE IF EXISTS  {{ NOMBRETABLA | safe }}_history;
+CREATE TABLE  {{ NOMBRETABLA | safe }}_history SELECT * FROM  {{ NOMBRETABLA | safe }} LIMIT 0;
+ALTER TABLE  {{ NOMBRETABLA | safe }}_history MODIFY  {{ CAMPOKEY | safe }} INTEGER(11);
+
+DROP TABLE IF EXISTS  {{ NOMBRETABLA | safe }}_history_deleted;
+CREATE TABLE  {{ NOMBRETABLA | safe }}_history_deleted SELECT * FROM  {{ NOMBRETABLA | safe }} LIMIT 0;
+ALTER TABLE  {{ NOMBRETABLA | safe }}_history_deleted MODIFY  {{ CAMPOKEY | safe }} INTEGER(11);
+
+DROP TRIGGER IF EXISTS  {{ NOMBRETABLA | safe }}_trigger_delete;
+CREATE TRIGGER  {{ NOMBRETABLA | safe }}_trigger_delete
+BEFORE DELETE ON  {{ NOMBRETABLA | safe }}
+FOR EACH ROW
+BEGIN
+  INSERT IGNORE  INTO  {{ NOMBRETABLA | safe }}_history_deleted SELECT * FROM  {{ NOMBRETABLA | safe }} WHERE  {{ CAMPOKEY | safe }} = OLD. {{ CAMPOKEY | safe }};
+End;
+
+DROP TRIGGER IF EXISTS  {{ NOMBRETABLA | safe }}_trigger_insert;
+CREATE TRIGGER  {{ NOMBRETABLA | safe }}_trigger_insert
+AFTER INSERT ON  {{ NOMBRETABLA | safe }}
+FOR EACH ROW
+BEGIN
+  INSERT IGNORE  INTO  {{ NOMBRETABLA | safe }}_history SELECT * FROM  {{ NOMBRETABLA | safe }} WHERE  {{ CAMPOKEY | safe }} = NEW. {{ CAMPOKEY | safe }};
+End;
+
+
+DROP TRIGGER IF EXISTS  {{ NOMBRETABLA | safe }}_trigger_update;
+CREATE TRIGGER  {{ NOMBRETABLA | safe }}_trigger_update
+AFTER UPDATE ON  {{ NOMBRETABLA | safe }}
+FOR EACH ROW
+BEGIN
+  INSERT IGNORE  INTO  {{ NOMBRETABLA | safe }}_history   SELECT * FROM  {{ NOMBRETABLA | safe }}   WHERE   {{ CAMPOKEY | safe }} = NEW. {{ CAMPOKEY | safe }};
+End;
+
+
+CREATE  UNIQUE INDEX REPETIDO ON {{ NOMBRETABLA | safe }}_history(`FECHAALTA`,`FECHAMODIFICACION`,`HORAMODIFICACION`) USING BTREE;
+
+
+drop view if exists view_{{ NOMBRETABLA | safe }}_history;
+
+
+create view view_{{ NOMBRETABLA | safe }}_history as select * from {{ NOMBRETABLA | safe }}_history;
+
+

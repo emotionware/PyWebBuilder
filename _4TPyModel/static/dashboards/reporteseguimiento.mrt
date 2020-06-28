@@ -1,0 +1,349 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "7a39f4863851329a8833af51e375786d",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "reporteseguimiento.mrt",
+  "ReportCreated": "/Date(1584240138000-0600)/",
+  "ReportChanged": "/Date(1584240138000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "DIA",
+            "Index": -1,
+            "NameInSource": "DIA",
+            "Alias": "DIA",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "EJERCICIO",
+            "Index": -1,
+            "NameInSource": "EJERCICIO",
+            "Alias": "EJERCICIO",
+            "Type": "System.Guid"
+          },
+          "3": {
+            "Name": "EJERCICIO",
+            "Index": -1,
+            "NameInSource": "EJERCICIO",
+            "Alias": "EJERCICIO",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "EJERCICIO",
+            "Index": -1,
+            "NameInSource": "EJERCICIO",
+            "Alias": "EJERCICIO",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "FECHA",
+            "Index": -1,
+            "NameInSource": "FECHA",
+            "Alias": "FECHA",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "HORA",
+            "Index": -1,
+            "NameInSource": "HORA",
+            "Alias": "HORA",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "IDAGENTE",
+            "Index": -1,
+            "NameInSource": "IDAGENTE",
+            "Alias": "IDAGENTE",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "IDOPORTUNIDAD",
+            "Index": -1,
+            "NameInSource": "IDOPORTUNIDAD",
+            "Alias": "IDOPORTUNIDAD",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "IDPROSPECTO",
+            "Index": -1,
+            "NameInSource": "IDPROSPECTO",
+            "Alias": "IDPROSPECTO",
+            "Type": "System.Decimal"
+          },
+          "11": {
+            "Name": "IDSEGUIMIENTO",
+            "Index": -1,
+            "NameInSource": "IDSEGUIMIENTO",
+            "Alias": "IDSEGUIMIENTO",
+            "Type": "System.String"
+          },
+          "12": {
+            "Name": "IMPORTE_OPORTUNIDAD",
+            "Index": -1,
+            "NameInSource": "IMPORTE_OPORTUNIDAD",
+            "Alias": "IMPORTE_OPORTUNIDAD",
+            "Type": "System.String"
+          },
+          "13": {
+            "Name": "PERIODO",
+            "Index": -1,
+            "NameInSource": "PERIODO",
+            "Alias": "PERIODO",
+            "Type": "System.String"
+          },
+          "14": {
+            "Name": "PROSPECTO",
+            "Index": -1,
+            "NameInSource": "PROSPECTO",
+            "Alias": "PROSPECTO",
+            "Type": "System.String"
+          },
+          "15": {
+            "Name": "REALIZADO",
+            "Index": -1,
+            "NameInSource": "REALIZADO",
+            "Alias": "REALIZADO",
+            "Type": "System.String"
+          },
+          "16": {
+            "Name": "REGISTRO",
+            "Index": -1,
+            "NameInSource": "REGISTRO",
+            "Alias": "REGISTRO",
+            "Type": "System.String"
+          },
+          "17": {
+            "Name": "TIPO",
+            "Index": -1,
+            "NameInSource": "TIPO",
+            "Alias": "TIPO",
+            "Type": "System.String"
+          },
+          "18": {
+            "Name": "TOTAL_COTIZACION",
+            "Index": -1,
+            "NameInSource": "TOTAL_COTIZACION",
+            "Alias": "TOTAL_COTIZACION",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_reporte_seguimiento.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_reporte_seguimiento",
+        "Alias": "displayquery?query=view_reporte_seguimiento",
+        "PathData": "../../displayquery?query=view_reporte_seguimiento"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiDashboard",
+      "Name": "Dashboard1",
+      "Guid": "32f92f61e3a3193630d1eb3112f17819",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiTableElement",
+          "Name": "TableElement1",
+          "Guid": "fc67aac38e7e89635607230a1a2d07c7",
+          "ClientRectangle": "0,40,1200,280",
+          "Border": ";;;;",
+          "Columns": {
+            "0": {
+              "Ident": "DimensionColumn",
+              "Key": "e1bd33a80ba2376bf0009d0a99327b5c",
+              "Expression": "root.EJERCICIO",
+              "Label": "EJERCICIO",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "1": {
+              "Ident": "DimensionColumn",
+              "Key": "6ea1f5ea9ff0d46820fdb03ecede7433",
+              "Expression": "root.PERIODO",
+              "Label": "PERIODO",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "2": {
+              "Ident": "DimensionColumn",
+              "Key": "a96f22cc81258eb550d1085948bf364a",
+              "Expression": "root.DIA",
+              "Label": "DIA",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "3": {
+              "Ident": "DimensionColumn",
+              "Key": "c74df88488ed65d4d5262b0845ac0ffd",
+              "Expression": "root.HORA",
+              "Label": "HORA",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "4": {
+              "Ident": "DimensionColumn",
+              "Key": "0567c60a12f49a65f2a7ff80edfe8dcf",
+              "Expression": "root.AGENTE",
+              "Label": "AGENTE",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "5": {
+              "Ident": "DimensionColumn",
+              "Key": "cf90b2154b1d436e491a1d17548140f9",
+              "Expression": "root.TIPO",
+              "Label": "TIPO",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "6": {
+              "Ident": "DimensionColumn",
+              "Key": "3accbf75cbbc1d33c532c2913f0b38fc",
+              "Expression": "root.PROSPECTO",
+              "Label": "PROSPECTO",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "7": {
+              "Ident": "DimensionColumn",
+              "Key": "43583265e3892ff72283d2e9127245b7",
+              "Expression": "(root.REALIZADO)",
+              "Label": "REALIZADO",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "8": {
+              "Ident": "DimensionColumn",
+              "Key": "80b0969bdf73f20be77a13a6adf3ddf3",
+              "Expression": "root.REGISTRO",
+              "Label": "REGISTRO",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "9": {
+              "Ident": "DimensionColumn",
+              "Key": "f4d69f6049dab492ca1ec2cbb7446e00",
+              "Expression": "root.IDSEGUIMIENTO",
+              "Label": "IDSEGUIMIENTO",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              },
+              "ShowHyperlink": true,
+              "HyperlinkPattern": "../..//formrender?form=tables/tblseguimiento_form&idobjeto={Row.IDSEGUIMIENTO}"
+            }
+          },
+          "HeaderFont": ";10;;",
+          "FooterFont": ";10;;",
+          "Title": {
+            "Text": "Table"
+          },
+          "DashboardInteraction": {
+            "Ident": "Table",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        },
+        "1": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement1",
+          "Guid": "3fd3298bd440c4f02414328ab71f40ee",
+          "ClientRectangle": "0,0,1200,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "<font face=\"Arial\" size=\"16\"><text-align=\"center\"><b>ACTIVIDADES DE SEGUIMIENTOS DESDE HOY Y 3 DÍAS ATRÁS</b></text-align=\"center\"></font>",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        }
+      },
+      "Border": ";;2;;;;;solid:Black"
+    }
+  }
+}

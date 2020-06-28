@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        function limpiar() {
+
+
+            var token = '';
+            var username = '';
+            var esadmin = '';
+
+            Cookies.set('token', token, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+            Cookies.set('username', username, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+            Cookies.set('esadmin', esadmin, { expires: 0.33 }); //1 = 1 dia, 0.33 es 8 horas
+
+
+        }
+
+
+    </script>
+
+
+
+</head>
+
+<body onload="limpiar();">
+
+
+
+
+</body>
+</html>

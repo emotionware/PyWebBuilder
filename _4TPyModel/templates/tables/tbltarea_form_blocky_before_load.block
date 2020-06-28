@@ -1,0 +1,9 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="text_print" id="Pa:n|X8Ds}P4-aH@cXrt" x="190" y="90">
+    <value name="TEXT">
+      <block type="text" id="#!R`6zN3ZbKhwOjDB[s/">
+        <field name="TEXT">Texto de Prueba</field>
+      </block>
+    </value>
+  </block>
+</xml>

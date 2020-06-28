@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+</head>
+<body id="body">
+<script>
+
+// Describe esta función...
+function pulsar() {
+  window.alert('Hola '+'fer');
+}
+
+
+$(document).ready(function () {
+var element = document.createElement('check');
+element.innerHTML = 'click';
+element.setAttribute("onclick", 'pulsar' + "();return false;");
+element.setAttribute("style",'');
+document.getElementById('body').appendChild(element);})
+
+</script>
+
+
+</body>
+</html>

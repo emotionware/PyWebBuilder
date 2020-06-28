@@ -1,0 +1,88 @@
+﻿<script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxButton widgets.
+            $("#Button1").jqxButton({ textPosition: "center", width: 120, height:25, theme: theme });
+            $("#Button2").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button3").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button4").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button5").jqxButton({ textPosition: "center", width: 60,  theme: theme });
+            $("#Button6").jqxButton({ textPosition: "center", width: 60, theme: theme });
+            $("#Button7").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button8").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button9").jqxButton({ textPosition: "center", width: 120, theme: theme });
+        });
+</script>
+
+<div style="position:relative;left:10px; top:0px;"  >
+    <table>
+        <tr>
+            <td><input type="button" style="visibility:visible" value="Nuevo" id='Button1' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button2' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button3' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button4' /></td>
+            <td> <input type="text" id="buscador" name="buscador" style="border-radius: 15px;position:relative;top:24px;left:48px" width="40" height="20" /> </td>
+            <td><input type="button" style="visibility:visible;position:relative;top:24px;left:48px" value="Reset" id='Button5' /></td>
+
+            <td><input type="button" style="visibility:visible;position:relative;top:24px;left:48px" value="Buscar" id='Button6' /></td>
+
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button7' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button8' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button9' /></td>
+        </tr>
+    </table>
+</div>
+<script>
+        window.onload = function () {
+            document.querySelector("#Button1").addEventListener("click", function (event) {
+
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+                var campofiltro = url.searchParams.get("campofiltro");
+
+ 
+
+                if (campofiltro != 'null' && idobjetofiltro != 'null' && campofiltro != '' && idobjetofiltro != '' && campofiltro != null && idobjetofiltro != null  ) {
+                    window.open('formrender?vistadetalle=true&campo1=' + campofiltro + '&valor1=' + idobjetofiltro + '&form=tables/tblbackup_form', '_self');
+                    
+                } else {
+                    window.open('formrender?form=tables/tblbackup_form', '_self');
+                    
+                }
+                                                            
+                
+            });
+            document.querySelector("#Button2").addEventListener("click", function (event) {
+                alert('Hola Mundo');
+            });
+            document.querySelector("#Button3").addEventListener("click", function (event) {
+                alert('Hola Mundo');
+            });
+            document.querySelector("#Button4").addEventListener("click", function (event) {
+                alert('Hola Mundo');
+            });
+            document.querySelector("#Button5").addEventListener("click", function (event) {
+
+                var rutalimpia = 'rendergrid?grid=tables/tblbackup';
+                window.open(rutalimpia, '_self');
+
+
+            });
+            document.querySelector("#Button6").addEventListener("click", function (event) {
+
+                var rutalimpia = 'rendergrid?grid=tables/tblbackup';
+                window.open(rutalimpia += '&buscar=' + document.getElementById('buscador').value , '_self');
+
+
+            });
+            document.querySelector("#Button7").addEventListener("click", function (event) {
+                alert('Hola Mundo');
+            });
+            document.querySelector("#Button8").addEventListener("click", function (event) {
+                alert('Hola Mundo');
+            });
+            document.querySelector("#Button9").addEventListener("click", function (event) {
+                alert('Hola Mundo');
+            });
+        };
+</script>

@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+	<head>
+<link rel="icon" href="https://i2.wp.com/makitweb.com/wp-content/uploads/2016/02/cropped-sitelogo.png?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i2.wp.com/makitweb.com/wp-content/uploads/2016/02/cropped-sitelogo.png?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://i2.wp.com/makitweb.com/wp-content/uploads/2016/02/cropped-sitelogo.png?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i2.wp.com/makitweb.com/wp-content/uploads/2016/02/cropped-sitelogo.png?fit=270%2C270&#038;ssl=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title >How to Add Speech Recognition to the Website – JavaScript</title>
+		<link href='style.css' rel='stylesheet' type='text/css'>
+		<script src="/static/scripts/jquery.min.js"></script>
+
+
+		<script type='text/javascript'>
+
+			var eldestino='';
+		var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) { 
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+		    document.getElementById(eldestino).value = saidText;
+
+		}
+
+
+		function startRecording(destino){
+			eldestino=destino;
+			recognition.start();
+		}
+
+
+
+
+
+		</script>
+	</head>
+	<body>
+
+		<div class='search_container'>
+		   		<input type='text' id='c1' >
+		   		<input type='text' id='c2' >
+			&nbsp;
+			<input type='button' id='b1' value='Start' onclick='startRecording("c1");'>
+			<input type='button' id='b2' value='Start' onclick='startRecording("c2");'>
+
+
+		</div>
+
+		<!-- Search Result -->
+		<div class="container"></div>
+
+	</body>
+</html>

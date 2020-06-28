@@ -1,0 +1,10 @@
+<script>
+
+$(document).ready(function () {
+var checkbox_ALEA_ = document.createElement("INPUT");
+checkbox_ALEA_.setAttribute("type", "checkbox");
+
+document.getElementById('_POS_').appendChild(checkbox_ALEA_);
+});
+
+</script>

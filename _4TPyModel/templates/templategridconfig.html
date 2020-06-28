@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ tabletitle | safe }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+
+    <style>
+
+        html { visibility:hidden; }
+
+    </style>
+
+    <script>
+
+
+               $(document).ready(function() {
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
+               });
+
+
+
+ 
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+ 
+
+
+
+
+
+        
+        function modoedicion(idobjeto) {
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var campofiltro = url.searchParams.get("campofiltro");           
+
+            if (campofiltro != null) {
+                window.open('formrender?vistadetalle=true&campo1=' + url.searchParams.get("campofiltro") + '&valor1=' + url.searchParams.get("idobjetofiltro") + '&form=tables/{{ tablename | safe }}_form&idobjeto=' + idobjeto, '_self');
+            }
+
+            if (campofiltro == null) {
+                window.open('formrender?form=tables/{{ tablename | safe }}_form&idobjeto=' + idobjeto, '_self');
+            }
+
+        }
+
+
+
+
+    </script>
+
+    <link rel="import" href="{{ tablename | safe }}_header_inclusion.4tpy">
+
+</head>
+<body>
+
+    <div id="zonamenu">
+        {{ topmenu | safe }}
+    </div>
+
+
+    <script>
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var vistadetalle = url.searchParams.get("vistadetalle");
+
+        if (vistadetalle == 'true') {
+
+            document.getElementById('zonamenu').style.display = 'none';
+        }
+
+    </script>
+
+
+    <!--Titulo de la pagina-->
+    
+    <h4 id="titulopagina" style="position:relative; top:5px;left:10px"> <table><tr><td><img src="" height="32" /></td><td><a href="home">Home/</a></td><td><a href="rendergrid?grid=tables/{{ tablename | safe }}">{{ tabletitle | safe }}</a></td><td></td></tr></table></h4>
+
+    
+
+
+    <!--Grid-->
+    <script type="text/javascript">
+
+
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+        var campofiltro = url.searchParams.get("campofiltro");
+
+
+
+
+        $(document).ready(function () {
+            var url = "populator?tablename={{ tablename | safe }}&CAMPODISPLAY_startsWith=&campofiltro=" + campofiltro + "&idobjetofiltro=" + idobjetofiltro;
+            // prepare the data
+            var source =
+            {
+                datatype: "json",
+                datafields: [
+
+                     {{ datafields | safe }}
+
+                ],
+                id: '{{ campokey | safe }}',
+                url: url
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            $("#grid").jqxGrid(
+                {
+                    width: getWidth('Grid'),
+                    theme: 'darkblue',
+                    source: dataAdapter,
+                    columnsresize: true,
+                    altrows: true,
+                    columnsreorder: true,
+                    showfilterrow: false,
+                    filterable: true,
+                    sortable: true,
+                    sortmode: "many",
+                    groupable: true,
+                    editable: true,
+                    pageable: false,
+                    columns: [
+
+                        {{ datafields2 | safe }}
+
+
+
+
+                    ]
+                });
+
+            $("#saveState").jqxButton({ theme: 'darkblue' });
+            $("#loadState").jqxButton({ theme: 'darkblue' });
+            var state = null;
+            $("#saveState").click(function () {
+                // save the current state of jqxGrid.
+                state = $("#grid").jqxGrid('savestate',state);
+            })
+                ;
+            $("#loadState").click(function () {
+                // load the Grid's state.
+                if (state) {
+                    $("#grid").jqxGrid('loadstate',  state);
+                }
+                else {
+                    $("#grid").jqxGrid('loadstate');
+                }
+            });
+
+
+        var linkrenderer = function (row, column, value) {
+                if (value.indexOf('#') != -1) {
+                    value = value.substring(0, value.indexOf('#'));
+                }
+                var format = { target: '"_blank"' };
+                var html = $.jqx.dataFormat.formatlink(value, format);
+                return html;
+        }
+
+
+
+            $("#buttonr").jqxButton({ theme: 'darkblue' });
+            $("#buttonr").click(function () {
+                $("#grid").jqxGrid('autoresizecolumns');
+            });
+
+            //Hide a column
+            //$('#grid').jqxGrid('hidecolumn', 'IDARTICULO');
+
+            //pinn column
+            //$('#grid').jqxGrid('pincolumn', 'IDARTICULO');
+
+
+            $("#refresh").jqxButton({ theme: 'darkblue' });
+            $("#pageable").jqxButton({ theme: 'darkblue' });
+        $("#groupable").jqxButton({ theme: 'darkblue' });
+         $("#purgar").jqxButton({ theme: 'darkblue' });
+
+
+            $("#refresh").click(function () {
+                source =
+                {
+                    datatype: "json",
+                    datafields: [
+
+
+
+                       {{ datafields3 | safe }}
+
+
+
+                    ],
+                    id: '{{ campokey | safe }}',
+                    url: url
+                };
+                // passing "cells" to the 'updatebounddata' method will refresh only the cells values when the new rows count is equal to the previous rows count.
+                $("#grid").jqxGrid('updatebounddata', 'cells');
+            });
+
+
+            $("#pageable").click(function () {
+                $("#grid").jqxGrid({ pageable: true, groupable: false });
+            });
+
+            $("#groupable").click(function () {
+                $("#grid").jqxGrid({ pageable: false, groupable: true });
+            });
+
+        $("#purgar").click(function () {
+
+            $(document).ready(function () {
+
+                var res= prompt('Se eliminarán definitivamente todos los registros marcados como ELIMINADO. Confirme S/N');
+
+                if (res == 'S' || res == 's') {
+
+
+
+                    $.ajax({
+                        url: "/purgar" + '?tablename={{ tablename | safe }}'
+                    }).then(function (data) {
+
+                        alert(data);
+                        location.reload();
+
+
+                    });
+
+}
+                             });
+
+
+
+            });
+
+
+
+        {{ hider | safe }}
+
+
+
+        });
+
+
+        setTimeout(function(){
+            $("#grid").jqxGrid('autoresizecolumns');
+
+        }, 1000);
+
+setTimeout(function(){
+
+            $("#grid").jqxGrid('loadstate');
+        }, 2000);
+
+    </script>
+    <div id='jqxWidget'>
+        <div id="grid" style="position:relative; top:10px; left:10px"></div>
+        <div style="margin-top: 30px;">
+
+            <input id="refresh" type="button" value="Actualizar" />
+
+
+
+
+            <input type="button" id="saveState" value="Guardar Estado" />
+            <input type="button" id="loadState" value="Cargar Estado" />
+            <input id="buttonr" type="button" value="Auto Resize" />
+
+
+            <input id="pageable" type="button" value="Paginable" />
+            <input id="groupable" type="button" value="Agrupable" />
+            <input id="purgar" type="button" value="Purgar Eliminados" />
+
+
+
+        </div>
+    </div>
+
+    <link rel="import" href="{{ tablename | safe }}_body_html_inclusion.4tpy">
+</body>
+</html>

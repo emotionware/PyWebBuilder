@@ -1,0 +1,329 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "af729c4e480fec3b6c4a41a9c8eb7ae7",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "ingresos.mrt",
+  "ReportCreated": "/Date(1584385461000-0600)/",
+  "ReportChanged": "/Date(1584385461000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "CONCEPTO_ABONO",
+            "Index": -1,
+            "NameInSource": "CONCEPTO_ABONO",
+            "Alias": "CONCEPTO_ABONO",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "DIA",
+            "Index": -1,
+            "NameInSource": "DIA",
+            "Alias": "DIA",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "EJERCICIO",
+            "Index": -1,
+            "NameInSource": "EJERCICIO",
+            "Alias": "EJERCICIO",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "FECHAABONO",
+            "Index": -1,
+            "NameInSource": "FECHAABONO",
+            "Alias": "FECHAABONO",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "IMPORTE_ABONO",
+            "Index": -1,
+            "NameInSource": "IMPORTE_ABONO",
+            "Alias": "IMPORTE_ABONO",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "PERIODO",
+            "Index": -1,
+            "NameInSource": "PERIODO",
+            "Alias": "PERIODO",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "PROSPECTO",
+            "Index": -1,
+            "NameInSource": "PROSPECTO",
+            "Alias": "PROSPECTO",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_ingresos.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_ingresos",
+        "Alias": "displayquery?query=view_ingresos",
+        "PathData": "../../displayquery?query=view_ingresos"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiDashboard",
+      "Name": "Dashboard1",
+      "Guid": "2f8c2c74672dc138f5a7e3e7799f29af",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiPivotTableElement",
+          "Name": "PivotTableElement1",
+          "Guid": "0a2734a6139ec6be1e6e86fc46c57f32",
+          "ClientRectangle": "0,40,440,320",
+          "Border": ";;;;",
+          "Columns": {
+            "0": {
+              "Ident": "PivotColumn",
+              "Key": "13b47716f5316c42099d40cd8056795b",
+              "Expression": "root.EJERCICIO",
+              "Label": "EJERCICIO",
+              "HorAlignment": "Center"
+            }
+          },
+          "Rows": {
+            "0": {
+              "Ident": "PivotRow",
+              "Key": "a1f9c107c847b1034a867cb17ca1155b",
+              "Expression": "root.PERIODO",
+              "Label": "PERIODO"
+            }
+          },
+          "Summaries": {
+            "0": {
+              "Ident": "PivotSummary",
+              "Key": "22dc6b841ee42cf51491fd2f15d4eada",
+              "Expression": "Sum(root.IMPORTE_ABONO)",
+              "Label": "IMPORTE_ABONO",
+              "HorAlignment": "Center"
+            }
+          },
+          "Title": {
+            "Text": "Pivot Table",
+            "Visible": false
+          },
+          "DashboardInteraction": {
+            "Ident": "PivotTable",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        },
+        "1": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement1",
+          "Guid": "9fae1f2b559a8640fb5141c740db7bd5",
+          "ClientRectangle": "440,40,740,320",
+          "Border": ";;;;",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "bf58b962c433af43ef4e1f9ced47af64",
+              "Expression": "Sum(root.IMPORTE_ABONO)",
+              "Label": "IMPORTE_ABONO"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "221331e7bcc4f9c7276e94a909fd48ff",
+              "Expression": "root.EJERCICIO",
+              "Label": "EJERCICIO"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Chart",
+            "Visible": false
+          },
+          "Series": {
+            "Ident": "SeriesChartMeter",
+            "Key": "13115e0513d7e5725a304e9feea8d3bc",
+            "Expression": "root.PERIODO",
+            "Label": "PERIODO"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "None"
+          }
+        },
+        "2": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement1",
+          "Guid": "5f93211c62642c4cc0d5ee2f2477e789",
+          "ClientRectangle": "0,0,1180,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "<font face=\"Arial\" size=\"16\"><text-align=\"center\">INGRESOS</text-align=\"center\"></font>",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        },
+        "3": {
+          "Ident": "StiTableElement",
+          "Name": "TableElement1",
+          "Guid": "258046f28ba6326ce579148100d613c8",
+          "ClientRectangle": "0,360,1180,240",
+          "Border": ";;;;",
+          "Columns": {
+            "0": {
+              "Ident": "DimensionColumn",
+              "Key": "a46d8cfc23b3eae2a0c2f72c0af549dd",
+              "Expression": "root.EJERCICIO",
+              "Label": "EJERCICIO",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "1": {
+              "Ident": "DimensionColumn",
+              "Key": "927122f4b0606547bb730f323ec3d31f",
+              "Expression": "root.PERIODO",
+              "Label": "PERIODO",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "2": {
+              "Ident": "DimensionColumn",
+              "Key": "ea6d84fdb658f87ce3bb4d2bb4267db5",
+              "Expression": "root.CONCEPTO_ABONO",
+              "Label": "CONCEPTO_ABONO",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "3": {
+              "Ident": "MeasureColumn",
+              "Key": "c06f643d6f8cc422da4fc75466bacc7c",
+              "Expression": "Sum(root.IMPORTE_ABONO)",
+              "Label": "IMPORTE_ABONO",
+              "HorAlignment": "Right",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "DecimalSeparator": ",",
+                "GroupSeparator": "."
+              },
+              "ShowTotalSummary": true,
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              }
+            },
+            "4": {
+              "Ident": "DimensionColumn",
+              "Key": "34808921f0e3ae0449b016396b1be0ca",
+              "Expression": "root.IDCOTIZACION",
+              "Label": "IDCOTIZACION",
+              "HorAlignment": "Center",
+              "DashboardInteraction": {
+                "Ident": "TableColumn",
+                "OnHover": "None",
+                "OnClick": "None",
+                "HyperlinkDestination": "NewTab"
+              },
+              "ShowHyperlink": true,
+              "HyperlinkPattern": "../../formrender?form=tables/tblcotizacion_form&idobjeto={Row.IDCOTIZACION}"
+            }
+          },
+          "HeaderFont": ";10;;",
+          "FooterFont": ";10;;",
+          "Title": {
+            "Text": "Table",
+            "Visible": false
+          },
+          "DashboardInteraction": {
+            "Ident": "Table",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        }
+      },
+      "Border": ";;2;;;;;solid:Black"
+    }
+  }
+}

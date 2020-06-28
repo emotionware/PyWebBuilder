@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Editor de Código</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height" />
+
+    <meta name="author" content="Fabian Jakobs">
+
+    <link rel="stylesheet" href="demo/kitchen-sink/styles.css" type="text/css" media="screen" charset="utf-8">
+
+    <script async="true" src="https://use.edgefonts.net/source-code-pro.js"></script>
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+
+    <link href="./doc/site/images/favicon.ico" rel="icon" type="image/x-icon">
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+
+
+	<script type='text/javascript'>
+
+			var eldestino='';
+		var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) {
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+
+if (eldestino=='action'){
+
+                 $.ajax({
+                        url: "/voiceaction" + '?voice=' + saidText
+                    }).then(function (data) {
+
+window.open(data,'_self');
+
+                    });
+
+}
+
+
+
+
+
+		}
+
+
+		function startRecording(destino){
+			eldestino=destino;
+			recognition.start();
+		}
+
+
+
+
+
+		</script>
+
+
+
+
+    <script>
+
+         window.parent.parent.tabtible('Config Editor');
+
+        function seguridad() {
+
+
+            theme = Cookies.get('theme');
+
+
+            //check log in/////////////
+            if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+
+            }
+            else {
+                //Redirect to login
+                window.open("login", "_self");
+            }
+
+            if (Cookies.get('esadmin') == '0') {
+                //Redirect to no autorizaddo
+                window.open("../../noautorizado?tablename=Editor de Código", "_self");
+            }
+
+
+        }
+
+
+
+        //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "../../validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("../../login", "_self");
+                        }
+
+                    });
+             });
+
+
+
+    </script>
+
+
+
+    <script>
+        function leer() {
+
+
+            seguridad();
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var c = url.searchParams.get("archivo");
+
+            var tt = url.searchParams.get("tipo");
+
+            if (tt == 'javascript') {
+                document.getElementById("-mode").value = "ace/mode/javascript";
+                editor.session.setMode("ace/mode/javascript");
+                // editor.session.setMode("ace/mode/vbscript");
+            }
+
+            if (tt == 'vbscript') {
+                // editor.session.setMode("ace/mode/vbscript");
+                document.getElementById("-mode").value = "ace/mode/vbscript";
+                editor.session.setMode("ace/mode/vbscript");
+            }
+
+            if (tt == 'python') {
+                // editor.session.setMode("ace/mode/vbscript");
+                document.getElementById("-mode").value = "ace/mode/python";
+                editor.session.setMode("ace/mode/python");
+            }
+
+            if (tt == 'html') {
+                // editor.session.setMode("ace/mode/vbscript");
+                document.getElementById("-mode").value = "ace/mode/html";
+                editor.session.setMode("ace/mode/html");
+            }
+
+            if (tt == 'json') {
+                // editor.session.setMode("ace/mode/vbscript");
+                document.getElementById("-mode").value = "ace/mode/json";
+                editor.session.setMode("ace/mode/json");
+            }
+
+            if (tt == 'text') {
+                // editor.session.setMode("ace/mode/vbscript");
+                document.getElementById("-mode").value = "ace/mode/text";
+                editor.session.setMode("ace/mode/text");
+            }
+
+
+            if (c != null) {
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/fileloader3" + '?archivo=' + c
+                    }).then(function (data) {
+
+                        editor.setValue(data);
+
+                    });
+                });
+
+            }
+
+        }
+
+        function guardar() {
+
+            alert("Pulse aceptar para guardar");
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var c = url.searchParams.get("archivo");
+
+
+            $(document).ready(function () {
+
+                datos = encodeURIComponent(editor.getValue());
+
+                $.ajax({
+                    url: "/savetopmenu3?datos=" + datos + "&archivo=" + c
+                }).then(function (data) {
+
+                });
+            });
+
+
+
+        }
+    </script>
+</head>
+<body onload="leer();">
+
+    <input type="button" value="Guardar" onclick="guardar();" />
+
+    <div style="position:absolute;height:100%;width:260px">
+
+        <div style="position: absolute; overflow: hidden; top:100px; bottom:0">
+            <div id="optionsPanel" style="width: 120%; height:100%; overflow-y: scroll">
+            </div>
+        </div>
+    </div>
+
+    <div id="editor-container"></div>
+
+    <script src="src/ace.js" data-ace-base="src" type="text/javascript" charset="utf-8"></script>
+    <script src="src/keybinding-vim.js"></script>
+    <script src="src/keybinding-emacs.js"></script>
+    <script src="demo/kitchen-sink/demo.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        require("kitchen-sink/demo");
+    </script>
+</body>
+</html>

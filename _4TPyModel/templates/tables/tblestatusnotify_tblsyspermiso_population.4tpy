@@ -1,0 +1,1 @@
+select * from tblestatusnotify_tblsyspermiso order by IDESTATUSNOTIFY_tblsyspermiso ASC 

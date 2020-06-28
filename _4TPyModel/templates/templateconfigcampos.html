@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Configuración Avanzada de Campos de la tabla {{ tablename | safe }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+    <style>
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+    window.parent.parent.tabtible('Config-{{ tablename | safe }}');
+</script>
+
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+
+            //check log in/////////////
+            if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+
+                if (Cookies.get('esadmin') == '0') {
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename={{ tablename | safe }}", "_self");
+                }
+
+
+            }
+            else {
+                //Redirect to login
+                window.open("login", "_self");
+            }
+
+
+    </script>
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '') { theme = 'start'; }
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+    </script>
+
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '') { theme = 'start'; }
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+    </script>
+</head>
+<body>
+
+    <!--Grid-->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var url = "populator?tablename=tblconfigcampos_{{ tablename | safe }}&CAMPODISPLAY_startsWith=&campofiltro=null&idobjetofiltro=null";
+            // prepare the data
+            var source =
+            {
+                 columnsreorder: true,
+                    showfilterrow: true,
+                    filterable: true,
+                    filtermode: 'excel',
+                    autoshowfiltericon: true,
+                    sortable: true,
+                    selectionmode: 'multiplerowsextended',
+                    sortmode: "many",
+                  theme: theme,
+                 columnsresize: true,
+                datatype: "json",
+                datafields: [
+
+{name: 'EDITAR', type:'string'}
+,{name: 'IDCONFIGCAMPOS_{{ tablename | safe }}', type: 'string'}
+,{name: 'GRUPO', type: 'string'}
+,{name: 'ORDEN', type: 'number'}
+,{name: 'CAMPO', type: 'string'}
+,{name: 'EDITABLE', type: 'string'}
+,{name: 'MOSTRARCAMPO', type: 'string' }
+,{name: 'MOSTRARGRID', type: 'string'}
+,{name: 'MOSTRARFORM', type: 'string'}
+,{name: 'OBLIGATORIO', type: 'string'}
+,{name: 'ANCHO', type: 'string'}
+,{name: 'ALTO', type: 'string'}
+,{name: 'HELPTEXT', type: 'string'}
+,{name: 'BUILDTYPE', type: 'string'}
+,{name: 'CAPTION', type: 'string'}
+
+                ],
+                id: 'IDCONFIGCAMPOS_{{ tablename | safe }}',
+                url: url
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            $("#grid").jqxGrid(
+                {
+                    width: 1200,
+                    height:500 ,
+                    theme: theme,
+                    source: dataAdapter,
+                    columnsresize: true,
+                    altrows: true,
+                    columnsreorder: true,
+                    showfilterrow: true,
+                    filterable: true,
+                    sortable: true,
+                    selectionmode: 'multiplerowsadvanced',
+                    sortmode: "many",
+                    groupable: false,
+                    editable: true,
+                    pageable: false,
+                    columns: [
+
+
+,{text: 'IDCONFIGCAMPOS_{{ tablename | safe }}', editable: false,  datafield: 'IDCONFIGCAMPOS_{{ tablename | safe }}', theme:theme ,  columntype: 'text' , width: '60'}
+
+,{text: 'ORDEN', datafield: 'ORDEN', theme:theme ,  columntype: 'text' , width: '80'}
+,{text: 'CAMPO', datafield: 'CAMPO', theme:theme ,editable: false,  columntype: 'text' , width: '160'}
+,{text: 'EDITABLE', datafield: 'EDITABLE', theme:theme ,  columntype: 'text' , width: '80'}
+,{ text: 'MOSTRARCAMPO', datafield: 'MOSTRARCAMPO', theme: theme, columntype: 'text', width: '130' }
+,{text: 'OCULTAR EN GRID', datafield: 'MOSTRARGRID', theme:theme ,  columntype: 'text' , width: '150'}
+,{text: 'OCULTAR EN FORM', datafield: 'MOSTRARFORM', theme:theme ,  columntype: 'text' , width: '150'}
+,{text: 'GRUPO', datafield: 'GRUPO', theme:theme ,  columntype: 'text' , width: '100'}
+,{text: 'CAPTION', datafield: 'CAPTION', theme: theme, columntype: 'text', width: '120' }
+,{text: 'HELPTEXT', datafield: 'HELPTEXT', theme:theme ,  columntype: 'text' , width: '140'}
+,{text: 'OBLIGATORIO', datafield: 'OBLIGATORIO', theme:theme ,  columntype: 'text' , width: '100'}
+,{text: 'ANCHO', datafield: 'ANCHO', theme:theme ,  columntype: 'text' , width: '80'}
+,{text: 'ALTO', datafield: 'ALTO', theme:theme ,  columntype: 'text' , width: '80'}
+,{text: 'BUILDTYPE', datafield: 'BUILDTYPE', theme: theme, columntype: 'text', width: '80' }
+                    ]
+                });
+
+            var state = null;
+
+            $("#grid").on('cellendedit', function (event) {
+                var args = event.args;
+               // alert(args.datafield);
+               // alert(args.rowindex);
+               // alert(args.value);
+
+
+                var rowID = $("#grid").jqxGrid('getrowid', args.rowindex);
+
+
+                //var sentencia = "update tblconfigcampos_{{ tablename | safe }} set " + args.datafield + "='" + args.value + "' where idconfigcampos_{{ tablename | safe }}='" + elvalor + "';";
+                var laorden = "actualizarconfigcampos" + '?tablename={{ tablename | safe }}&campo=' + args.datafield + '&valor=' + args.value + '&idobjeto=' + rowID ;
+
+           
+                    $.ajax({
+                        url: laorden
+                    }).then(function (data) {
+                        regenerar();
+                    });
+               
+
+			});
+
+
+        });
+    </script>
+    <div id='jqxWidget'>
+        <h5>Configuración Avanzada de Campos de {{ tablename | safe }}</h5>
+
+        <div id="grid" ></div>
+        <br />
+
+        <input id="regenerar" value="Abrir Config Avanzada" type="button" onclick="avanzada();return false" />
+
+        <script>
+
+
+            function regenerar() {
+
+
+                 $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../builder?tablename={{ tablename | safe }}" 
+                    }).then(function (data) {
+
+                    });
+                 });
+
+                
+
+            }
+
+function avanzada() {
+
+
+    window.open('renderconfig?argument=tables/{{ tablename | safe }}_config', '_self');
+    //window.parent.parent.addtabplus('renderconfig?argument=tables/{{ tablename | safe }}_config');
+                
+
+            }
+        </script>
+
+
+    </div>
+</body>
+</html>

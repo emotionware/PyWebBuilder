@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ tabletitle | safe }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+
+    <style>
+        iframe{
+    overflow:hidden;
+}
+    </style>
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+
+    <script>
+
+
+                //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null  ) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+        $(document).ready(function () {
+            var addButton,
+                addButtonWidth = 29,
+                index = 0;
+            // create jqxTabs.
+            $('#jqxTabs').jqxTabs({ autoHeight: true, width: getWidth("jqxTabs")-50,  showCloseButtons: true, theme: theme, animationType: 'fade',selectionTracker: true, scrollable:true, reorder: true });
+            var index = 0;
+            /*
+            $('#jqxTabs').on('tabclick', function (event) {
+                if (event.args.item == $('#unorderedList').find('li').length - 1) {
+                    var length = $('#unorderedList').find('li').length;
+                    $('#jqxTabs').jqxTabs('addAt', event.args.item, 'Sample title ' + index, "<iframe src='/home' style='width: 100%;height: 1200px' />");
+                    index++;
+                }
+            });
+
+             */
+        });
+
+
+        function tabtitle(title){
+
+            var indice=$('#jqxTabs').jqxTabs('selectedItem');
+            $('#jqxTabs').jqxTabs('setTitleAt', indice, title);
+
+        }
+
+
+function cerrartodo(){
+
+   var tabsCount = $("#jqxTabs").jqxTabs('length');
+
+for (var i = tabsCount-1; i > -1; i--) {
+
+		$("#jqxTabs").jqxTabs('removeAt', i);
+
+};
+
+}
+
+
+        function tabtible(title){
+
+            var indice=$('#jqxTabs').jqxTabs('selectedItem');
+            $('#jqxTabs').jqxTabs('setTitleAt', indice, title);
+
+        }
+
+
+             function addtabplus(url){
+
+
+                $('#jqxTabs').jqxTabs('addLast', 'Sin titulo', "<iframe src='" + url + "' style='width:100%;height:1200px;overflow:hidden;' />");
+
+             }
+
+             function addtabplustitle(url,title){
+
+
+                $('#jqxTabs').jqxTabs('addLast', title, "<iframe src='" + url + "' style='width:100%;height:1200px;overflow:hidden;' />");
+
+             }
+
+
+
+    </script>
+
+
+
+	<script type='text/javascript'>
+
+			var eldestino='';
+		var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) {
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+
+if (eldestino=='action'){
+
+                 $.ajax({
+                        url: "/voiceaction" + '?voice=' + saidText
+                    }).then(function (data) {
+
+window.parent.parent.addtabplus(data);
+
+                    });
+
+}
+
+
+
+
+
+		}
+
+
+		function startRecording(destino){
+			eldestino=destino;
+			recognition.start();
+		}
+
+
+
+
+
+		</script>
+
+
+
+</head>
+
+
+
+
+
+<body class='default'>
+    <div id="zonamenu">
+        {{ topmenu | safe }}
+    </div>
+
+    <div id='jqxWidget'   >
+        <div id='jqxTabs' style="width:100%;">
+            <ul style="margin-left: 30px;" id="unorderedList">
+                <li  hasclosebutton='true'>Home</li>
+            </ul>
+
+            <div>
+                <iframe src="home" style="width: 100%;height: 550px"  >
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

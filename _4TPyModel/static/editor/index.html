@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+
+    <style>
+
+        .dx-htmleditor-content img {
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, 0.15);
+    margin-top: 20px;
+}
+
+.caption {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.option {
+    margin-top: 10px;
+}
+
+
+    </style>
+
+
+      <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.light.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
+        <script src="https://cdn3.devexpress.com/jslib/20.1.3/js/dx.all.js"></script>
+
+
+
+
+
+<script>
+
+
+
+
+    $(function() {
+    var editor = $(".html-editor").dxHtmlEditor({
+        height: 550,
+        toolbar: {
+            items: [
+                "undo", "redo", "separator",
+                "bold", "orderedList", "bulletList",
+                "color"            ]
+        },
+        mediaResizing: {
+            enabled: true
+        }
+    }).dxHtmlEditor("instance");
+
+
+
+
+
+            var url_stringx = window.location.href;
+            var urlx = new URL(url_stringx);
+            var rutax = urlx.searchParams.get("ruta");
+
+
+                $.ajax({
+                    url: "/cargarnota" + '?ruta=' + rutax
+                }).then(function (data) {
+
+                   editor.option("value",data);
+
+                });
+
+
+
+    $('#guardar').click(function(){
+        //alert(editor.option("value"));
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var ruta = url.searchParams.get("ruta");
+
+
+
+                $.ajax({
+                    url: "/savenota" + '?ruta=' + ruta + '&datos=' + encodeURIComponent(editor.option("value"))
+                }).then(function (data) {
+
+
+
+                });
+
+
+        })
+
+
+
+
+        var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) {
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+		  	var elvalor=editor.option("value");
+
+
+		  	 editor.option("value",elvalor + ' ' + saidText);
+
+
+		  	//editor.SetHtml(saidText);
+
+		}
+
+
+
+
+    $('#dictar').click(function(){
+
+recognition.start();
+
+        })
+
+
+
+
+
+});
+
+
+
+
+
+
+</script>
+
+
+</head>
+<body>
+<table>
+    <tr>
+    <td> <input type="button" id="guardar"   value="Guardar" />   </td>
+    <td> <input type="button" id="dictar"   value="Dictar"  />   </td>
+
+    </tr>
+</table>
+<hr/>
+<div class="dx-viewport demo-container">
+    <div  class="html-editor">
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

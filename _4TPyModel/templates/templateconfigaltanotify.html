@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Configuración de Estatus de la tabla {{ tablename | safe }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+    <style>
+
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+
+            //check log in/////////////
+            if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+
+                if (Cookies.get('esadmin') == '0') {
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename={{ tablename | safe }}", "_self");
+                }
+
+
+            }
+            else {
+                //Redirect to login
+                window.open("login", "_self");
+            }
+
+
+    </script>
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '') { theme = 'start'; }
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+    </script>
+
+
+
+    <script>
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '') { theme = 'start'; }
+
+               $(document).ready(function() {
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
+               });
+
+        
+    </script>
+</head>
+<body>
+
+    <!--Grid-->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var url = "populator?tablename=TBLALTANOTIFY_{{ tablename | safe }}&CAMPODISPLAY_startsWith=&campofiltro=null&idobjetofiltro=null";
+            // prepare the data
+            var source =
+            {
+                datatype: "json",
+                datafields: [
+
+ 
+,{name: 'IDALTANOTIFY_{{ tablename | safe }}', type: 'string'}
+,{name: 'EMAIL', type: 'string'} 
+
+                ],
+                id: 'IDALTANOTIFY_{{ tablename | safe }}',
+                url: url
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            $("#grid").jqxGrid(
+                {
+                    width: 400,
+                    height:250 ,
+                    theme: theme,
+                    source: dataAdapter,
+                    columnsresize: true,
+                    altrows: true,
+                    columnsreorder: true,
+                    showfilterrow: true,
+                    filterable: true,
+                    sortable: true,
+                    selectionmode: 'multiplerowsadvanced',
+                    sortmode: "many",
+                    groupable: false,
+                    editable: true,
+                    pageable: false,
+                    columns: [
+
+        ,
+{text: 'IDALTANOTIFY_{{ tablename | safe }}', editable: false,  datafield: 'IDALTANOTIFY_{{ tablename | safe }}', theme:theme ,  columntype: 'text' , width: '200'}
+, { text: 'EMAIL', datafield: 'EMAIL', theme: theme, columntype: 'text', width: '140' }
+
+                    ]
+                });
+
+            var state = null;
+            var laorden = '';
+
+            $("#grid").on('cellendedit', function (event) {
+                var args = event.args;
+               // alert(args.datafield);
+               // alert(args.rowindex);
+               // alert(args.value);
+
+
+                var rowID = $("#grid").jqxGrid('getrowid', args.rowindex);
+
+
+                if (rowID == null || rowID == '' || rowID == 'undefined') {
+
+                    laorden = "actualizaralta" + '?tipomov=insert&tablename={{ tablename | safe }}&campo=' + args.datafield + '&valor=' + args.value + '&idobjeto=' + rowID;
+
+                } else {
+
+                //var sentencia = "update tblconfigcampos_{{ tablename | safe }} set " + args.datafield + "='" + args.value + "' where idconfigcampos_{{ tablename | safe }}='" + elvalor + "';";
+                laorden = "actualizaralta" + '?tipomov=update&tablename={{ tablename | safe }}&campo=' + args.datafield + '&valor=' + args.value + '&idobjeto=' + rowID ;
+}
+                 
+
+                 
+
+
+           
+                    $.ajax({
+                        url: laorden
+                    }).then(function (data) {
+                        regenerar();
+                    });
+               
+
+
+
+
+
+
+
+			});
+
+
+        });
+    </script>
+    <div id='jqxWidget'>
+        <h5>Configuración de Notificaciones de Alta de la tabla {{ tablename | safe }}</h5>
+
+        <div id="grid"></div>
+        <br />
+
+        <input id="agregar" value="Agregar Nuevo Email" type="button" onclick="agregar(); return false;" /> 
+        <br />
+        <input id="eliminar" value="Eliminar Email por ID" type="button" onclick="eliminar(); return false;" />
+
+        <script>
+
+            function agregar() {
+
+                var estatus = prompt("Email");
+                 $(document).ready(function () {
+                    $.ajax({
+                        url: "agregaralta?tablename={{ tablename | safe }}&estatus=" + estatus
+                    }).then(function (data) {
+
+                        if (data == 'ok') {
+
+                            location.reload();
+
+                        }
+
+                    });
+                 });
+
+            }
+            function eliminar() {
+
+                var idestatus = prompt("ID de la notificación de alta");
+                 $(document).ready(function () {
+                    $.ajax({
+                        url: "eliminaralta?tablename={{ tablename | safe }}&idestatus=" + idestatus
+                    }).then(function (data) {
+ 
+                        if (data == 'ok') {
+                           
+                            location.reload();
+
+                        }
+
+                    });
+                 });
+
+            }
+
+            function regenerar() {
+
+
+                 $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../builder?tablename={{ tablename | safe }}"
+                    }).then(function (data) {
+
+                    });
+                 });
+
+
+
+            }
+
+function avanzada() {
+
+
+    window.open('renderconfig?argument=tables/{{ tablename | safe }}_config', '_blank');
+
+
+
+            }
+        </script>
+
+
+    </div>
+</body>
+</html>

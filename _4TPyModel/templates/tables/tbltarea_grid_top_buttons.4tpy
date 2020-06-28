@@ -1,0 +1,106 @@
+﻿<script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxButton widgets.
+            $("#Button1").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button2").jqxButton({ textPosition: "center", width: 200, theme: theme });
+            $("#Button3").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button4").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button5").jqxButton({ textPosition: "center", width: 60,  theme: theme });
+            $("#Button6").jqxButton({ textPosition: "center", width: 60, theme: theme });
+            $("#Button7").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button8").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button9").jqxButton({ textPosition: "center", width: 120, theme: theme });
+
+
+            $('#Button1').on('click', function () {
+
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+                var campofiltro = url.searchParams.get("campofiltro");
+
+
+
+                if (campofiltro != 'null' && idobjetofiltro != 'null' && campofiltro != '' && idobjetofiltro != '' && campofiltro != null && idobjetofiltro != null  ) {
+                    window.open('formrender?vistadetalle=true&campo1=' + campofiltro + '&valor1=' + idobjetofiltro + '&form=tables/tbltarea_form', '_self');
+
+                } else {
+                    window.open('formrender?form=tables/tbltarea_form', '_self');
+
+                }
+
+
+            });
+            $('#Button2').on('click', function () {
+
+/*
+			var elnuevo=prompt('Indique el ID del nuevo propietario. Si tiene dudas, consulta la tabla de usuarios para conocer el ID');
+
+			if (elnuevo!=null){
+
+               var rowindexes = $('#grid').jqxGrid('getselectedrowindexes');
+
+               //indices separados por comas aplicar split
+               partes = String(rowindexes).split(",");
+
+               var arrayLength = partes.length;
+               for (var i = 0; i < arrayLength; i++) {
+                   console.log(partes[i]);
+
+                   var rowID = $('#grid').jqxGrid('getrowid', partes[i]);
+                   var data = $('#grid').jqxGrid('getrowdatabyid', rowID);
+
+
+                $.ajax({
+                    url: "/cambiaprop" + '?tablename=tbltarea&idobjeto=' + data.IDPROSPECTO + '&nuevoprop=' + elnuevo + '&campokey='
+                }).then(function (data) {
+
+                });
+               }
+			}
+
+
+ $("#refresh").click();
+*/
+
+            });
+            $('#Button3').on('click', function () {   });
+            $('#Button4').on('click', function () {   });
+            $('#Button5').on('click', function () {
+
+                var rutalimpia = 'rendergrid?grid=tables/tbltarea';
+                window.open(rutalimpia, '_self');
+
+            });
+            $('#Button6').on('click', function () {
+                var rutalimpia = 'rendergrid?grid=tables/tbltarea';
+                window.open(rutalimpia += '&buscar=' + document.getElementById('buscador').value , '_self');
+            });
+            $('#Button7').on('click', function () {   });
+            $('#Button8').on('click', function () {   });
+            $('#Button9').on('click', function () {   });
+
+
+
+
+        });
+</script>
+
+<div style="position:relative;left:10px; top:20px; margin-bottom:20px"  >
+    <table>
+        <tr>
+            <td><input type="button" style="visibility:visible" value="Nuevo" id='Button1' /></td>
+            <td><input type="button" style="visibility:hidden" value="Reasignar Propietario" id='Button2' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button3' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button4' /></td>
+            <td> <input type="text" id="buscador" name="buscador" style="border-radius: 15px;position:relative;top:24px;left:48px" width="40" height="20" /> </td>
+            <td><input type="button" style="visibility:visible;position:relative;top:24px;left:48px" value="Reset" id='Button5' /></td>
+
+            <td><input type="button" style="visibility:visible;position:relative;top:24px;left:48px" value="Buscar" id='Button6' /></td>
+
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button7' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button8' /></td>
+            <td><input type="button" style="visibility:hidden" value="TextButton" id='Button9' /></td>
+        </tr>
+    </table>
+</div>

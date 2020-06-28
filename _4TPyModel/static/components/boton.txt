@@ -1,0 +1,20 @@
+<script>
+
+$(document).ready(function () {
+var boton_ALEA_ = document.createElement("INPUT");
+boton_ALEA_.setAttribute("type", "button");
+boton_ALEA_.setAttribute("value", "Púlsame");
+boton_ALEA_.setAttribute("onclick", "metodo_ALEA_();");
+boton_ALEA_.setAttribute("style","position:relative;left:140px");
+
+document.getElementById('_POS_').appendChild(boton_ALEA_);
+});
+
+function metodo_ALEA_(){
+
+    alert("Hola mundo");
+
+}
+
+
+</script>

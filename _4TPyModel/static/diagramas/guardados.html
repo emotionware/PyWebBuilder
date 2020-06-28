@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagramas Guardados</title>
+
+      <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+
+<hr/>
+
+<div id="listado" ></div>
+
+<script>
+    //Listar diagramas del folder mediante Ajax
+
+function deldiagram(ruta){
+
+
+     $(document).ready(function () {
+                    $.ajax({
+                        url: "/" + ruta
+                    }).then(function (data) {
+
+                        alert(data);
+                         document.getElementById('listado').innerHTML = '';
+                        damefiles();
+
+                    });
+                });
+
+
+
+}
+
+ function damefiles() {
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/damediagramas"
+                    }).then(function (data) {
+
+                        datos = String(data);
+
+
+
+                        document.getElementById('listado').innerHTML = datos;
+
+
+
+
+                    });
+                });
+
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/damefilesslider" + '?tabla=tblagenda&idobjeto=' + $('#IDOBJECT').val()
+                    }).then(function (data) {
+
+                        $('#slider').css("'visibility': 'hidden'");
+                        if (data.length > 10) {
+
+                            document.getElementById('slider').innerHTML = data;
+                            $('#slider').css("'visibility': 'visible'");
+                        }
+
+
+                    });
+                });
+
+
+
+
+
+
+
+                }
+
+
+                damefiles();
+
+
+
+</script>
+
+</body>
+</html>

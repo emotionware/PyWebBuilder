@@ -1,0 +1,1 @@
+select * from tblaltanotify_tblagente order by IDALTANOTIFY_tblagente ASC 

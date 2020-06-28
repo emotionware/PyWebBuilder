@@ -1,0 +1,1402 @@
+﻿<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Voice Actions</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/scripts/moment.js"></script>
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/simulate/libs/bililiteRange.js"></script>
+    <script type="text/javascript" src="/static/simulate/libs/jquery.simulate.js"></script>
+    <script type="text/javascript" src="/static/simulate/src/jquery.simulate.drag-n-drop.js"></script>
+    <script type="text/javascript" src="/static/simulate/src/jquery.simulate.ext.js"></script>
+    <script type="text/javascript" src="/static/simulate/src/jquery.simulate.key-combo.js"></script>
+    <script type="text/javascript" src="/static/simulate/src/jquery.simulate.key-sequence.js"></script>
+
+
+
+    <!-- Add the stylesheet to the head -->
+<link rel="stylesheet" type="text/css" href="/static/clippy/build/clippy.css" media="all">
+
+<!-- Clippy.js -->
+<script src="/static/clippy/build/clippy.min.js"></script>
+
+
+
+    <style>
+        iframe{
+    overflow:hidden;
+}
+    </style>
+
+    <style>
+
+
+        @font-face {
+            font-family: pompadour;
+            src: url('/static/fonts/02_APompadourTextSample.ttf');
+        }
+
+
+        .ocultar {
+            visibility: hidden;
+            display: none
+        }
+
+        .ajustarposicion {
+            position: relative;
+            left: 10px;
+        }
+
+        html {
+            visibility: hidden;
+        }
+
+
+    </style>
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+   
+		<script type='text/javascript'>
+
+			var eldestino='';
+		var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) {
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+
+if (eldestino=='action'){
+
+                 $.ajax({
+                        url: "/voiceaction" + '?voice=' + saidText
+                    }).then(function (data) {
+
+//window.open(data,'_self');
+window.parent.parent.addtabplus(data);
+
+                    });
+
+} else{
+
+
+
+
+
+            if( document.getElementById(eldestino).getAttribute("type")==null  ) {
+    try {
+       document.getElementById(eldestino + "TextArea").value = document.getElementById(eldestino + "TextArea").value + ' ' + saidText;
+      }
+    catch ( e ) {
+          $('#' + eldestino + '.jqx-input').jqxNumberInput('val', saidText  );
+      }
+
+            }
+                else
+            {
+                document.getElementById(eldestino).value = saidText;
+
+            }
+
+
+       }
+
+
+
+
+
+		}
+
+
+		function startRecording(destino){
+			eldestino=destino;
+			recognition.start();
+		}
+
+
+
+
+
+		</script>
+
+
+    <script>
+
+
+
+
+
+        //validando permisos
+        $(document).ready(function () {
+            $.ajax({
+                url: "/validaracceso" + '?idusername=' + Cookies.get('idusername') + '&tablename=tblvoiceaction'
+            }).then(function (data) {
+
+
+                //checando que hacer
+                if (data == '00') {
+
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename=tblvoiceaction", "_self");
+                }
+
+                if (data == '10') {
+                    // alert('MOSTRAR Y NO GUARDAR');
+                    aviso("SOLO TIENE PERMISO DE LECTURA EN ESTA PÁGINA");
+
+                    //deshabilitar botón guardar
+                    document.getElementById("tablabotones").style.visibility = "hidden";
+                    document.getElementById("elimregs").style.visibility = "hidden";
+                }
+
+                if (data == '11') {
+                    // alert('MOSTRAR Y GUARDAR');
+                }
+
+                if (data == '01') {
+
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename=tblvoiceaction", "_self");
+                }
+
+            });
+        });
+
+
+
+
+        //Cargando datos del objeto
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var idobjeto = url.searchParams.get("idobjeto");
+
+
+
+        if (idobjeto != null && idobjeto != 'null'  && idobjeto != ''  && idobjeto != ' '  ) {
+        //validando permisos de pertenencia a estructura de grupos
+        $(document).ready(function () {
+            $.ajax({                
+
+                url: "/validapropiedad" + '?idobjeto=' + idobjeto + '&tipouser=' + Cookies.get('tipouser') + '&idusername=' + Cookies.get('idusername') + '&esadmin=' + Cookies.get('esadmin') + '&tablename=tblvoiceaction'
+
+            }).then(function (data) {
+
+
+                
+
+                if (data == '0') {
+
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename=tblvoiceaction", "_self");
+
+                }
+ 
+
+            });
+        });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        theme = Cookies.get('theme');
+
+          if (theme == null || theme == '' || theme == 'start') {
+
+             Cookies.set('theme', 'darkblue', { expires: 90 });
+
+        }
+
+
+
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+
+
+        //check ADMIN/////////////
+        soloadmin = '';
+        if (soloadmin == 'true' && Cookies.get('esadmin') != '1') {
+
+            //Redirect to no autorizaddo
+            window.open("noautorizado?tablename=tblvoiceaction", "_self");
+
+        };
+
+
+
+
+        //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "/validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("login", "_self");
+                        }
+
+                    });
+                 });
+
+
+
+
+
+
+
+
+function simulateWrapper(target, type, options) {
+
+            switch (type) {
+                case "key-sequence":
+                    options.delay = $('#sequence-delay').val();
+                    break;
+                case "drag":
+                case "drag-n-drop":
+                    logMouseMove = true;
+                    var interpolationType = $('#drag-interpolation-type').val(),
+                        delayType = $('#drag-delay-type').val();
+                    var shakyValue = $('#drag-shaky').val();
+                    options.interpolation = {
+                        shaky: (shakyValue.toLowerCase() === "true") ? true : parseInt(shakyValue)
+                    };
+                    options.interpolation[interpolationType] = $('#drag-interpolation').val();
+                    options.interpolation[delayType] = $('#drag-delay').val();
+                    break;
+            }
+
+            //$eventLog.append("####### Simulating "+type+" #######");
+            //$eventLog.incIndentation();
+
+            function simulationEnd() {
+                logMouseMove = false;
+                //$eventLog.decIndentation();
+                //$eventLog.append("################################");
+            }
+
+            switch (type) {
+                case "key-sequence":
+
+                    $(document).one("simulate-keySequence", simulationEnd);
+                    break;
+                case "drag":
+                    $(document).one("simulate-drag", simulationEnd);
+                    break;
+                case "drag-n-drop":
+                case "drop":
+                    $(document).one("simulate-drop", simulationEnd);
+                    break;
+            }
+
+            $(target).simulate(type, options);
+
+            if (type === "key-combo") {
+                simulationEnd();
+            }
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+    
+
+
+
+
+<script>
+  
+</script>
+
+
+
+
+</head>
+<body>
+
+
+
+    <script>
+
+        function cargardatos() {
+             //Cargando datos del objeto
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var idobjeto = url.searchParams.get("idobjeto");
+
+            if (idobjeto != null) {
+
+                        var gjson;
+                        gjson = getJSON("getidobject?tabla=tblvoiceaction&idobjeto=" + idobjeto);
+
+                        obj = JSON.parse(gjson);
+
+                          //asignando valores a los objetos cliente
+
+                             $('#IDVOICEACTION').jqxInput('val',  obj['IDVOICEACTION']);
+$('#MENSAJE').jqxInput('val',  obj['MENSAJE']);
+$('#URLACTION').jqxInput('val',  obj['URLACTION']);
+   document.getElementById('mail_URLACTION').href=obj['URLACTION'];     
+  $('#OBSERVACIONES').jqxTextArea('val',  obj['OBSERVACIONES']);
+$('#ELIMINADO').jqxCheckBox('val',  obj['ELIMINADO']);
+$('#BLOQUEADO').jqxCheckBox('val',  obj['BLOQUEADO']);
+var date_FECHAALTA=new Date(obj['FECHAALTA']);
+ date_FECHAALTA.setDate(date_FECHAALTA.getDate() + 1);    
+  $('#FECHAALTA').jqxDateTimeInput({value: date_FECHAALTA  });
+$('#PROPIETARIO').jqxInput('val',  obj['PROPIETARIO']);
+
+
+                            /*creando el nombre del campo llave de esta tabla en Js
+                            var elnombre ='tblvoiceaction'
+                            elnombre = elnombre.replace("tbl", "");
+                            elnombre = "ID" + elnombre
+                            elnombre = elnombre.toUpperCase();*/
+
+                             $('#IDOBJECT').jqxInput('val', idobjeto);
+                }
+        }
+
+                function cargardatos2(elobjeto) {
+            var idobjeto = elobjeto;
+
+            if (idobjeto != null) {
+
+                        var gjson;
+                        gjson = getJSON("getidobject?tabla=tblvoiceaction&idobjeto=" + idobjeto);
+
+                        obj = JSON.parse(gjson);
+
+                          //asignando valores a los objetos cliente
+
+                             $('#IDVOICEACTION').jqxInput('val',  obj['IDVOICEACTION']);
+$('#MENSAJE').jqxInput('val',  obj['MENSAJE']);
+$('#URLACTION').jqxInput('val',  obj['URLACTION']);
+   document.getElementById('mail_URLACTION').href=obj['URLACTION'];     
+  $('#OBSERVACIONES').jqxTextArea('val',  obj['OBSERVACIONES']);
+$('#ELIMINADO').jqxCheckBox('val',  obj['ELIMINADO']);
+$('#BLOQUEADO').jqxCheckBox('val',  obj['BLOQUEADO']);
+var date_FECHAALTA=new Date(obj['FECHAALTA']);
+ date_FECHAALTA.setDate(date_FECHAALTA.getDate() + 1);    
+  $('#FECHAALTA').jqxDateTimeInput({value: date_FECHAALTA  });
+$('#PROPIETARIO').jqxInput('val',  obj['PROPIETARIO']);
+
+
+                            /*creando el nombre del campo llave de esta tabla en Js
+                            var elnombre ='tblvoiceaction'
+                            elnombre = elnombre.replace("tbl", "");
+                            elnombre = "ID" + elnombre
+                            elnombre = elnombre.toUpperCase();*/
+
+                             $('#IDOBJECT').jqxInput('val', idobjeto);
+                }
+        }
+
+         function getJSON(url) {
+        var resp ;
+        var xmlHttp ;
+
+        resp  = '' ;
+        xmlHttp = new XMLHttpRequest();
+
+        if(xmlHttp != null)
+        {
+            xmlHttp.open( "GET", url, false );
+            xmlHttp.send( null );
+            resp = xmlHttp.responseText;
+
+            resp = resp.substring(1);
+            resp = resp.substring(0, resp.length - 2);
+
+        }
+
+        return resp ;
+        }
+
+        function convertJson(formData){
+            var unindexed_array = formData;
+            var indexed_array = {};
+
+            $.map(unindexed_array, function(n, i){
+                indexed_array[n['name']] = n['value'];
+            });
+
+            return indexed_array;
+        }
+
+        function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+        }
+
+        $(document).ready(function () {
+$('#theform').on('validationSuccess', function (event) {
+    toJson();
+});
+});
+        function procesarguardado() {
+
+            if ($('#BLOQUEADO').val() != true) {
+
+                $('#theform').jqxValidator('validate');
+
+            } else {
+
+                aviso('Registro Bloqueado - No puede modificarse');
+
+            }
+
+        }
+
+         function procesarguardado2() {
+
+                $('#theform').jqxValidator('validate');
+
+        }
+
+        function aviso(mensaje) {
+
+                document.getElementById('textonotificacion').innerHTML = mensaje;
+                $("#notificar").jqxNotification("open");
+
+        }
+
+        function toJson() {
+
+            var obj = [];
+
+            $('#theform input, #theform textarea, #theform select').each(
+				function(index){
+								var input = $(this);
+
+					laclave = input.attr('name');
+                    lakey = input.val();
+
+                    if (typeof lakey != 'object') {
+                          if (lakey.includes("'")){
+								        var newval='';
+								        newval=replaceAll(lakey,"'","_aptphe_");
+								        newval=replaceAll(lakey,"&","_and_");
+								        lakey=newval;
+                            }
+
+                           if (moment(lakey, "DD/MM/YYYY", true).isValid()) {
+
+						         lakey = lakey.replace(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/, "$3-$2-$1");
+
+                            }
+
+}
+
+                     var objTEMP = {};
+
+                    if (typeof lakey === 'string') {
+
+                        objTEMP[laclave] = lakey;
+                        obj.push(objTEMP);
+
+                    }
+                    else {
+
+                        objTEMP[laclave] = lakey.value;
+                        obj.push(objTEMP);
+
+                    }
+
+					//alert('Type: ' + input.attr('type') + 'Name: ' + input.attr('name') + 'Value: ' + input.val());
+				}
+			);
+
+	console.log(obj);
+
+//alert(JSON.stringify(obj));
+        var formData = JSON.stringify(obj);   //$("#theform").serializeArray();
+
+
+
+        formData=replaceAll(formData,"&","_and_");
+
+
+            console.log(formData);
+
+            //determinar si guardar o update
+
+            //if (document.getElementById("IDOBJECT").value != null) { updaterecord(convertJson(formData));  }
+
+            if ($('#IDOBJECT').val() != '') { updaterecord(formData); }
+            if ($('#IDOBJECT').val() == '' ) { guardarrecord(formData);  }
+
+        }
+
+        function numberWithCommas(n) {
+            if (n != null) {
+    var parts=n.toString().split(".");
+            return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+
+}
+}
+
+    function notificarcambioestatus(idobjetox) {
+
+        $.ajax({
+            async: true,
+            url: "/notificarcambioestatus" + '?tabla=tblvoiceaction&idobjeto=' + $('#IDOBJECT').val() + "&idestatus=" + $('#IDESTATUS_tblvoiceaction').val()
+                    }).then(function (data) {
+
+                        var a = data;
+
+                    });
+
+        }
+
+        function notificaralta(idobjetox) {
+
+            $.ajax({
+                 async: true,
+                        url: "/notificaralta" + '?tabla=tblvoiceaction&idobjeto=' +  $('#IDOBJECT').val()
+                    }).then(function (data) {
+
+                        var a = data;
+
+                    });
+
+        }
+
+        function guardarrecord(datos) {
+
+           // alert(JSON.stringify(datos));
+
+                   $(document).ready(function () {
+                    $.ajax({
+                        url: "/saverecord" + '?objeto=' + datos + '&idusername=' + Cookies.get('idusername') + '&usuario=' + Cookies.get('username') + '&tipomov=nuevo&idobjeto=' +  $('#IDOBJECT').val()  + '&tabla=tblvoiceaction&campokey=IDVOICEACTION'
+                    ,
+    error: function (request, error) {
+        console.log(arguments);
+        alert("No se guardó, hubo un error: verifique los datos que capturó. Confirme que no intenta registrar valores en campos que no admiten duplicados  ");
+    }
+
+                    }).then(function (data) {
+
+                       // alert(data);
+                        console.log(data);
+
+                        //recuperando el ultimo ID de esta tabla
+                         $(document).ready(function () {
+                    $.ajax({
+                        url: "/dameultimoid" + '?tablename=tblvoiceaction'
+                    }).then(function (data) {
+
+                        $("#IDOBJECT").jqxInput('val', data);
+                        $("#IDVOICEACTION").jqxInput('val', data) ;
+
+                        notificaralta( $('#IDOBJECT').val() );
+                        notificarcambioestatus( $('#IDOBJECT').val() );
+
+                        aviso('El Registro ha sido guardado');
+
+                        cargardatos2(data);
+
+                        actualizardatos();
+
+                    });
+                         });
+
+                    });
+                });
+
+        }
+
+        function updaterecord(datos) {
+
+           // alert(JSON.stringify(datos));
+
+                   $(document).ready(function () {
+                    $.ajax({
+                        url: "/saverecord" + '?objeto=' + datos + '&idusername=' + Cookies.get('idusername') + '&usuario=' + Cookies.get('username') + '&tipomov=update&idobjeto=' + $('#IDOBJECT').val()  + '&tabla=tblvoiceaction&campokey=IDVOICEACTION'
+                    }).then(function (data) {
+
+                       // alert(data);
+                        console.log(data);
+
+                        aviso('El Registro ha sido actualizado');
+
+                        notificarcambioestatus( $('#IDOBJECT').val() );
+
+                        cargardatos2($('#IDVOICEACTION').val() );
+
+                        actualizardatos();
+
+                    });
+                });
+
+        }
+
+        function clonarregistro(){
+
+            $("#IDOBJECT").jqxInput('val', '');
+            $("#IDVOICEACTION").jqxInput('val', '');
+
+            aviso("Pulse Guardar para terminar el proceso de clonación.");
+
+        }
+
+        function nuevoregistro() {
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var vistadetalle = url.searchParams.get("vistadetalle");
+            var campofiltro = url.searchParams.get("campo1");
+            var idobjetofiltro = url.searchParams.get("valor1");
+            if (vistadetalle == 'true') {
+                window.open('formrender?vistadetalle=true&campo1=' + campofiltro + '&valor1=' + idobjetofiltro + '&form=tables/tblvoiceaction_form', '_self');
+            } else {
+                window.open('formrender?form=tables/tblvoiceaction_form','_self');
+            }
+        }
+
+        //rendergrid?grid=tables/tblvoiceaction
+        function regresarx() {
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var vistadetalle = url.searchParams.get("vistadetalle");
+            var campofiltro = url.searchParams.get("campo1");
+            var idobjetofiltro = url.searchParams.get("valor1");
+            if (vistadetalle == 'true') {
+                window.open('rendergrid?vistadetalle=true&campofiltro=' + campofiltro + '&idobjetofiltro=' + idobjetofiltro + '&grid=tables/tblvoiceaction', '_self');
+            } else {
+                window.open('rendergrid?grid=tables/tblvoiceaction','_self');
+            }
+        }
+
+        function actualizardatos() {
+
+
+            //ejecutar refrescador
+                $.ajax({
+                        url: "/refrescador" + '?tabla=tblvoiceaction&idobjeto=' + $('#IDOBJECT').val()
+                    }).then(function (data) {
+
+                        aviso("Datos recalculados");
+
+                    });
+
+
+
+
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var vistadetalle = url.searchParams.get("vistadetalle");
+            var campofiltro = url.searchParams.get("campo1");
+            var idobjetofiltro = url.searchParams.get("valor1");
+
+        var tienehijos = false;
+
+        if (tienehijos == true) {
+            if ($('#IDVOICEACTION').val() != '') {
+                window.open('formrender?form=tables/tblvoiceaction_form&campo1=' + campofiltro + '&vistadetalle=true&valor1=' + idobjetofiltro + '&idobjeto=' + $('#IDVOICEACTION').val()  , '_self');
+            }
+            else {
+            }
+        }
+        else {
+                cargardatos2($('#IDVOICEACTION').val());
+        }
+
+        checaradjuntos();
+
+        }
+
+        function eliminarregistro() {
+
+            $('#ELIMINADO').jqxCheckBox('val',  true);
+
+        }
+
+        function bloquear() {
+
+            $('#BLOQUEADO').jqxCheckBox('val', true);
+            setTimeout(() => { procesarguardado2(); }, 1000);
+
+        }
+
+        function desbloquear() {
+
+            $('#BLOQUEADO').jqxCheckBox('val',  false);
+            setTimeout(() => { procesarguardado2(); }, 1000);
+
+        }
+
+        function openid() {
+
+            var elid = prompt("Escriba el ID del elemento");
+            window.open('formrender?form=tables/tblvoiceaction_form&idobjeto=' + elid, '_self');
+
+        }
+    </script>
+    <div id="zonamenu">
+
+    </div>
+
+    <!--Titulo de la pagina-->
+    <div id="zonatitulo">
+        <h5 id="titulopagina" style="position:relative; top:5px;left:10px"> <table><tr><td> <a href="home"> <img src="/static/iconos/form.png" height="32" />  </a>    </td></td><td>Voice Actions</td><td>/Id:</td><td><input class="inputx_idobject" id="IDOBJECT" type="text" style="width:125px;height:23px;font-size:19px;border-width: 0px;color:#2fa4e7;font-weight: 500;" /></td></tr></table></h5>
+    </div>
+
+    <!--Zona de Botones-->
+    ﻿<script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxButton widgets.
+            $("#Button1").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button2").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button3").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button4").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button5").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button6").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button7").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button8").jqxButton({ textPosition: "center", width: 120, theme: theme });
+            $("#Button9").jqxButton({ textPosition: "center", width: 120, theme: theme });
+
+
+
+            $('#Button1').on('click', function () {
+
+
+            });
+            $('#Button2').on('click', function () {
+
+
+
+            });
+            $('#Button3').on('click', function () {   });
+            $('#Button4').on('click', function () {   });
+            $('#Button5').on('click', function () {
+
+
+            });
+            $('#Button6').on('click', function () {
+
+            });
+            $('#Button7').on('click', function () {   });
+            $('#Button8').on('click', function () {   });
+            $('#Button9').on('click', function () {   });
+
+
+
+        });
+</script>
+
+<div style="position:relative;left:700px;top:-35px;visibility: hidden">
+    <table>
+        <tr>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="Nuevo..." id='Button1' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button2' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button3' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button4' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button5' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button6' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button7' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top:13px;" value="TextButton" id='Button8' /></td>
+            <td><input type="button" style="visibility:hidden;position:relative;top: 13px;"value="TextButton" id='Button9' /></td>
+        </tr>
+    </table>
+</div>
+
+    <!--Form-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            
+
+         // Create jqxTabs.
+            $('#tabs').jqxTabs({ autoHeight: true, width: '97%', position: 'top', theme: theme });
+
+         $('#tabs').on('tabclick', function (event) {
+     var tabclicked = event.args.item;
+
+             var nombrex = 'hijo_' + (tabclicked-2);
+
+             
+
+         });
+
+            $("#IDVOICEACTION").jqxInput({  theme:theme , disabled:true, height: 25, width: 250 });
+$("#MENSAJE").jqxInput({  theme:theme , disabled:false, height: 25, width: 250 });
+$("#URLACTION").jqxInput({ theme:theme , disabled:false, height: 25, width: 250 });
+$("#OBSERVACIONES").jqxTextArea({ theme:theme , disabled:false, height: 100, width: 250 });
+$("#ELIMINADO").jqxCheckBox({ hasThreeStates:false, theme:theme , disabled:true,height: 25, width: 250 });
+$("#BLOQUEADO").jqxCheckBox({ hasThreeStates:false, theme:theme , disabled:true,height: 25, width: 250 });
+$("#FECHAALTA").jqxDateTimeInput({ theme:theme ,disabled:true, height: 25, width: 250 });
+$("#PROPIETARIO").jqxInput({  theme:theme , disabled:false, height: 25, width: 250 });
+
+
+            $("#IDOBJECT").jqxInput({ height: 23, width: 125 });
+
+             $('#theform').jqxValidator({ hintType: 'label', rules: []});
+
+          cargardatos();
+
+        });
+    </script>
+
+    <script>
+
+         $(document).ready(function () {
+
+           
+
+
+
+
+
+             $("#button_grid").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_nuevo").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_guardar").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_actualizar").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_bloquear").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_desbloquear").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_clonar").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_ir_id").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_eliminar").jqxButton({ textPosition: "center", width: 80, theme: theme });
+            $("#button_config").jqxButton({ textPosition: "center", width: 80   , theme: theme });
+
+
+
+
+        });
+
+
+
+
+
+
+
+    </script>
+
+    <div style="position:relative;top:-20px;" id='tabs'>
+        <ul>
+            <li style="margin-left: 30px;">Formulario</li>
+            <li>Adjuntos & Notas</li>
+
+            
+
+
+
+        </ul>
+
+
+
+        <div>
+
+            <div style="position:relative;left:30px;top:8px">
+                <table  id="tablabotones">
+                    <tr>
+
+
+
+                        <td   >
+                            <a id="botonregresar" href="javascript:regresarx();">
+
+                                <input type="button" id="button_grid" value="Ir al Grid" />
+                            </a>
+                        </td>
+
+
+
+                          <td>
+                            <a href="javascript: nuevoregistro();">
+                                <input type="button" id="button_nuevo" value="Nuevo" />
+                            </a>
+                        </td>
+
+
+                        <td    >
+                            <a href="javascript:procesarguardado();">
+                              <input type="button" id="button_guardar" value="Guardar" />
+                            </a>
+                        </td>
+
+
+
+                        <td>
+                            <a href="javascript:actualizardatos();">
+                              <input type="button" id="button_actualizar" value="Actualizar" />
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="javascript:bloquear();">
+                            <input type="button" id="button_bloquear" value="Bloquear" />
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="javascript:desbloquear();">
+                                <input type="button" id="button_desbloquear" value="Desbloquear" />
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="javascript: clonarregistro();">
+                           <input type="button" id="button_clonar" value="Clonar" />
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="javascript: openid();">
+                      <input type="button" id="button_ir_id" value="Id al ID" />
+                            </a>
+                        </td>
+
+                        <td  id="elimregs"   >
+                            <a href="javascript: eliminarregistro();">
+                             <input type="button" id="button_eliminar" value="Eliminar" />
+                            </a>
+                        </td>
+
+                         <td>
+                            <a target="_self" href="javascript:window.parent.parent.addtabplus('configcampos?tablename=tblvoiceaction')">
+                                <input type="button" id="button_config" value="Config" />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <hr />
+            <form id="theform" name="theform">
+                <table valign="top">
+                    <tr valign="top">
+                        <td valign="top"> <table class="ajustarposicion"><tr valign='top'   ><td  colspan='3'  ><h5>A. DATOS</h5> </tr><div  style="position:relative;left:10px" id="campoIDVOICEACTION" ><tr   class="filatop_IDVOICEACTION"  ><td><div id="top_IDVOICEACTION" /></td><td> <div id="slider" />  </td><td></td></tr><tr   class="filahalf_IDVOICEACTION" ><td class="caption_Id" >Id</td><td><input disabled  name="IDVOICEACTION" style="" class="input_IDVOICEACTION"  type="text" tabindex="1" id="IDVOICEACTION"/> </td><td> <div id="left_IDVOICEACTION" /> </td></tr><tr  class="filabottom_IDVOICEACTION" ><td><div id="bottom_IDVOICEACTION" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div></td><td></td></tr></div>
+<div  style="position:relative;left:10px" id="campoMENSAJE" ><tr   class="filatop_MENSAJE"  ><td><div id="top_MENSAJE" /></td><td></td><td></td></tr><tr   class="filahalf_MENSAJE" ><td class="caption_Mensaje" >Mensaje</td><td><input   name="MENSAJE" style="" class="input_MENSAJE"  type="text" tabindex="2" id="MENSAJE"/> </td><td>  <a href='javascript:startRecording("MENSAJE");' > <img id="microphone_MENSAJE" src="/static/iconos/mic.png"  /> </a>  <div id="left_MENSAJE" /> </td></tr><tr  class="filabottom_MENSAJE" ><td><div id="bottom_MENSAJE" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div></td><td></td></tr></div>
+<div  style="position:relative;left:10px" id="campoURLACTION" ><tr   class="filatop_URLACTION"  ><td><div id="top_URLACTION" /></td><td></td><td></td></tr><tr   class="filahalf_URLACTION" ><td class="caption_Url" >Url</td><td> <input  name="URLACTION"   style=""    class="input_URLACTION"  type="text" tabindex="3" id="URLACTION"/><a target="_blank" id="mail_URLACTION" >Open</a> </td><td style="text-align:left"><div id="left_URLACTION" /> </td></tr> <tr><td></td><td><a href="https://doc.new"  target="_blank" ><div  style="font-size:10px;margin-bottom:5px;" >*NewDoc</a><a href="https://sheet.new"  target="_blank" >*NewSheet</a><a href="https://slide.new"  target="_blank" >*NewSlide</a><a href="https://docs.google.com/drawings/create"  target="_blank" >*NewDrawing</a></div></td><td></td></tr><tr  class="filabottom_URLACTION" ><td><div id="bottom_URLACTION" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div></td><td></td></tr> 
+<div  style="position:relative;left:10px" id="campoOBSERVACIONES" ><tr   class="filatop_OBSERVACIONES"  ><td><div id="top_OBSERVACIONES" /></td><td></td><td></td></tr><tr   class="filahalf_OBSERVACIONES" ><td valign="Top" class="caption_Observaciones" >Observaciones</td><td> <textarea   name="OBSERVACIONES"   style=""  class="input_OBSERVACIONES" tabindex="4" id="OBSERVACIONES"></textarea></td><td><a href='javascript:startRecording("OBSERVACIONES");' > <img id="microphone_OBSERVACIONES" src="/static/iconos/mic.png"  /> </a> <div id="left_OBSERVACIONES" /> </td></tr><tr  class="filabottom_OBSERVACIONES" ><td><div id="bottom_OBSERVACIONES" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div> </td><td></td></tr></div>
+</table></td>
+                        <td valign="top"> <table class="ajustarposicion"><tr valign='top'   ><td  colspan='3'  ><h5>X. CONTROL</h5> </tr><div  style="position:relative;left:10px" id="campoELIMINADO" ><tr   class="filatop_ELIMINADO"  ><td><div id="top_ELIMINADO" /></td><td></td><td></td></tr><tr   class="filahalf_ELIMINADO" ><td class="caption_Eliminado" >Eliminado</td><td> <div  name="ELIMINADO"    style="border-radius:6px;"  class="input_ELIMINADO" tabindex="13" id="ELIMINADO"/> </td><td><div id="left_ELIMINADO" /> </td></tr><tr  class="filabottom_ELIMINADO" ><td><div id="bottom_ELIMINADO" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div> </td><td></td></tr></div>
+<div  style="position:relative;left:10px" id="campoBLOQUEADO" ><tr   class="filatop_BLOQUEADO"  ><td><div id="top_BLOQUEADO" /></td><td></td><td></td></tr><tr   class="filahalf_BLOQUEADO" ><td class="caption_Bloqueado" >Bloqueado</td><td> <div  name="BLOQUEADO"    style="border-radius:6px;"  class="input_BLOQUEADO" tabindex="14" id="BLOQUEADO"/> </td><td><div id="left_BLOQUEADO" /> </td></tr><tr  class="filabottom_BLOQUEADO" ><td><div id="bottom_BLOQUEADO" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div> </td><td></td></tr></div>
+<div  style="position:relative;left:10px" id="campoFECHAALTA" ><tr   class="filatop_FECHAALTA"  ><td><div id="top_FECHAALTA" /></td><td></td><td></td></tr><tr   class="filahalf_FECHAALTA" ><td class="caption_FechaAlta" >Fecha Alta</td><td> <div  name="FECHAALTA"    style="border-radius:6px;"  class="input_FECHAALTA" tabindex="15" id="FECHAALTA"/> </td><td><div id="left_FECHAALTA" /> </td></tr><tr  class="filabottom_FECHAALTA" ><td><div id="bottom_FECHAALTA" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div></td><td></td></tr></div></div>
+<div  style="position:relative;left:10px" id="campoPROPIETARIO" ><tr   class="filatop_PROPIETARIO"  ><td><div id="top_PROPIETARIO" /></td><td></td><td></td></tr><tr   class="filahalf_PROPIETARIO" ><td class="caption_Propietario" >Propietario</td><td><input   name="PROPIETARIO" style="" class="input_PROPIETARIO"  type="text" tabindex="16" id="PROPIETARIO"/> </td><td>    <div id="left_PROPIETARIO" /> </td></tr><tr  class="filabottom_PROPIETARIO" ><td><div id="bottom_PROPIETARIO" /></td><td><div  style="font-size:10px;margin-bottom: 5px;font-style: italic;color: navy;font-variant: all-small-caps;;" ></div></td><td></td></tr></div>
+</table></td>
+                    </tr>
+                </table>
+            </form>
+
+            <!--Espacio vacio-->
+            <div style="height:100px"></div>
+        </div>
+
+        <div style="height:1200px;overflow: hidden">
+            <div style="position:relative;left:30px">
+
+                <hr />
+                <h5>Archivos adjuntos asociados al registro</h5>
+
+                <hr>
+                <form action="upload" method="post" id="misfiles" enctype="multipart/form-data">
+                    <input type="file" multiple="" name="file[]" width="150" /><br /><br />
+                    <input type="button" onclick="enviardatos();" width="150" value="Subir archivos " />
+                </form>
+
+                <hr />
+
+                <h5>Lista de Archivos</h5>
+
+                <div id="misarchivosdiv"></div>
+
+                <script>
+
+                    function enviardatos() {
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+                        var campo1 = url.searchParams.get("campo1");
+                        var valor1 = url.searchParams.get("valor1");
+                        var vistadetalle = url.searchParams.get("vistadetalle");
+
+                if ($('#IDOBJECT').val() != null) {
+                document.getElementById("misfiles").action = "upload?campo1=" + campo1 + "&valor1=" + valor1 + "&vistadetalle=" + vistadetalle + "&tabla=tblvoiceaction&objeto=" + $('#IDOBJECT').val();
+                document.getElementById("misfiles").submit();}
+
+                }
+
+                    function damefiles() {
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/damefiles" + '?tabla=tblvoiceaction&idobjeto=' + $('#IDOBJECT').val()
+                    }).then(function (data) {
+
+                        datos = String(data);
+
+                        datos = datos.replace('&para=', '&para=' + $("#EMAIL").val());
+
+
+
+                        document.getElementById('misarchivosdiv').innerHTML = datos;
+
+
+
+
+                    });
+                });
+
+
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "/damefilesslider" + '?tabla=tblvoiceaction&idobjeto=' + $('#IDOBJECT').val()
+                    }).then(function (data) {
+
+                        $('#slider').css("'visibility': 'hidden'");
+                        if (data.length > 10) {
+
+                            document.getElementById('slider').innerHTML = data;
+                            $('#slider').css("'visibility': 'visible'");
+                        }
+
+
+                    });
+                });
+
+
+
+
+
+
+
+                }
+
+                //volcando archivos
+                 damefiles();
+                </script>
+
+
+            </div>
+
+
+        </div>
+
+        
+    </div>
+
+    <script>
+$(document).ready(function () { $("#IDVOICEACTION").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#IDVOICEACTION").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#MENSAJE").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#MENSAJE").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#URLACTION").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#URLACTION").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#OBSERVACIONES").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#OBSERVACIONES").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#ELIMINADO").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#ELIMINADO").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#BLOQUEADO").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#BLOQUEADO").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#FECHAALTA").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#FECHAALTA").val(); 
+ });}); 
+
+ $(document).ready(function () { $("#PROPIETARIO").on("change", 
+ function (event) { 
+ // var type = event.args.type; // keyboard, mouse or null depending on how the value was changed. 
+   // var value = $("#PROPIETARIO").val(); 
+ });}); 
+
+ </script>
+
+    
+
+    <div id="notificar">
+        <div id="textonotificacion">
+            Welcome to our website.
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+        function delfile(ruta) {
+
+             $.ajax({
+            async: true,
+            url: ruta
+                    }).then(function (data) {
+
+                        if (data == 'ok') {
+                            aviso("Archivo Eliminado");
+                            document.getElementById('misarchivosdiv').innerHTML = '';
+                            damefiles();
+                        }
+
+                    });
+
+        }
+
+
+
+        $(document).ready(function () {
+
+            $("#notificar").jqxNotification({
+                width: 250, position: "top-right", opacity: 0.9,
+                autoOpen: false, animationOpenDelay: 800, autoClose: true, autoCloseDelay: 3000, theme:theme  , blink:false, template: "info"
+            });
+
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var campo1 = url.searchParams.get("campo1");
+                var valor1 = url.searchParams.get("valor1");
+                var campo2 = url.searchParams.get("campo2");
+                var valor2 = url.searchParams.get("valor2");
+                var campo3 = url.searchParams.get("campo3");
+                var valor3 = url.searchParams.get("valor3");
+                var campo4 = url.searchParams.get("campo4");
+                var valor4 = url.searchParams.get("valor4");
+                var campo5 = url.searchParams.get("campo5");
+                var valor5 = url.searchParams.get("valor5");
+                var campo6 = url.searchParams.get("campo6");
+                var valor6 = url.searchParams.get("valor6");
+                var campo7 = url.searchParams.get("campo7");
+                var valor7 = url.searchParams.get("valor7");
+                var campo8 = url.searchParams.get("campo8");
+                var valor8 = url.searchParams.get("valor8");
+                var campo9 = url.searchParams.get("campo9");
+                var valor9 = url.searchParams.get("valor9");
+                var campo10 = url.searchParams.get("campo10");
+                var valor10 = url.searchParams.get("valor10");
+
+                if (campo1 != 'null' && campo1 != null ) { $("#" + campo1).jqxInput('val', valor1); }
+                if (campo2 != 'null' && campo2 != null ) { $("#" + campo2).jqxInput('val', valor2); }
+                if (campo3 != 'null' && campo3 != null ) { $("#" + campo3).jqxInput('val', valor3); }
+                if (campo4 != 'null' && campo4 != null ) { $("#" + campo4).jqxInput('val', valor4); }
+                if (campo5 != 'null' && campo5 != null ) { $("#" + campo5).jqxInput('val', valor5); }
+                if (campo6 != 'null' && campo6 != null ) { $("#" + campo6).jqxInput('val', valor6); }
+                if (campo7 != 'null' && campo7 != null ) { $("#" + campo7).jqxInput('val', valor7); }
+                if (campo8 != 'null' && campo8 != null ) { $("#" + campo8).jqxInput('val', valor8); }
+                if (campo9 != 'null' && campo9 != null ) { $("#" + campo9).jqxInput('val', valor9); }
+                if (campo10 != 'null' && campo10 != null ) { $("#" + campo10).jqxInput('val', valor10); }
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var vistadetalle = url.searchParams.get("vistadetalle");
+
+           // if ( window.location !== window.parent.location ) {
+  // The page is in an iframe
+         //   } else {
+  // The page is not in an iframe
+       //     }
+
+                if (vistadetalle == 'true' && window.location !== window.parent.location  ) {
+
+               // document.getElementById('zonatitulo').style.display = 'none';
+                document.getElementById('zonamenu').style.display = 'none';
+            }
+
+                verificar();
+
+                checaradjuntos();
+
+            });
+
+            function verificar() {
+
+           //disable si no hay un IDOBJECT
+                
+
+            }
+
+           function checaradjuntos() {
+
+                        if ( $('#IDVOICEACTION').val()    != '') {
+                    $('#tabs').jqxTabs('enableAt', 1);
+                } else {
+                    $('#tabs').jqxTabs('disableAt', 1);
+                }
+
+            }
+    </script>
+
+    <style>	h5{	color: #982d2d;    font-family: pompadour; font-size: 19px;    font-variant: small-caps;}	td{		color:#0014ff	;    font-family: pompadour;}</style>
+
+
+
+
+
+
+
+    <script>
+
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+window.parent.parent.tabtitle('Voice Actions');
+
+        //Cargando datos del objeto
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var idobjeto = url.searchParams.get("idobjeto");
+
+
+
+        if (idobjeto != null && idobjeto != 'null'  && idobjeto != ''  && idobjeto != ' '  ) {
+         window.parent.parent.tabtitle('Voice Actions' + ' ' + idobjeto );
+        }
+
+
+
+
+    </script>
+
+
+   
+<script>
+  
+</script>
+
+</body>
+</html>

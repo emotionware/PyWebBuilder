@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Login Perspectiva</title>
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+
+
+     <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+
+</head>
+<body>
+<div  style="margin-bottom:175px"  ></div>
+<center>
+
+<h2>{{ titulo  | safe }}</h2>
+
+<form  method="POST"  name="miforma" id="miforma" action="/checkloginpers?tabla={{ tablename | safe }}&campo={{ campo_validacion | safe }}">
+Identificador<br>
+<input id="codigo" name="codigo" type="password" style="width:350px;"  /><br>
+
+
+<br><br>
+<input type="button"  onclick="validar();"   value="Login"    >
+</form>
+
+<script>
+
+    function validar(){
+
+    Cookies.set('uidp', document.getElementById("codigo").value , { expires: 90 });
+
+
+document.getElementById("miforma").submit();
+    }
+
+</script>
+
+
+</center>
+
+</body>
+</html>

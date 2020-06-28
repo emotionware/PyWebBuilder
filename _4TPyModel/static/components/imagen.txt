@@ -1,0 +1,10 @@
+<script>
+
+$(document).ready(function () {
+var imagen_ALEA_ = document.createElement('img');
+imagen_ALEA_.src = "https://www.adslzone.net/app/uploads/2019/04/borrar-fondo-imagen.jpg";
+document.getElementById('_POS_').appendChild(imagen_ALEA_);
+
+});
+
+</script>
