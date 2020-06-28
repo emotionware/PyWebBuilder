@@ -5,7 +5,7 @@
 PyWebBuilder is an open source project for developing enterprise-data web projects of any kind.
 
 It uses MySQL as database or MariaDB.
-Automatically creates source code integrated on one Python Projects, a Flask project.
+Automatically creates source code integrated on one Python Project, as a Flask project.
 
 Runs on Linux and Windows, i suppose on Mac too, i have nost tested (i dont have a Mac).
 
