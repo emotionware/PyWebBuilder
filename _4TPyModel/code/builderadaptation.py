@@ -376,7 +376,7 @@ class builderadaptation:
                      encoding='utf8')
         f.write("select " + quierotodosloscampos(
                 tablename) + ", concat('<a style=\"color:blue;\" href=\"javascript:modoedicion('," + campox[
-                        0] + ",');\"" + ">Editar</a>') as EDITAR from " + tablename + "  order by " + campox[
+                        0] + ",');\"" + ">Edit</a>') as EDITAR from " + tablename + "  order by " + campox[
                         0] + " desc")
         # f.write('select * from ' + tablename + ' order by ID' + tablename.replace('tbl','') + ' desc '  )
         f.close()

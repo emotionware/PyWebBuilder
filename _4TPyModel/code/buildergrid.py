@@ -158,7 +158,7 @@ def datafieldsx2(tablename):
     tipox=ordencampos(tablename,'buildtype')
     mgrid=ordencampos(tablename,'mostrargrid')
 
-    resultado="{ text: 'Editar', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass }\r,"
+    resultado="{ text: 'Edit', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass }\r,"
 
     contador=0
     for campo in campox:        
