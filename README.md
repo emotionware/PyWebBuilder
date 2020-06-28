@@ -13,11 +13,11 @@ It works better with Google Chrome.
 
 What kind of projects you can develop?
 Database driven apps like...
-CRM, ERP of any kind, administrative solucionts, account solutions, data control projects of any kind; customers, products, etc. 
+CRM, ERP of any kind, administrative solutions, account solutions, data control projects of any kind; customers, products, etc. 
 
-I developed with and abstraction idea of data model applications.
+I developed PyWebBuilder with and abstraction idea of data model applications.
 
-Everything here data related has two main web forms; 
+Everything here (data related pages) has two main web pages; 
 
 - the datagrid view
 - the form view
@@ -26,19 +26,48 @@ With the datagrid view you can admin multiple records, delete, open, block, find
 With the form view you can edit one record and do any actions related to that record.
 
 ## Speed is the point
-I developed this solution for making developer life easier. As a developer when i need to create a solution usually the process it's very similar. Providers, customers, productos, sells, discounts... records... tables... querys... reports... Usually all lands at same technical solutions.... So, can we automate all this?... this is the point with PyWelBuilder.
+I developed this solution for making developer life easier. As a developer when i need to create a solution usually the process it's very similar... providers, customers, products, sells, discounts... records... tables... querys... reports... Usually all lands at same technical solutions.... So, can we automate all this?... this is the point with PyWelBuilder.
 
-## How?
+## How can i create a solution?
 
 ### First - The database
 All projects starts from a mysql database skeleton called vacio.sql (you can find this skeleton inside the folder database _4TPyModel/database)
 
 #### Step 1 - Create an empty database on MySQL or MariaDB
-#### Step 2 - Load vacio.sql inside your database
+#### Step 2 - Load vacio.sql inside your database. 
+You can do this from terminal on linux/windows with mysql.exe or mysql -u root -p databasebame < path/to/vacio.sql
 #### Step 3 - Update dbstring.py (_4TPyModel/code/dbstring.py) with database info like username, database name, server ip or name and port (usually 3306)
 #### Step 4 - You can now run the flask project. I recommend using PyCharm Community Edition (runserver.py)
 
-### Second - The data pages 
+### Second - Creating the data pages
+
+Well this the most important point here. PyWebBuilder can understand some logic about tables creation. We must follow some rules;
+
+#### First Rule. All tables names are lower case
+#### Second Rule. All tables name begins with tbl
+Example;
+tblcustomer, tblprovider, tblsell,e tc...
+#### Thrid Rule. First field on every table must;
+1. All fields must be UPPERCASED
+2. First field must start with ID plus the tablename without tbl. Example. A table called tblcustomer bust have the first field called IDCUSTOMER
+3. The first field is the keyfield is INT (11) auto increment and not null. IT's a keyfield.
+#### All fields must be UPPERCASED
+
+
+### Field Types
+PyWebBulder understand some field types.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
