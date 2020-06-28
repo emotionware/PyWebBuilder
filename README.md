@@ -55,20 +55,12 @@ tblcustomer, tblprovider, tblsell,e tc...
 
 
 ### Field Types
-PyWebBulder understand some field types.
+PyWebBulder understand some field types. PyWebBulder checks the comment made on every field on mysql comments field area. This is the key concept for PyWebBuilder understand what kind of control must create.
 
+The field types are; short text, big text, date, time, sublinked table, numeric field, money field, url field, email field, whatsapp field, password field, rating field, checkbox field, and calendar field.
 
-
-
-
-
-
-
-
-
-
-
-
+Please see this video for understand this better. 
+LINK TO VIDEO ABOUT CREATING FIELDS
 
 
 
