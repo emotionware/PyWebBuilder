@@ -1,5 +1,7 @@
 https://creativecommons.org/licenses/by-nc/3.0/legalcode
 
+https://creativecommons.org/licenses/by-nc/3.0/es/
+
 Creative Commons Attribution-NonCommercial 3.0 
 
 License
