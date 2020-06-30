@@ -207,7 +207,7 @@ window.parent.parent.addtabplus(data);
 
                 if (data == '10') {
                     // alert('MOSTRAR Y NO GUARDAR');
-                    aviso("SOLO TIENE PERMISO DE LECTURA EN ESTA PÁGINA");
+                    aviso("YOU JUST HAVE READ PERMISSION ON THIS PAGE");
 
                     //deshabilitar botón guardar
                     document.getElementById("tablabotones").style.visibility = "hidden";
@@ -215,7 +215,7 @@ window.parent.parent.addtabplus(data);
                 }
 
                 if (data == '11') {
-                    // alert('MOSTRAR Y GUARDAR');
+                    // alert('SHOW AND SAVE');
                 }
 
                 if (data == '01') {
@@ -651,7 +651,7 @@ $('#theform').on('validationSuccess', function (event) {
                     ,
     error: function (request, error) {
         console.log(arguments);
-        alert("No se guardó, hubo un error: verifique los datos que capturó. Confirme que no intenta registrar valores en campos que no admiten duplicados  ");
+        alert("Saving Error. The record did not save. Check your data");
     }
 
                     }).then(function (data) {
@@ -754,7 +754,7 @@ $('#theform').on('validationSuccess', function (event) {
                         url: "/refrescador" + '?tabla={{ tablename | safe }}&idobjeto=' + $('#IDOBJECT').val()
                     }).then(function (data) {
 
-                        aviso("Datos recalculados");
+                        aviso("Data Recalculated");
 
                     });
 

@@ -192,7 +192,7 @@ class builderadaptation:
         sentencia = ''
         for cadacampo in todosloscampos:
             if 'AUXILIAR' in cadacampo or 'GUID' in cadacampo or 'IMAGENADJUNTA' in cadacampo or 'IDESTATUS_' in cadacampo or 'FECHAMODIFICACION' in cadacampo or 'HORAMODIFICACION' in cadacampo or 'ULTIMOUSUARIO' in cadacampo or 'PROPIETARIO' in cadacampo or 'CAMPODISPLAY' in cadacampo or 'HORAMODIFICACION' in cadacampo or 'FECHAMODIFICACION' in cadacampo or 'ULTIMOUSUARIO' in cadacampo or 'CREADOR' in cadacampo:
-                sentencia = "insert into tblconfigcampos_" + tablename + "(campo,caption,grupo,orden,editable,mostrarcampo,ancho,alto,helptext,obligatorio) values('" + cadacampo + "','" + cadacampo + "','A. DATOS','0','1','0','250','25','','0');"
+                sentencia = "insert into tblconfigcampos_" + tablename + "(campo,caption,grupo,orden,editable,mostrarcampo,ancho,alto,helptext,obligatorio) values('" + cadacampo + "','" + cadacampo + "','A. DATA','0','1','0','250','25','','0');"
 
                 resultado = dbexecutor.executor(sentencia)
             else:
@@ -201,7 +201,7 @@ class builderadaptation:
 
                     resultado = dbexecutor.executor(sentencia)
                 else:
-                    sentencia = "insert into tblconfigcampos_" + tablename + "(campo,caption,grupo,orden,editable,mostrarcampo,ancho,alto,helptext,obligatorio) values('" + cadacampo + "','" + cadacampo + "','A. DATOS','0','1','1','250','25','','0');"
+                    sentencia = "insert into tblconfigcampos_" + tablename + "(campo,caption,grupo,orden,editable,mostrarcampo,ancho,alto,helptext,obligatorio) values('" + cadacampo + "','" + cadacampo + "','A. DATA','0','1','1','250','25','','0');"
 
                     resultado = dbexecutor.executor(sentencia)
 
