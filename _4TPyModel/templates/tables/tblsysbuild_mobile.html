@@ -1,0 +1,1152 @@
+﻿<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Tablas en el Flujo de Construcción</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+
+    <style>
+        iframe{
+    overflow:hidden;
+}
+    </style>
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+    <!-- Add the stylesheet to the head -->
+<link rel="stylesheet" type="text/css" href="/static/clippy/build/clippy.css" media="all">
+
+<!-- Clippy.js -->
+<script src="/static/clippy/build/clippy.min.js"></script>
+
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+
+
+
+
+    </style>
+
+
+	<script type='text/javascript'>
+
+			var eldestino='';
+		var recognition = new webkitSpeechRecognition();
+		recognition.onresult = function(event) {
+			console.log('result');
+		  	var saidText = "";
+		  	for (var i = event.resultIndex; i < event.results.length; i++) {
+		        if (event.results[i].isFinal) {
+		            saidText = event.results[i][0].transcript;
+		        } else {
+		            saidText += event.results[i][0].transcript;
+		        }
+		    }
+
+
+if (eldestino=='action'){
+
+                 $.ajax({
+                        url: "/voiceaction" + '?voice=' + saidText
+                    }).then(function (data) {
+
+//window.open(data,'_self');
+window.parent.parent.addtabplus(data);
+
+                    });
+
+}
+
+
+
+
+
+		}
+
+
+		function startRecording(destino){
+			eldestino=destino;
+			recognition.start();
+		}
+
+
+
+
+
+		</script>
+
+
+
+    <style>
+
+        @font-face {
+            font-family: pompadour;
+            src: url(/static/fonts/02_APompadourTextSample.ttf);
+        }
+
+
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+
+    <style>
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: oldlace;
+            text-decoration: none;
+        }
+
+        button {
+            border-radius: 4px;
+        }
+    </style>
+
+
+    <script>
+
+        // window.parent.parent.addtabplus("/adminzone");
+
+
+
+
+
+        //validando permisos
+        $(document).ready(function () {
+            $.ajax({
+                url: "/validaracceso" + '?idusername=' + Cookies.get('idusername') + '&tablename=tblsysbuild'
+            }).then(function (data) {
+
+
+                //checando que hacer
+                if (data == '00') {
+                     
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename=tblsysbuild", "_self");
+                }
+
+                if (data == '10') {
+                   // alert('MOSTRAR Y NO GUARDAR');
+
+                    //deshabilitar edicion de grid
+
+                    $('#grid').jqxGrid('editable', false);
+
+
+
+                }
+
+                if (data == '11') {
+                   // alert('MOSTRAR Y GUARDAR');
+                }
+
+                if (data == '01') {
+                    
+                    //Redirect to no autorizaddo
+                    window.open("noautorizado?tablename=tblsysbuild", "_self");
+                }
+
+            });
+        });
+
+
+
+
+
+        theme = Cookies.get('theme');
+
+       if (theme == null || theme == '' || theme == 'start') {
+
+             Cookies.set('theme', 'darkblue', { expires: 90 });  
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null  ) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+        //check ADMIN/////////////
+        soloadmin = 'true';
+        if (soloadmin == 'true' && Cookies.get('esadmin') != '1') {
+
+            //Redirect to no autorizaddo
+            window.open("noautorizado?tablename=tblsysbuild", "_self");
+
+        };
+
+
+
+        //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "/validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("login", "_self");
+                        }
+
+                    });
+                 });
+
+
+
+
+
+
+
+        function modoedicion(idobjeto) {
+
+
+
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var campofiltro = url.searchParams.get("campofiltro");
+
+            if (campofiltro != null) {
+
+                if (document.getElementById('modoapertura').checked == true) {
+                window.open('formrender?vistadetalle=true&campo1=' + url.searchParams.get("campofiltro") + '&valor1=' + url.searchParams.get("idobjetofiltro") + '&form=tables/tblsysbuild_form_mobile&idobjeto=' + idobjeto, '_blank');}
+                if (document.getElementById('modoapertura').checked == false) {
+                    window.open('formrender?vistadetalle=true&campo1=' + url.searchParams.get("campofiltro") + '&valor1=' + url.searchParams.get("idobjetofiltro") + '&form=tables/tblsysbuild_form_mobile&idobjeto=' + idobjeto, '_self');
+                }
+
+
+            }
+
+            if (campofiltro == null) {
+
+                if (document.getElementById('modoapertura').checked == true) {
+                    window.open('formrender?form=tables/tblsysbuild_form_mobile&idobjeto=' + idobjeto, '_blank');
+                    //window.parent.parent.addtabplus('formrender?form=tables/tblsysbuild_form_mobile&idobjeto=' + idobjeto);
+
+
+
+                }
+                if (document.getElementById('modoapertura').checked == false) {
+                    window.open('formrender?form=tables/tblsysbuild_form_mobile&idobjeto=' + idobjeto, '_self');
+                    //window.parent.parent.addtabplus('formrender?form=tables/tblsysbuild_form_mobile&idobjeto=' + idobjeto,'tblsysbuild ' + idobjeto );
+
+                }
+
+
+
+            }
+
+        }
+
+
+        function eliminacionmasiva(idobjetox) {
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "/eliminacionmasiva" + '?tabla=tblsysbuild&idobjeto=' + idobjetox
+                    }).then(function (data) {
+
+
+                    });
+                 });
+
+        }
+
+
+
+
+ function restauracionmasiva(idobjetox) {
+             $(document).ready(function () {
+                                $.ajax({
+                        url: "/restauracionmasiva" + '?tabla=tblsysbuild&idobjeto=' + idobjetox
+                    }).then(function (data) {
+
+
+
+
+                    });
+                 });
+
+        }
+
+
+
+
+
+        function bloqueomasivo(idobjetox) {
+            $(document).ready(function () {
+                $.ajax({
+                    url: "/bloqueomasivo" + '?tabla=tblsysbuild&idobjeto=' + idobjetox
+                }).then(function (data) {
+
+
+
+
+                });
+            });
+
+        }
+
+
+        function bloqueototal(idobjetox) {
+            $(document).ready(function () {
+                $.ajax({
+                    url: "/bloqueototal" + '?tabla=' + idobjetox
+                }).then(function (data) {
+
+
+
+
+                });
+            });
+
+        }
+
+        function desbloqueomasivo(idobjetox) {
+            $(document).ready(function () {
+                $.ajax({
+                    url: "/desbloqueomasivo" + '?tabla=tblsysbuild&idobjeto=' + idobjetox
+                }).then(function (data) {
+
+
+
+
+                });
+            });
+
+        }
+
+
+    </script>
+
+    <link rel="import" href="tblsysbuild_header_inclusion.4tpy">
+
+
+
+<script>
+  
+</script>
+
+
+
+</head>
+<body>
+
+    <div id="zonamenu">
+<div id='jqxMenu'>
+    <ul>
+    	 
+    	
+        <li><a href="mobile">Home</a></li>
+        <li><a href="host">Desktop</a></li>
+
+
+        
+        <li><a href="rendergrid?grid=tables/tbltarea_mobile">Tareas</a></li>
+
+
+      
+
+         
+         	<li>
+         		<a href="javascript:startRecording('action');">Voice Action</a>
+         		</li>
+         	
+
+         	
+         	<li><a href="login">Login</a></li>
+         	
+         	
+
+         		
+         		
+            </ul>
+        </li>
+     
+     
+      
+        
+      
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+
+
+    theme = Cookies.get('theme');
+
+    if (theme == null || theme == '' || theme == 'start') {
+
+        Cookies.set('theme', 'darkblue', { expires: 90 });
+
+    }
+
+    
+
+
+    $(document).ready(function () {
+        $("#jqxMenu").jqxMenu({ width: '100%', height: '30px', theme: theme , autoSizeMainItems: true});
+        var centerItems = function () {
+            var firstItem = $($("#jqxMenu ul:first").children()[0]);
+            firstItem.css('margin-left', 0);
+            var width = 0;
+            var borderOffset = 2;
+            $.each($("#jqxMenu ul:first").children(), function () {
+                width += $(this).outerWidth(true) + borderOffset;
+            });
+            var menuWidth = $("#jqxMenu").outerWidth();
+            firstItem.css('margin-left', (menuWidth / 2) - (width / 2));
+        }
+        centerItems();
+        $(window).resize(function () {
+            centerItems();
+        });
+
+        $("#jqxMenu").jqxMenu('minimize');
+    });
+</script>
+    </div>
+
+
+    <script>
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var vistadetalle = url.searchParams.get("vistadetalle");
+
+        if (vistadetalle == 'true' && window.location !== window.parent.location) {
+
+            document.getElementById('zonamenu').style.display = 'none';
+        }
+
+
+        function cambiartema() {
+
+            theme = $("#cambiartema :selected").val();;
+            Cookies.set('theme', theme, { expires: 90 }); //1 = 1 dia, 0.33 es 8 horas
+            location.reload();
+
+        }
+
+
+    </script>
+
+
+    <!--Titulo de la pagina-->
+
+    <h5 id="titulopagina" style="position:relative; top:5px;left:10px;">
+        <table>
+            <tr>
+                <td><img src="/static/iconos/grid.png" height="32" /></td>
+                <td><a style="color:darkblue" href="rendergrid?grid=tables/tblsysbuild">Tablas en el Flujo de Construcción</a></td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </h5>
+    <div style="position:relative;top:-20px">
+
+        <div id="zonadebotones">
+            <!--Zona de Botones-->
+<script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxButton widgets.
+            $("#Button1").jqxButton({ textPosition: "center", width: 90, theme: theme });
+            $("#Button5").jqxButton({ textPosition: "center", width: 60,  theme: theme });
+            $("#Button6").jqxButton({ textPosition: "center", width: 60, theme: theme });
+
+
+            $('#Button1').on('click', function () {
+
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+                var campofiltro = url.searchParams.get("campofiltro");
+
+
+
+                if (campofiltro != 'null' && idobjetofiltro != 'null' && campofiltro != '' && idobjetofiltro != '' && campofiltro != null && idobjetofiltro != null  ) {
+                    window.open('formrender?vistadetalle=true&campo1=' + campofiltro + '&valor1=' + idobjetofiltro + '&form=tables/tblsysbuild_form_mobile', '_self');
+
+                } else {
+                    window.open('formrender?form=tables/tblsysbuild_form_mobile', '_self');
+
+                }
+
+
+            });
+
+            $('#Button5').on('click', function () {
+
+                var rutalimpia = 'rendergrid?grid=tables/tblsysbuild_mobile';
+                window.open(rutalimpia, '_self');
+
+            });
+            $('#Button6').on('click', function () {
+                var rutalimpia = 'rendergrid?grid=tables/tblsysbuild_mobile';
+                window.open(rutalimpia += '&buscar=' + document.getElementById('buscador').value , '_self');
+            });
+
+        });
+</script>
+
+<div style="position:relative;left:10px; top:20px; margin-bottom:20px"  >
+    <table>
+        <tr>
+            <td><input type="button" style="visibility:visible" value="Nuevo" id='Button1' /></td>
+                   <td> <input type="text" id="buscador" name="buscador" style="border-radius: 10px;position:relative;top:32px;left:-90px" width="15" height="18" /> </td>
+            <td><input type="button" style="visibility:visible;position:relative;top:32px;left:-90px" value="Reset" id='Button5' /></td>
+
+            <td><input type="button" style="visibility:visible;position:relative;top:32px;left:-90px" value="Buscar" id='Button6' /></td>
+
+
+        </tr>
+    </table>
+</div>
+        </div>
+
+
+        <!--Grid-->
+        <script type="text/javascript">
+
+
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+        var campofiltro = url.searchParams.get("campofiltro");
+        var buscar = url.searchParams.get("buscar");
+
+        if (buscar != null) {
+            document.getElementById('buscador').value = buscar;
+        }
+
+
+
+        $(document).ready(function () {
+            var url = "populator?esadmin=" + Cookies.get('esadmin') + "&tipouser=" + Cookies.get('tipouser') + "&idusername=" + Cookies.get('idusername') + "&usuario=" + Cookies.get('username') + "&tablename=tblsysbuild&CAMPODISPLAY_startsWith=&campofiltro=" + campofiltro + "&idobjetofiltro=" + idobjetofiltro + "&buscar=" + buscar ;
+            // prepare the data
+
+            var cellclass = function (row, columnfield, value) {
+
+            return 'blue';
+
+            /*
+                if (value < 20) {
+                    return 'red';
+                }
+                else if (value >= 20 && value < 50) {
+                    return 'yellow';
+                }
+                else return 'green';
+                */
+
+            };
+
+
+            var source =
+            {
+                datatype: "json",
+                datafields: [
+
+                     {name: 'EDITAR', type:'string'},{name: 'IDSYSBUILD', type: 'float'},{name: 'IDSYSBUILD', type: 'string'},{name: 'TABLENAME', type: 'string'},{name: 'BUILD', type: 'bool'},{name: 'OBSERVACIONES', type: 'string'},{name: 'ELIMINADO', type: 'bool'},{name: 'BLOQUEADO', type: 'bool'},{name: 'FECHAALTA', type: 'date', format: 'yyyy-MM-ddTHH:mm:ss-HH:mm'},{name: 'PROPIETARIO', type: 'string'}
+
+                ],
+                id: 'IDSYSBUILD',
+                url: url
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            $("#grid").jqxGrid(
+                {
+                    width: getWidth('Grid'),
+                    width: '99%',
+                height: '100%',
+
+                    theme: theme,
+                    source: dataAdapter,
+                    columnsresize: true,
+                    altrows: true,
+                    columnsreorder: true,
+                    showfilterrow: true,
+                    filterable: true,
+                    filtermode: 'excel',
+                    autoshowfiltericon: true,
+                    sortable: true,
+                    selectionmode: 'multiplerowsextended',
+                    sortmode: "many",
+                    editmode: 'dblclick',
+                    groupable: false,
+                    editable: true,
+                    pageable: true,
+                    showaggregates: true,
+                    showgroupaggregates: true,
+                    showstatusbar: true,
+                    statusbarheight: 25,
+
+                    columns: [
+
+                        { text: 'Editar', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass },{text: 'Idsysbuild', editable: false, columngroup: 'A.DATOS', datafield: 'IDSYSBUILD', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Tablename', editable: true, columngroup: 'A.DATOS', datafield: 'TABLENAME', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Build', editable: true, columngroup: 'A.DATOS', datafield: 'BUILD', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Observaciones', editable: true, columngroup: 'A.DATOS', datafield: 'OBSERVACIONES', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Eliminado', editable: false, columngroup: 'X.CONTROL', datafield: 'ELIMINADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Bloqueado', editable: false, columngroup: 'X.CONTROL', datafield: 'BLOQUEADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Fecha Alta', editable: false , columngroup: 'X.CONTROL', theme:theme  , filtertype: 'range',  datafield: 'FECHAALTA', width: '110',  cellsformat: 'dd.MM.yyyy', columntype: 'datetimeinput', createeditor: function (rowIndex, cellValue, editor) { editor.jqxDateTimeInput({ min: new Date(1000, 1, 1), max: new Date(5100, 1, 1), culture: 'es-ES' }); }, initeditor: function (rowindex, cellvalue, editor) { editor.jqxDateTimeInput({ value: cellvalue });}  },{text: 'Propietario', editable: true, columngroup: 'X.CONTROL', datafield: 'PROPIETARIO', theme:theme ,  columntype: 'text' , width: '110'}
+
+
+
+
+                    ],
+
+                columngroups:
+                [
+                    { text: 'A. DATOS', align: 'center', name: 'A.DATOS' },{ text: 'X. CONTROL', align: 'center', name: 'X.CONTROL' }
+                ]
+
+
+                });
+
+
+
+
+
+            $("#grid").on('cellendedit', function (event) {
+                var args = event.args;
+                // alert(args.datafield);
+                // alert(args.rowindex);
+                // alert(args.value);
+
+
+                var rowID = $("#grid").jqxGrid('getrowid', args.rowindex);
+
+
+                //var sentencia = "update tblconfigcampos_tblsysbuild set " + args.datafield + "='" + args.value + "' where idconfigcampos_tblsysbuild='" + elvalor + "';";
+                var laorden = "actualizartabla" + '?tablename=tblsysbuild&campo=' + args.datafield + '&valor=' + args.value + '&idobjeto=' + rowID + '&idusername=' + Cookies.get('idusername') + '&usuario=' + Cookies.get('username')   ;
+ 
+
+
+
+                $.ajax({
+                    url: laorden
+                }).then(function (data) {
+
+                    console.log('Actualización realizada');
+
+                });
+                
+
+
+            });
+
+
+
+
+
+
+            var localizationobj = {};
+            localizationobj.pagergotopagestring = "Ir a pag:";
+            localizationobj.pagershowrowsstring = "Mostrar Filas:";
+            localizationobj.pagerrangestring = " de ";
+            localizationobj.pagernextbuttonstring = "siguiente";
+            localizationobj.pagerpreviousbuttonstring = "anterior";
+            localizationobj.sortascendingstring = "Orden Ascendente";
+            localizationobj.sortdescendingstring = "Orden Descendente";
+            localizationobj.sortremovestring = "Quitar Orden";
+            localizationobj.firstDay = 1;
+            localizationobj.percentsymbol = "%";
+            localizationobj.currencysymbol = "$";
+            localizationobj.currencysymbolposition = "before";
+            localizationobj.decimalseparator = ".";
+            localizationobj.thousandsseparator = ",";
+            localizationobj.groupsheaderstring= "Arrastre aqui una columna para agrupar "
+            var days = {
+                // full day names
+                names: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+                // abbreviated day names
+                namesAbbr: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                // shortest day names
+                namesShort: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"]
+            };
+            localizationobj.days = days;
+            var months = {
+                // full month names (13 months for lunar calendards -- 13th month should be "" if not lunar)
+                names: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", ""],
+                // abbreviated month names
+                namesAbbr: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic", ""]
+            };
+            localizationobj.months = months;
+
+
+
+
+
+           // $("#grid").jqxGrid('localizestrings', localizationobj);
+
+
+
+
+
+
+
+        var linkrenderer = function (row, column, value) {
+                if (value.indexOf('#') != -1) {
+                    value = value.substring(0, value.indexOf('#'));
+                }
+                var format = { target: '"_blank"', style:'text-decoration: underline; color:blue;'  };
+                var html = $.jqx.dataFormat.formatlink(value, format);
+                return html;
+        }
+
+
+
+            $("#buttonr").jqxButton({ theme: theme });
+            $("#buttonr").click(function () {
+                $("#grid").jqxGrid('autoresizecolumns');
+            });
+
+            //Hide a column
+            //$('#grid').jqxGrid('hidecolumn', 'IDARTICULO');
+
+            //pinn column
+            //$('#grid').jqxGrid('pincolumn', 'IDARTICULO');
+
+
+            $("#refresh").jqxButton({ theme: theme });
+
+
+
+
+        $("#purgar").jqxButton({ theme: theme });
+
+
+
+
+ $("#eliminar").jqxButton({ theme: theme });
+            $("#restaurar").jqxButton({ theme: theme });
+
+
+
+
+
+
+
+            $("#refresh").click(function () {
+                source =
+                {
+                    datatype: "json",
+                    datafields: [
+
+
+
+                       {name: 'IDSYSBUILD', type: ''},{name: 'TABLENAME', type: 'texto'},{name: 'BUILD', type: 'checkbox'},{name: 'OBSERVACIONES', type: 'memo'},{name: 'ELIMINADO', type: 'checkbox'},{name: 'BLOQUEADO', type: 'checkbox'},{name: 'FECHAALTA', type: 'date'},{name: 'PROPIETARIO', type: 'texto'}
+
+
+
+                    ],
+                    id: 'IDSYSBUILD',
+                    url: url
+                };
+                // passing "cells" to the 'updatebounddata' method will refresh only the cells values when the new rows count is equal to the previous rows count.
+                $("#grid").jqxGrid('updatebounddata', 'cells');
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           $("#eliminar").click(function () {
+               var rowindexes = $('#grid').jqxGrid('getselectedrowindexes');
+
+               //indices separados por comas aplicar split
+               partes = String(rowindexes).split(",");
+
+
+
+               var arrayLength = partes.length;
+               for (var i = 0; i < arrayLength; i++) {
+                   console.log(partes[i]);
+
+                   var rowID = $('#grid').jqxGrid('getrowid', partes[i]);
+                   var data = $('#grid').jqxGrid('getrowdatabyid', rowID);
+
+                   //alert(data.IDSYSBUILD) ;
+
+                   eliminacionmasiva(data.IDSYSBUILD);
+
+
+
+               }
+ $("#refresh").click();
+           });
+
+
+
+           $("#restaurar").click(function () {
+               var rowindexes = $('#grid').jqxGrid('getselectedrowindexes');
+
+               //indices separados por comas aplicar split
+               partes = String(rowindexes).split(",");
+
+               var arrayLength = partes.length;
+               for (var i = 0; i < arrayLength; i++) {
+                   console.log(partes[i]);
+
+                   var rowID = $('#grid').jqxGrid('getrowid', partes[i]);
+                   var data = $('#grid').jqxGrid('getrowdatabyid', rowID);
+
+                   //alert(data.IDSYSBUILD) ;
+
+                   restauracionmasiva(data.IDSYSBUILD);
+               }
+
+        $("#refresh").click();
+           });
+
+
+
+
+
+        $("#purgar").click(function () {
+
+            $(document).ready(function () {
+
+                var res= prompt('Se eliminarán definitivamente todos los registros marcados como ELIMINADO. Confirme S/N');
+
+                if (res == 'S' || res == 's') {
+
+
+
+                    $.ajax({
+                        url: "/purgar" + '?tablename=tblsysbuild'
+                    }).then(function (data) {
+
+                        alert(data);
+                        location.reload();
+
+
+                    });
+
+}
+                             });
+
+
+
+            });
+
+
+
+        
+
+
+
+        });
+
+
+        setTimeout(function(){
+           // $("#grid").jqxGrid('autoresizecolumns');
+
+        }, 1000);
+
+setTimeout(function(){
+
+
+        }, 2000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+        <div id='jqxWidget'>
+            <div id="botonespostgrid">
+                <label id="pestananueva" style="display:none" for="modoapertura">Abrir en nueva pestaña</label>
+                <input style="display:none" type="checkbox" id="modoapertura" />
+                <label style="display:none;" id="numregistros"></label>
+
+                <label style="display:none" id="lostemas">Temas</label>
+                <select style="display:none;" id="cambiartema" onchange="cambiartema();return false">
+                    <option value="darkblue">DarkBlue</option>
+
+                    <option value="shinyblack">Shiny Black</option>
+                    <option value="ui-lightness">Lightness</option>
+                    <option value="ui-start">Start</option>
+                    <option value="ui-redmond">Redmond</option>
+                    <option value="ui-sunny">Sunny</option>
+
+
+
+
+                </select>
+            </div>
+
+
+
+            <div id="grid" style="height:300px;position:relative; top:40px; left:-5px"></div>
+            <br />
+
+
+
+            <div style="position:relative;left:10px;top:-23px">
+
+
+                            <input id="refresh" type="button" style="width:110px;position:relative;top:40px" value="Actualizar" />
+
+                           <input id="buttonr" type="button" style="position:relative;top:40px;width:110px" value="Auto-Resize" />
+                 <input id="eliminar" type="button" style="display:none;position:relative;top:40px;width:110px" value="Eliminar" />
+
+                            <input id="restaurar" type="button" style="display:none;position:relative;top:40px;width:110px" value="Restaurar" />
+                            <input id="purgar" type="button" style="position:relative;top:40px;width:110px" value="Vaciar Papelera" />
+
+
+
+
+
+            </div>
+
+
+
+            <div style="position:relative;left:10px;top:-20px;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <script>
+
+
+
+             $('#cambiartema').val(theme);
+
+
+
+                     $(document).ready(function () {
+                                $.ajax({
+                        url: "/numregistros" + '?tabla=tblsysbuild'
+                    }).then(function (data) {
+
+ document.getElementById('numregistros').innerHTML = "Número de registros: " + numberWithCommas(data) ;
+
+
+                    });
+                 });
+
+
+            function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+}
+
+
+
+
+            </script>
+        </div>
+
+
+
+
+
+
+
+        <link rel="import" href="tblsysbuild_body_html_inclusion.4tpy">
+    </div>
+
+
+
+
+    <script>
+
+
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+
+
+     //window.parent.parent.tabtitle('Tablas en el Flujo de Construcción');
+
+
+
+    </script>
+
+
+
+
+
+   <script>
+
+
+        //ajustes finales
+        $(document).ready(function () {
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var grid = url.searchParams.get("grid");
+
+
+
+            if (grid.includes('view')) {
+
+                //se trata de una vista.... cambiando todo
+
+                //document.getElementById("tt1").style.display = "None";
+                document.getElementById("zonadebotones").style.display = "None";
+                document.getElementById("eliminar").style.display = "None";
+                document.getElementById("restaurar").style.display = "None";
+                document.getElementById("purgar").style.display = "None";
+                document.getElementById("pestananueva").style.visibility = "hidden";
+                document.getElementById("modoapertura").style.visibility = "hidden";
+
+                //document.getElementById("botonespostgrid").style.visibility = "hidden";
+
+                $('#grid').jqxGrid('hidecolumn', 'EDITAR');
+
+            }
+        });
+
+
+
+
+
+    </script>
+
+
+<script>
+  
+</script>
+
+
+</body>
+</html>

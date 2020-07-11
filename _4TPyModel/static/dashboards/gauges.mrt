@@ -1,0 +1,314 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "2b23592205a8d363da1ba2ea28c0e68d",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "gauges.mrt",
+  "ReportCreated": "/Date(1583962812000-0600)/",
+  "ReportChanged": "/Date(1583962812000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "concepto_abono",
+            "Index": -1,
+            "NameInSource": "concepto_abono",
+            "Alias": "concepto_abono",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "importe_abono",
+            "Index": -1,
+            "NameInSource": "importe_abono",
+            "Alias": "importe_abono",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_gaugeabonos.root"
+      },
+      "1": {
+        "Ident": "StiDataTableSource",
+        "Name": "root2",
+        "Alias": "root2",
+        "Columns": {
+          "0": {
+            "Name": "CAMPODISPLAY",
+            "Index": -1,
+            "NameInSource": "CAMPODISPLAY",
+            "Alias": "CAMPODISPLAY",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "COTIZACIONES",
+            "Index": -1,
+            "NameInSource": "COTIZACIONES",
+            "Alias": "COTIZACIONES",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "IMPORTE",
+            "Index": -1,
+            "NameInSource": "IMPORTE",
+            "Alias": "IMPORTE",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_estatuscotiz_gauge.root"
+      },
+      "2": {
+        "Ident": "StiDataTableSource",
+        "Name": "root3",
+        "Alias": "root3",
+        "Columns": {
+          "0": {
+            "Name": "COUNT(DISTINCT(t2.ORIGENPROSPECTO))",
+            "Index": -1,
+            "NameInSource": "COUNT(DISTINCT(t2.ORIGENPROSPECTO))",
+            "Alias": "COUNT(DISTINCT(t2.ORIGENPROSPECTO))",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "ORIGENPROSPECTO",
+            "Index": -1,
+            "NameInSource": "ORIGENPROSPECTO",
+            "Alias": "ORIGENPROSPECTO",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "SUBTOTAL",
+            "Index": -1,
+            "NameInSource": "SUBTOTAL",
+            "Alias": "SUBTOTAL",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "TOTAL",
+            "Index": -1,
+            "NameInSource": "TOTAL",
+            "Alias": "TOTAL",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_prospectos_gauge.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_gaugeabonos",
+        "Alias": "displayquery?query=view_gaugeabonos",
+        "PathData": "../../displayquery?query=view_gaugeabonos"
+      },
+      "1": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_estatuscotiz_gauge",
+        "Alias": "displayquery?query=view_estatuscotiz_gauge",
+        "PathData": "../../displayquery?query=view_estatuscotiz_gauge"
+      },
+      "2": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_prospectos_gauge",
+        "Alias": "displayquery?query=view_prospectos_gauge",
+        "PathData": "../../displayquery?query=view_prospectos_gauge"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiDashboard",
+      "Name": "Indicadores_de_Cotizaciones__abonos_y_prospectos",
+      "Guid": "cbfed88b7d9d30fe910d0626a7d9f0a5",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement1",
+          "Guid": "7b1857e2bee903d59f0cd48291a7922d",
+          "ClientRectangle": "580,40,620,340",
+          "Border": ";;;;",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "652dbd91b5fb22b9234fb3d5407df64f",
+              "Expression": "sum(root.importe_abono)",
+              "Label": "importe_abono",
+              "SeriesType": "Pie"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Abonos recibidos",
+            "Font": ";14;Bold;",
+            "HorAlignment": "Center"
+          },
+          "Series": {
+            "Ident": "SeriesChartMeter",
+            "Key": "4359d8f0267a7eaffefeb47a7785f0dc",
+            "Expression": "root.concepto_abono",
+            "Label": "concepto_abono"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "Center"
+          }
+        },
+        "1": {
+          "Ident": "StiGaugeElement",
+          "Name": "GaugeElement1",
+          "Guid": "4dc08e2cc5f0ee1c0300a946e789eba2",
+          "ClientRectangle": "0,40,580,340",
+          "Border": ";;;;",
+          "Ranges": {
+            "0": {
+              "End": 33
+            },
+            "1": {
+              "Color": "Yellow",
+              "Start": 33,
+              "End": 66
+            },
+            "2": {
+              "Color": "Green",
+              "Start": 66
+            }
+          },
+          "RangeType": "Color",
+          "Value": {
+            "Ident": "ValueGaugeMeter",
+            "Key": "8bb290d778c3b30a255f7ef1cfa24a6a",
+            "Expression": "sum(root2.IMPORTE)",
+            "Label": "IMPORTE"
+          },
+          "Series": {
+            "Ident": "SeriesGaugeMeter",
+            "Key": "e6bda701e1f7f979698a2b33798e412c",
+            "Expression": "root2.CAMPODISPLAY",
+            "Label": "CAMPODISPLAY"
+          },
+          "Title": {
+            "Text": "Cotizaciones por estatus",
+            "Font": ";14;Bold;",
+            "HorAlignment": "Center"
+          },
+          "Font": ";13;;",
+          "DashboardInteraction": {
+            "Ident": "Gauge",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          }
+        },
+        "2": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement2",
+          "Guid": "3ebaf69fc2e4bb52afde1a1416c7ae8d",
+          "ClientRectangle": "0,380,1200,240",
+          "Border": ";;;;",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "abdf88aed88a37e5d6d67940800805b9",
+              "Expression": "sum(root3.SUBTOTAL)",
+              "Label": "IMPORTE",
+              "SeriesType": "Line"
+            },
+            "1": {
+              "Ident": "ValueChartMeter",
+              "Key": "c25eea025d610f4bd96154362e4ef221",
+              "Expression": "Sum([root3.COUNT(DISTINCT(t2.ORIGENPROSPECTO))])",
+              "Label": "CANTIDAD",
+              "SeriesType": "Line"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "5c42db42ad1302c805169be06e69da38",
+              "Expression": "root3.ORIGENPROSPECTO",
+              "Label": "ORIGENPROSPECTO"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Prospectos por origen (IMPORTE COTIZACIONES)",
+            "Font": ";14;Bold;",
+            "HorAlignment": "Center"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "XAxis": {
+            "Title": {
+              "Text": "ORIGEN"
+            }
+          },
+          "YAxis": {
+            "Title": {
+              "Text": "IMPORTE"
+            }
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "None"
+          }
+        }
+      },
+      "Border": ";;2;;;;;solid:Black"
+    }
+  }
+}

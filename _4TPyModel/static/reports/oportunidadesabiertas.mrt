@@ -1,0 +1,353 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "16885a0e91d5d5ee2751e94f525c9bef",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "oportunidadesabiertas.mrt",
+  "ReportCreated": "/Date(1583771575000-0600)/",
+  "ReportChanged": "/Date(1583771575000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "APELLIDO",
+            "Index": -1,
+            "NameInSource": "APELLIDO",
+            "Alias": "APELLIDO",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "IDESTATUS_tbloportunidad",
+            "Index": -1,
+            "NameInSource": "IDESTATUS_tbloportunidad",
+            "Alias": "IDESTATUS_tbloportunidad",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "IDOPORTUNIDAD",
+            "Index": -1,
+            "NameInSource": "IDOPORTUNIDAD",
+            "Alias": "IDOPORTUNIDAD",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "IDPROSPECTO",
+            "Index": -1,
+            "NameInSource": "IDPROSPECTO",
+            "Alias": "IDPROSPECTO",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "IMPORTE",
+            "Index": -1,
+            "NameInSource": "IMPORTE",
+            "Alias": "IMPORTE",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "NOMBRE",
+            "Index": -1,
+            "NameInSource": "NOMBRE",
+            "Alias": "NOMBRE",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_oportunidades_abiertas.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_oportunidades_abiertas",
+        "Alias": "displayquery?query=view_oportunidades_abiertas",
+        "PathData": "../../displayquery?query=view_oportunidades_abiertas"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "95214acd40bc008407fd78e816f03414",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "bb406fd4f237d16fe4ddafb0a431a732",
+              "ClientRectangle": "0,0.2,6.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "OPORTUNIDADES ABIERTAS"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand1",
+          "ClientRectangle": "0,2.2,19,1.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "249bf45eb58bae05094dfa5b7ecc9578",
+              "ClientRectangle": "0.2,0.62,2.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ESTATUS"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "ad9061e3b325b584c7cf0e754e08d692",
+              "ClientRectangle": "3.2,0.62,2.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "NOMBRE"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "1fb044f7c0f80645dc68cfb22e98a24a",
+              "ClientRectangle": "6.19,0.62,3.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "APELLIDOS"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "69d311a206928f17f07ceb2f479a1452",
+              "ClientRectangle": "10.18,0.62,3.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "IMPORTE"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "0ac13f84fd2fca363211c49cc1e56e9a",
+              "ClientRectangle": "14.38,0.62,3.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "VER"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot",
+          "ClientRectangle": "0,4.2,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot_ESTATUS",
+              "Guid": "7fcba77d99e1fb9ca961587d5d93c1ec",
+              "CanGrow": true,
+              "ClientRectangle": "0.2,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.ESTATUS}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot_NOMBRE",
+              "Guid": "da9372e20e73652699456be15c1ee923",
+              "CanGrow": true,
+              "ClientRectangle": "3.2,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.NOMBRE}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Dataroot_APELLIDO",
+              "Guid": "c34da45e4f9826d1b095d6324546e8a5",
+              "CanGrow": true,
+              "ClientRectangle": "6.2,0,3.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.APELLIDO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Dataroot_IMPORTE",
+              "Guid": "e014f21f1cc02358bcd3e3e3af04dc12",
+              "CanGrow": true,
+              "ClientRectangle": "10.2,0,3.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.IMPORTE}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "1f36f6b8b9dd89ba9908a96ec9cd850b",
+              "ClientRectangle": "14.38,0.22,3.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Hyperlink": {
+                "Value": "../../formrender?form=tables/tbloportunidad_form&idobjeto={root.IDOPORTUNIDAD}"
+              },
+              "Text": {
+                "Value": "VER"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "root"
+        }
+      },
+      "PageWidth": 21,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

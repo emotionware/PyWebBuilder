@@ -1129,6 +1129,8 @@ def quierotodosloscampos(tablename):
     campos = []
     lalista = ''
 
+    contador=0
+
     for result in myresult:
         # content = {'COLUMN_NAME': result[0], 'DATA_TYPE': result[1], 'COLUMN_COMMENT': result[2]}
         # payload.append(content)
@@ -1138,8 +1140,14 @@ def quierotodosloscampos(tablename):
         if result[1] == 'date':
             lalista = lalista + "CONVERT_TZ(" + result[0] + ",'+00:00','" + GMTZone + "') as " + result[0] + " ,"
 
-        if result[1] != 'date':
+        if result[1] != 'date' and contador>0:
             lalista = lalista + result[0] + ","
+
+        if result[1] != 'date' and contador==0:
+            lalista = lalista + 'cast( ' + result[0] + " as UNSIGNED) as  " + result[0] + " ,"
+
+
+        contador+=1
 
             # cursor.fetchall() to fetch all rows
     # cursor.fetchone() to fetch single row

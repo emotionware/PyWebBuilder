@@ -76,7 +76,12 @@ def datafieldsx(tablename):
 
         if tipox[contador]=='time':
             resultado = resultado + "{name: '" + campo + "', type: '" + tipox[contador] + "', format: 'HH:mm:ss-HH:mm'}\r,"            
-        if  'checklist' in tipox[contador] or tipox[contador]=='list' or tipox[contador]=='' or  tipox[contador]=='texto' or  tipox[contador]=='memo' or  tipox[contador]=='whatsapp'  or  tipox[contador]=='email' or  tipox[contador]=='url' or  tipox[contador]=='*':
+
+
+        if contador==0:
+            resultado = resultado + "{name: '" + campo + "', type: 'float'}\r,"
+
+        if contador>0 and 'checklist' in tipox[contador] or tipox[contador]=='list' or tipox[contador]=='' or  tipox[contador]=='texto' or  tipox[contador]=='memo' or  tipox[contador]=='whatsapp'  or  tipox[contador]=='email' or  tipox[contador]=='url' or  tipox[contador]=='*':
             resultado = resultado + "{name: '" + campo + "', type: 'string'}\r,"
 
         if tipox[contador]=='checkbox':
@@ -158,7 +163,7 @@ def datafieldsx2(tablename):
     tipox=ordencampos(tablename,'buildtype')
     mgrid=ordencampos(tablename,'mostrargrid')
 
-    resultado="{ text: 'Edit', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass }\r,"
+    resultado="{ text: 'Editar', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass }\r,"
 
     contador=0
     for campo in campox:        

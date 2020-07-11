@@ -1,0 +1,1 @@
+select * from tblestatusnotify_tblsyscomponent order by IDESTATUSNOTIFY_tblsyscomponent ASC 

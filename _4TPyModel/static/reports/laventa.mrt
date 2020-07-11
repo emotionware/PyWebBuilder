@@ -1,0 +1,1840 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "7231bcd037a3f442a794f41a8844a0c1",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "laventa.mrt",
+  "ReportCreated": "/Date(1583284739000-0600)/",
+  "ReportChanged": "/Date(1583284739000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Styles": {
+    "0": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "ReportTitle",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Report_Title1",
+      "Font": ";14;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red"
+    },
+    "1": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "ReportTitle",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Report_Title2",
+      "Font": ";10;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red"
+    },
+    "2": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "ReportSummary",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Report_Summary1",
+      "Font": ";12;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red"
+    },
+    "3": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "ReportSummary",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Report_Summary2",
+      "Font": ";10;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red"
+    },
+    "4": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement",
+          "Placement": "PageHeader",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Page_Header",
+      "Font": ";10;;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red"
+    },
+    "5": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement",
+          "Placement": "PageFooter",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Page_Footer",
+      "Font": ";10;;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red"
+    },
+    "6": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "GroupHeader",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Group_Header1",
+      "Font": ";13;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:54,83,105",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "7": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "GroupHeader",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Group_Header2",
+      "Font": ";12;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:54,83,105",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "8": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "GroupHeader",
+          "PlacementNestedLevel": 3,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Group_Header3",
+      "Font": ";11;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:54,83,105",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "9": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "GroupFooter",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Group_Footer1",
+      "Font": ";13;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:54,83,105",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "10": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "GroupFooter",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Group_Footer2",
+      "Font": ";12;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:54,83,105",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "11": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "GroupFooter",
+          "PlacementNestedLevel": 3,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Group_Footer3",
+      "Font": ";11;Bold;",
+      "Border": ";104,133,155;;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:54,83,105",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "12": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Header",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Header1",
+      "Font": ";;Bold;",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:204,233,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "13": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Header",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Header2",
+      "Font": ";;Bold;",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:237,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "14": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "Header",
+          "PlacementNestedLevel": 3,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Header3",
+      "Font": ";;Bold;",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "15": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Data",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Data1",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "16": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "Placement, PlacementNestedLevel",
+          "Placement": "DataOddStyle"
+        }
+      },
+      "Name": "Blue 25%_Data1_Odd Style",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "17": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "Placement, PlacementNestedLevel",
+          "Placement": "DataEvenStyle"
+        }
+      },
+      "Name": "Blue 25%_Data1_Even Style",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "18": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Data",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Data2",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "19": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "Placement, PlacementNestedLevel",
+          "Placement": "DataOddStyle",
+          "PlacementNestedLevel": 2
+        }
+      },
+      "Name": "Blue 25%_Data2_Odd Style",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "20": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "Placement, PlacementNestedLevel",
+          "Placement": "DataEvenStyle",
+          "PlacementNestedLevel": 2
+        }
+      },
+      "Name": "Blue 25%_Data2_Even Style",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "21": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "Data",
+          "PlacementNestedLevel": 3,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Data3",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:Transparent",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "22": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "DataOddStyle",
+          "PlacementNestedLevel": 3
+        }
+      },
+      "Name": "Blue 25%_Data3_Odd Style",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "23": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "Placement, PlacementNestedLevel",
+          "OperationPlacementNestedLevel": "GreaterThanOrEqualTo",
+          "Placement": "DataEvenStyle",
+          "PlacementNestedLevel": 3
+        }
+      },
+      "Name": "Blue 25%_Data3_Even Style",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "24": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Footer",
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Footer1",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:224,253,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "25": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Footer",
+          "PlacementNestedLevel": 2,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Footer2",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    },
+    "26": {
+      "Ident": "StiStyle",
+      "CollectionName": "Blue 25%",
+      "Conditions": {
+        "0": {
+          "Ident": "StiStyleCondition",
+          "Type": "ComponentType, Placement, PlacementNestedLevel",
+          "Placement": "Footer",
+          "PlacementNestedLevel": 3,
+          "ComponentType": "Text, Primitive, Image, CheckBox"
+        }
+      },
+      "Name": "Blue 25%_Footer3",
+      "Border": ";104,133,155;;;;;true;solid:Black",
+      "Brush": "solid:255,255,255",
+      "TextBrush": "solid:4,33,55",
+      "NegativeTextBrush": "solid:Red",
+      "AllowUseBorderSidesFromLocation": true
+    }
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Value": "0",
+        "Name": "IDCOTIZACION",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "IDCOTIZACION",
+        "Type": "System.Int32"
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "APELLIDO",
+            "Index": -1,
+            "NameInSource": "APELLIDO",
+            "Alias": "APELLIDO",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "DATOS_EMPRESA",
+            "Index": -1,
+            "NameInSource": "DATOS_EMPRESA",
+            "Alias": "DATOS_EMPRESA",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "DETAID",
+            "Index": -1,
+            "NameInSource": "DETAID",
+            "Alias": "DETAID",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "DETA_CANTIDAD",
+            "Index": -1,
+            "NameInSource": "DETA_CANTIDAD",
+            "Alias": "DETA_CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "DETA_CANTIDAD",
+            "Index": -1,
+            "NameInSource": "DETA_CANTIDAD",
+            "Alias": "DETA_CANTIDAD",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "DETA_IMPORTE_DESCUENTO",
+            "Index": -1,
+            "NameInSource": "DETA_IMPORTE_DESCUENTO",
+            "Alias": "DETA_IMPORTE_DESCUENTO",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "DETA_IMPORTE_DESCUENTO",
+            "Index": -1,
+            "NameInSource": "DETA_IMPORTE_DESCUENTO",
+            "Alias": "DETA_IMPORTE_DESCUENTO",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "DETA_IMPORTE_IVA",
+            "Index": -1,
+            "NameInSource": "DETA_IMPORTE_IVA",
+            "Alias": "DETA_IMPORTE_IVA",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "DETA_IMPORTE_IVA",
+            "Index": -1,
+            "NameInSource": "DETA_IMPORTE_IVA",
+            "Alias": "DETA_IMPORTE_IVA",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "DETA_NOMBREARTICULO",
+            "Index": -1,
+            "NameInSource": "DETA_NOMBREARTICULO",
+            "Alias": "DETA_NOMBREARTICULO",
+            "Type": "System.String"
+          },
+          "11": {
+            "Name": "DETA_PORC_DESCUENTO",
+            "Index": -1,
+            "NameInSource": "DETA_PORC_DESCUENTO",
+            "Alias": "DETA_PORC_DESCUENTO",
+            "Type": "System.Decimal"
+          },
+          "12": {
+            "Name": "DETA_PORC_DESCUENTO",
+            "Index": -1,
+            "NameInSource": "DETA_PORC_DESCUENTO",
+            "Alias": "DETA_PORC_DESCUENTO",
+            "Type": "System.String"
+          },
+          "13": {
+            "Name": "DETA_PORC_IVA",
+            "Index": -1,
+            "NameInSource": "DETA_PORC_IVA",
+            "Alias": "DETA_PORC_IVA",
+            "Type": "System.Decimal"
+          },
+          "14": {
+            "Name": "DETA_PORC_IVA",
+            "Index": -1,
+            "NameInSource": "DETA_PORC_IVA",
+            "Alias": "DETA_PORC_IVA",
+            "Type": "System.String"
+          },
+          "15": {
+            "Name": "DETA_PRECIO_ARTICULO",
+            "Index": -1,
+            "NameInSource": "DETA_PRECIO_ARTICULO",
+            "Alias": "DETA_PRECIO_ARTICULO",
+            "Type": "System.Decimal"
+          },
+          "16": {
+            "Name": "DETA_PRECIO_ARTICULO",
+            "Index": -1,
+            "NameInSource": "DETA_PRECIO_ARTICULO",
+            "Alias": "DETA_PRECIO_ARTICULO",
+            "Type": "System.String"
+          },
+          "17": {
+            "Name": "DETA_PRECIO_UNITARIO",
+            "Index": -1,
+            "NameInSource": "DETA_PRECIO_UNITARIO",
+            "Alias": "DETA_PRECIO_UNITARIO",
+            "Type": "System.Decimal"
+          },
+          "18": {
+            "Name": "DETA_PRECIO_UNITARIO",
+            "Index": -1,
+            "NameInSource": "DETA_PRECIO_UNITARIO",
+            "Alias": "DETA_PRECIO_UNITARIO",
+            "Type": "System.String"
+          },
+          "19": {
+            "Name": "DETA_SUBTOTAL",
+            "Index": -1,
+            "NameInSource": "DETA_SUBTOTAL",
+            "Alias": "DETA_SUBTOTAL",
+            "Type": "System.Decimal"
+          },
+          "20": {
+            "Name": "DETA_SUBTOTAL",
+            "Index": -1,
+            "NameInSource": "DETA_SUBTOTAL",
+            "Alias": "DETA_SUBTOTAL",
+            "Type": "System.String"
+          },
+          "21": {
+            "Name": "DETA_TOTAL",
+            "Index": -1,
+            "NameInSource": "DETA_TOTAL",
+            "Alias": "DETA_TOTAL",
+            "Type": "System.Decimal"
+          },
+          "22": {
+            "Name": "DETA_TOTAL",
+            "Index": -1,
+            "NameInSource": "DETA_TOTAL",
+            "Alias": "DETA_TOTAL",
+            "Type": "System.String"
+          },
+          "23": {
+            "Name": "EMAILAGENTE",
+            "Index": -1,
+            "NameInSource": "EMAILAGENTE",
+            "Alias": "EMAILAGENTE",
+            "Type": "System.String"
+          },
+          "24": {
+            "Name": "EMAILCLIENTE",
+            "Index": -1,
+            "NameInSource": "EMAILCLIENTE",
+            "Alias": "EMAILCLIENTE",
+            "Type": "System.String"
+          },
+          "25": {
+            "Name": "FECHA",
+            "Index": -1,
+            "NameInSource": "FECHA",
+            "Alias": "FECHA",
+            "Type": "System.DateTime"
+          },
+          "26": {
+            "Name": "FECHA",
+            "Index": -1,
+            "NameInSource": "FECHA",
+            "Alias": "FECHA",
+            "Type": "System.String"
+          },
+          "27": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.Int32"
+          },
+          "28": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.Decimal"
+          },
+          "29": {
+            "Name": "IMPORTE_IVA",
+            "Index": -1,
+            "NameInSource": "IMPORTE_IVA",
+            "Alias": "IMPORTE_IVA",
+            "Type": "System.Decimal"
+          },
+          "30": {
+            "Name": "IMPORTE_IVA",
+            "Index": -1,
+            "NameInSource": "IMPORTE_IVA",
+            "Alias": "IMPORTE_IVA",
+            "Type": "System.String"
+          },
+          "31": {
+            "Name": "NOMBRE",
+            "Index": -1,
+            "NameInSource": "NOMBRE",
+            "Alias": "NOMBRE",
+            "Type": "System.String"
+          },
+          "32": {
+            "Name": "OBSERVACIONES",
+            "Index": -1,
+            "NameInSource": "OBSERVACIONES",
+            "Alias": "OBSERVACIONES",
+            "Type": "System.String"
+          },
+          "33": {
+            "Name": "SUBTOTAL",
+            "Index": -1,
+            "NameInSource": "SUBTOTAL",
+            "Alias": "SUBTOTAL",
+            "Type": "System.Decimal"
+          },
+          "34": {
+            "Name": "SUBTOTAL",
+            "Index": -1,
+            "NameInSource": "SUBTOTAL",
+            "Alias": "SUBTOTAL",
+            "Type": "System.String"
+          },
+          "35": {
+            "Name": "TELAGENTE",
+            "Index": -1,
+            "NameInSource": "TELAGENTE",
+            "Alias": "TELAGENTE",
+            "Type": "System.String"
+          },
+          "36": {
+            "Name": "TELCLIENTE",
+            "Index": -1,
+            "NameInSource": "TELCLIENTE",
+            "Alias": "TELCLIENTE",
+            "Type": "System.String"
+          },
+          "37": {
+            "Name": "TOTAL",
+            "Index": -1,
+            "NameInSource": "TOTAL",
+            "Alias": "TOTAL",
+            "Type": "System.Decimal"
+          },
+          "38": {
+            "Name": "TOTAL",
+            "Index": -1,
+            "NameInSource": "TOTAL",
+            "Alias": "TOTAL",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_reporte_cotizacion.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_reporte_cotizacion",
+        "Alias": "displayquery?query=view_reporte_cotizacion",
+        "PathData": "../../displayquery?query=view_reporte_cotizacion"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "f626f878ce641f450e4c6c7a557aa27c",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitle",
+          "ClientRectangle": "0,0.4,19.6,3.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "ReportTitleText",
+              "Guid": "9fce3e97957ebd5f7a88ce16645fab1a",
+              "ClientRectangle": "0,2.4,10.49,1",
+              "ComponentStyle": "Blue 25%_Report_Title1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "<b><u>VENTA DE PRODUCTOS Y SERVICIOS</u></b>"
+              },
+              "VertAlignment": "Center",
+              "Font": ";14;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiImage",
+              "Name": "Image1",
+              "Guid": "ee05b833f71c7c7f79f2bc321d706cdd",
+              "ClientRectangle": "0.2,0.4,4.4,1.2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "Stretch": true,
+              "ImageBytes": "data:image/jpeg;base64,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"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text40",
+              "Guid": "87cbc0bc6ade8bbd35ffd9504d12d797",
+              "ClientRectangle": "12.2,0.4,7.2,1.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DATOS_EMPRESA}"
+              },
+              "HorAlignment": "Right",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiHeaderBand",
+          "Name": "Header",
+          "ClientRectangle": "0,4.8,19.6,4.4",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "f0444bf67ab22bc02c21effe5aa92d50",
+              "ClientRectangle": "14.4,0.2,4.8,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "FECHA"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "e80abe44a84449797ee77781f02aa8e2",
+              "ClientRectangle": "0.2,0.79,6,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.AGENTE}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "dd/MM/yyyy"
+              },
+              "Type": "DataColumn"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "dc28b630e7f86f8257dcc08ff4c551e8",
+              "ClientRectangle": "0.2,0.19,6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "AGENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "059f78037cdb637012a8ca99b330e17f",
+              "ClientRectangle": "14.39,1.59,4.8,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "FOLIO"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "e3d1a3ba7a31542c6f609a8fc77c70e5",
+              "ClientRectangle": "6.8,0.78,6,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.NOMBRE}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "dd/MM/yyyy"
+              },
+              "Type": "DataColumn"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "Guid": "b6c62e5f40047e2df2c712010b2c3936",
+              "ClientRectangle": "6.8,0.18,6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "NOMBRE CLIENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "Guid": "a93909dc0bcb8e2d7188ff0066702a6f",
+              "ClientRectangle": "6.8,2.19,6,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.APELLIDO}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "dd/MM/yyyy"
+              },
+              "Type": "DataColumn"
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "Guid": "de6bb4ff5c69efb2874b8a0042f69cb2",
+              "ClientRectangle": "6.8,1.59,6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "APELLIDOS CLIENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "8": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "828f072d32e631417d70ad22bdfadca7",
+              "ClientRectangle": "14.4,2.2,3.2,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.IDCOTIZACION}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55"
+            },
+            "9": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "04a8da8bc7a28625df79b642295ffa4d",
+              "ClientRectangle": "14.4,0.8,3.2,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.FECHA}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "dd/MM/yyyy"
+              }
+            },
+            "10": {
+              "Ident": "StiText",
+              "Name": "Text41",
+              "Guid": "d15e9035b375f4d19269b87c04a6a778",
+              "ClientRectangle": "0.2,3.6,6,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.TELAGENTE}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55"
+            },
+            "11": {
+              "Ident": "StiText",
+              "Name": "Text42",
+              "Guid": "b8ddeeb5cf6d224bdb2431b5990a9862",
+              "ClientRectangle": "0.2,2.2,6,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.EMAILAGENTE}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55"
+            },
+            "12": {
+              "Ident": "StiText",
+              "Name": "Text43",
+              "Guid": "8d9d9bd6b54e36640579d2c74898455b",
+              "ClientRectangle": "0.2,2.98,6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TEL AGENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "13": {
+              "Ident": "StiText",
+              "Name": "Text44",
+              "Guid": "6f23c0b5ee502df13011f16840396e92",
+              "ClientRectangle": "0.2,1.59,6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "MAIL AGENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "14": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "Guid": "2f1f4ba3f96d23bde4b2b4505ff63ef2",
+              "ClientRectangle": "6.81,3,6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "MAIL CLIENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "15": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "Guid": "5c0cd6d38700a948f33a50afea11b8b9",
+              "ClientRectangle": "6.81,3.61,6,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.EMAILCLIENTE}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "DataColumn"
+            },
+            "16": {
+              "Ident": "StiText",
+              "Name": "Text13",
+              "Guid": "7349bd4bb04864b2811fd0dc45622671",
+              "ClientRectangle": "14.41,2.97,4.8,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TEL CLIENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "17": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "Guid": "3e654ce9d32e8a27a4015ade0a9c02e0",
+              "ClientRectangle": "14.41,3.61,4.8,0.6",
+              "ComponentStyle": "Blue 25%_Page_Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.TELCLIENTE}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";10;;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "DataColumn"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeader0",
+          "ClientRectangle": "0,10,19.6,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text17",
+              "Guid": "e315b22016c129bc8667b95e760b5abd",
+              "ClientRectangle": "0,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ARTICULO"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text27",
+              "Guid": "e216975d10c053b4d12b52c4f7ffe63f",
+              "ClientRectangle": "5.99,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "PRECIO"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text28",
+              "Guid": "d26dc211946700bb569cc260083d17f7",
+              "ClientRectangle": "7.8,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "DESCTO."
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text29",
+              "Guid": "86d970170537a909ed34d1d0c40a79ca",
+              "ClientRectangle": "9.6,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "P.UNITARIO"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text30",
+              "Guid": "e875d1f7c518bbdb72006dd0af425300",
+              "ClientRectangle": "11.4,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "CANTIDAD"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text31",
+              "Guid": "8e96a965e1e261321cadaa524fcbd7ad",
+              "ClientRectangle": "13,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "SUBTOTAL"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text32",
+              "Guid": "f2446a76a7a776e56066b940506585ac",
+              "ClientRectangle": "14.61,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "IVA"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text33",
+              "Guid": "32eb7df1683d2dc7d2daf02e70e4b2c9",
+              "ClientRectangle": "16.41,0.2,2.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TOTAL"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          },
+          "Condition": {
+            "Value": "{root.IDCOTIZACION}"
+          }
+        },
+        "3": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand1",
+          "ClientRectangle": "0,11.6,19.6,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text18",
+              "Guid": "50c6e4ba74ca14e638a634454f5aca60",
+              "ClientRectangle": "0,0,6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_NOMBREARTICULO}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text19",
+              "Guid": "7154261875384d37ab2ed8a28089e879",
+              "ClientRectangle": "6,0,1.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_PRECIO_ARTICULO}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text20",
+              "Guid": "3ffbc49ae5d2606ad6b4dd771c3f2301",
+              "ClientRectangle": "7.8,0,1.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_IMPORTE_DESCUENTO}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": "",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text21",
+              "Guid": "20cf90dc9bc6f79ca8f682f0bfceef54",
+              "ClientRectangle": "9.6,0,1.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_PRECIO_UNITARIO}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text22",
+              "Guid": "2a05595a0b31bbc268c95b3adc4751db",
+              "ClientRectangle": "11.4,0,1.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_CANTIDAD}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": "",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text23",
+              "Guid": "a1bca0faf3420061c88ca66583bda7fd",
+              "ClientRectangle": "12.8,0,1.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_SUBTOTAL}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text24",
+              "Guid": "cc035bf426cac5174b6cfca5b85c1f6d",
+              "ClientRectangle": "14.6,0,1.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_IMPORTE_IVA}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text25",
+              "Guid": "adad6ba8940546b4bfa608a4c66daad3",
+              "ClientRectangle": "16.4,0,2.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DETA_TOTAL}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            }
+          },
+          "DataSourceName": "root",
+          "Filters": {
+            "0": {
+              "Ident": "StiFilter",
+              "Item": "Expression",
+              "Expression": {
+                "Value": "{IDCOTIZACION==root.IDCOTIZACION}"
+              }
+            }
+          }
+        },
+        "4": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooter0",
+          "ClientRectangle": "0,13.2,19.6,1.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text39",
+              "Guid": "1590bdfecf11c1c30d231ea4b6293ebb",
+              "ClientRectangle": "0,0.2,18.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.OBSERVACIONES}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0"
+            }
+          }
+        },
+        "5": {
+          "Ident": "StiFooterBand",
+          "Name": "Footer",
+          "ClientRectangle": "0,15.2,19.6,2.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text35",
+              "Guid": "416b2bee467cbe226e58498e70a2f3ad",
+              "ClientRectangle": "15.21,1.41,3.6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(root.DETA_TOTAL)}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "DecimalSeparator": ",",
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              },
+              "Type": "Totals"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text36",
+              "Guid": "7e284a83946782a93a66e57e70263117",
+              "ClientRectangle": "12.41,1.39,2.6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TOTAL"
+              },
+              "VertAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text37",
+              "Guid": "7be0f3ee3688ce3509f50065cebcc601",
+              "ClientRectangle": "12.41,0.78,2.6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "IVA"
+              },
+              "VertAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text38",
+              "Guid": "b22140d3d7f55236fe247ef13a390892",
+              "ClientRectangle": "12.41,0.17,2.6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "SUBTOTAL"
+              },
+              "VertAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text26",
+              "Guid": "ff8e2164bbcfeccb91e012bdec4c188e",
+              "ClientRectangle": "15.21,0.8,3.6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(root.DETA_IMPORTE_IVA)}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "DecimalSeparator": ",",
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              },
+              "Type": "Totals"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text34",
+              "Guid": "9e34c4cb7e5b64a9fb1864c6fcafeede",
+              "ClientRectangle": "15.21,0.19,3.6,0.6",
+              "ComponentStyle": "Blue 25%_Report_Summary1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(root.DETA_SUBTOTAL)}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";104,133,155;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:4,33,55",
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "DecimalSeparator": ",",
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              },
+              "Type": "Totals"
+            }
+          }
+        }
+      },
+      "PaperSize": "Letter",
+      "PageWidth": 21.6,
+      "PageHeight": 27.9,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

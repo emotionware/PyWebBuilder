@@ -1,0 +1,572 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "aab506c5228c3f28efebeab876b60bda",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "agenda.mrt",
+  "ReportCreated": "/Date(1583629107000-0600)/",
+  "ReportChanged": "/Date(1583629107000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Name": "IDPROSPECTO",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "IDPROSPECTO",
+        "Type": "System.String"
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "APELLIDO",
+            "Index": -1,
+            "NameInSource": "APELLIDO",
+            "Alias": "APELLIDO",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "DESCRIPCION",
+            "Index": -1,
+            "NameInSource": "DESCRIPCION",
+            "Alias": "DESCRIPCION",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "DESDE_FECHA",
+            "Index": -1,
+            "NameInSource": "DESDE_FECHA",
+            "Alias": "DESDE_FECHA",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "DESDE_HORA",
+            "Index": -1,
+            "NameInSource": "DESDE_HORA",
+            "Alias": "DESDE_HORA",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "EVENTO",
+            "Index": -1,
+            "NameInSource": "EVENTO",
+            "Alias": "EVENTO",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "HASTA_FECHA",
+            "Index": -1,
+            "NameInSource": "HASTA_FECHA",
+            "Alias": "HASTA_FECHA",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "HASTA_HORA",
+            "Index": -1,
+            "NameInSource": "HASTA_HORA",
+            "Alias": "HASTA_HORA",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "IDABONO",
+            "Index": -1,
+            "NameInSource": "IDABONO",
+            "Alias": "IDABONO",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "IDAGENDA",
+            "Index": -1,
+            "NameInSource": "IDAGENDA",
+            "Alias": "IDAGENDA",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "IDPROSPECTO",
+            "Index": -1,
+            "NameInSource": "IDPROSPECTO",
+            "Alias": "IDPROSPECTO",
+            "Type": "System.String"
+          },
+          "11": {
+            "Name": "IDPROSPECTO",
+            "Index": -1,
+            "NameInSource": "IDPROSPECTO",
+            "Alias": "IDPROSPECTO",
+            "Type": "System.Decimal"
+          },
+          "12": {
+            "Name": "NOMBRE",
+            "Index": -1,
+            "NameInSource": "NOMBRE",
+            "Alias": "NOMBRE",
+            "Type": "System.String"
+          },
+          "13": {
+            "Name": "UBICACION",
+            "Index": -1,
+            "NameInSource": "UBICACION",
+            "Alias": "UBICACION",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_reporte_agenda.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_reporte_agenda",
+        "Alias": "displayquery?query=view_reporte_agenda",
+        "PathData": "../../displayquery?query=view_reporte_agenda"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "f2f8e72a8df5cd87a493ae1340965ec2",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,4.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "5cd274ae7806ccefcb026ac8fb471ccc",
+              "ClientRectangle": "0,0.2,15.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "REPORTE DE AGENDA DEL CLIENTE/PROSPECTO"
+              },
+              "Font": ";18;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "a4b3111fcb0887174b436630bdb2a910",
+              "ClientRectangle": "0,1.8,2.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "NOMBRE"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "Guid": "007b0c708fe09afe7084fcc80f83127b",
+              "ClientRectangle": "0,2.6,2.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "APELLIDOS"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "Guid": "738e6db62ebb33b20d5cbe9643169309",
+              "ClientRectangle": "2.61,1.81,7.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.NOMBRE}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "DataColumn"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "Guid": "bcee77aec42cfeae7e950ba859bafd93",
+              "ClientRectangle": "2.61,2.6,7.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.APELLIDO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "DataColumn"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "Guid": "b325ee55a14812596eeb73ca956096a8",
+              "ClientRectangle": "10.21,1.81,2.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "FOLIO"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "Guid": "a58b6dd11013b761435c9de354f81a2f",
+              "ClientRectangle": "12.83,1.81,3.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.IDPROSPECTO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "DataColumn"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand1",
+          "ClientRectangle": "0,5.4,19,0.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "1baeb520663340c1119992070100fc49",
+              "ClientRectangle": "4.8,0.39,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Desde"
+              },
+              "Font": ";12;;",
+              "Border": "Bottom;;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "f81cb43d92e67db4df068f279e67ba74",
+              "ClientRectangle": "7.8,0.39,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Hasta"
+              },
+              "Font": ";12;;",
+              "Border": "Bottom;;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "b230056c249d91886f853268905b0433",
+              "ClientRectangle": "10.8,0.39,5.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Descripción"
+              },
+              "Font": ";12;;",
+              "Border": "Bottom;;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "ec6a0881e1947f4cc40051e4ef485c2f",
+              "ClientRectangle": "16,0.39,2.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Ubicación"
+              },
+              "Font": ";12;;",
+              "Border": "Bottom;;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "c3c8ad2f26e45f240855288ac83d3b67",
+              "ClientRectangle": "0,0.38,4.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Evento"
+              },
+              "Font": ";12;;",
+              "Border": "Bottom;;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot",
+          "ClientRectangle": "0,7,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot_EVENTO",
+              "Guid": "59400edcb3840b927b1b5f139b9bc80d",
+              "CanGrow": true,
+              "ClientRectangle": "0,0,4.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.EVENTO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot_DESCRIPCION",
+              "Guid": "a9b054b36627df175d14e1a5fb3b2016",
+              "CanGrow": true,
+              "ClientRectangle": "10.8,0,5.2,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DESCRIPCION}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Dataroot_DESDE_FECHA",
+              "Guid": "a3b7430efe22e72ed35c53b4fee6d5fb",
+              "CanGrow": true,
+              "ClientRectangle": "4.8,0,1.6,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DESDE_FECHA}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "dd/MM/yyyy"
+              }
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Dataroot_DESDE_HORA",
+              "Guid": "64a694f4c55358305ff578df77eb4e9c",
+              "CanGrow": true,
+              "ClientRectangle": "6.4,0,1.4,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DESDE_HORA}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiTimeFormatService",
+                "StringFormat": "HH:mm"
+              }
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Dataroot_HASTA_FECHA",
+              "Guid": "1d762601b734592ffd83878e66fefe08",
+              "CanGrow": true,
+              "ClientRectangle": "7.8,0,1.6,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.HASTA_FECHA}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "dd/MM/yyyy"
+              }
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Dataroot_HASTA_HORA",
+              "Guid": "02e62447df4d0f31f8aee7870a555269",
+              "CanGrow": true,
+              "ClientRectangle": "9.4,0,1.4,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.HASTA_HORA}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiTimeFormatService",
+                "StringFormat": "HH:mm"
+              }
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Dataroot_UBICACION",
+              "Guid": "52d67e74cbf55664c27a9d760abf573a",
+              "CanGrow": true,
+              "ClientRectangle": "16,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.UBICACION}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            }
+          },
+          "DataSourceName": "root",
+          "Filters": {
+            "0": {
+              "Ident": "StiFilter",
+              "Item": "Expression",
+              "Expression": {
+                "Value": "{IDPROSPECTO==root.IDPROSPECTO}"
+              }
+            }
+          }
+        }
+      },
+      "PageWidth": 21,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

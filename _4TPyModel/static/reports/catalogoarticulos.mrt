@@ -1,0 +1,505 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "2a58c665188fc0a34766d712c6f39b4c",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "catalogoarticulos.mrt",
+  "ReportCreated": "/Date(1583691778000-0600)/",
+  "ReportChanged": "/Date(1583691778000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "CATEGORIA1",
+            "Index": -1,
+            "NameInSource": "CATEGORIA1",
+            "Alias": "CATEGORIA1",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CATEGORIA2",
+            "Index": -1,
+            "NameInSource": "CATEGORIA2",
+            "Alias": "CATEGORIA2",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "CODIGO",
+            "Index": -1,
+            "NameInSource": "CODIGO",
+            "Alias": "CODIGO",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "DESCRIPCION",
+            "Index": -1,
+            "NameInSource": "DESCRIPCION",
+            "Alias": "DESCRIPCION",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "IDARTICULO",
+            "Index": -1,
+            "NameInSource": "IDARTICULO",
+            "Alias": "IDARTICULO",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "IMAGENADJUNTA",
+            "Index": -1,
+            "NameInSource": "IMAGENADJUNTA",
+            "Alias": "IMAGENADJUNTA",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "NOMBRE_ARTICULO",
+            "Index": -1,
+            "NameInSource": "NOMBRE_ARTICULO",
+            "Alias": "NOMBRE_ARTICULO",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "PRECIO_LISTA",
+            "Index": -1,
+            "NameInSource": "PRECIO_LISTA",
+            "Alias": "PRECIO_LISTA",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "PRECIO_LISTA",
+            "Index": -1,
+            "NameInSource": "PRECIO_LISTA",
+            "Alias": "PRECIO_LISTA",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "PRECIO_NETO",
+            "Index": -1,
+            "NameInSource": "PRECIO_NETO",
+            "Alias": "PRECIO_NETO",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "PRECIO_NETO",
+            "Index": -1,
+            "NameInSource": "PRECIO_NETO",
+            "Alias": "PRECIO_NETO",
+            "Type": "System.Decimal"
+          },
+          "11": {
+            "Name": "TIPOARTICULO",
+            "Index": -1,
+            "NameInSource": "TIPOARTICULO",
+            "Alias": "TIPOARTICULO",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_catalogo_productos.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_catalogo_productos",
+        "Alias": "displayquery?query=view_catalogo_productos",
+        "PathData": "../../displayquery?query=view_catalogo_productos"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "d8fc51bde9fb46e9d94cf023ba7b5d4b",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "e351408a05e37a850050657cb74b92fd",
+              "ClientRectangle": "0,0.2,7.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "CATÁLOGO DE ARTÍCULOS"
+              },
+              "Font": ";16;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand1",
+          "ClientRectangle": "0,2.2,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "96607956620295df4f3f3f1408bf6645",
+              "ClientRectangle": "3.4,0.2,5.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.CATEGORIA1}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "b3836f31040c851d0e922af84d9c98d5",
+              "ClientRectangle": "0.2,0.2,3.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "CATEGORÍA"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          },
+          "Condition": {
+            "Value": "{root.CATEGORIA1}"
+          }
+        },
+        "2": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand2",
+          "ClientRectangle": "0,3.8,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "938ae4a1d46cf666edd7abe9131808cb",
+              "ClientRectangle": "3.8,0.19,5.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.TIPOARTICULO}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "DataColumn"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "8ddc70c3d1097f54a901a884b989c37a",
+              "ClientRectangle": "0.6,0.19,3.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TIPO"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          },
+          "Condition": {
+            "Value": "{root.TIPOARTICULO}"
+          }
+        },
+        "3": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot",
+          "ClientRectangle": "0,5.4,19,4.4",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot_CODIGO",
+              "Guid": "403f92c1b10636816eb781ce9bc35489",
+              "CanGrow": true,
+              "ClientRectangle": "3.4,0.4,3.4,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.CODIGO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot_NOMBRE_ARTICULO",
+              "Guid": "4c8c58852ddd12d842a03405ee26941f",
+              "CanGrow": true,
+              "ClientRectangle": "3.4,1.2,3.4,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.NOMBRE_ARTICULO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Dataroot_DESCRIPCION",
+              "Guid": "4e730685b4b9c4fa8eb7705979df24b7",
+              "CanGrow": true,
+              "ClientRectangle": "0.6,2.8,6.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.DESCRIPCION}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Dataroot_PRECIO_LISTA",
+              "Guid": "f89b1799850a0292bf61acfd45ba1b44",
+              "CanGrow": true,
+              "ClientRectangle": "7.2,1.2,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.PRECIO_LISTA}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Dataroot_PRECIO_NETO",
+              "Guid": "6f60021f483e8b0f8a7ad752c1642624",
+              "CanGrow": true,
+              "ClientRectangle": "7.2,2.8,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.PRECIO_NETO}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "2d8ee86c94c1f915524e4d6927528520",
+              "ClientRectangle": "0.6,0.38,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "CÓDIGO"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "9718a1bb7e437794fac3c2ae7e0cb66f",
+              "ClientRectangle": "0.6,1.18,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ARTÍCULO"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "Guid": "8e05f95dfbd2c41c75cd99c30da973ce",
+              "ClientRectangle": "0.59,2.18,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "DESCRIPCIÓN"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "8": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "Guid": "5e18cf905d25d887c6608b8541faea22",
+              "ClientRectangle": "7.2,0.38,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "PRECIO LISTA"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "9": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "Guid": "5d2b7030084318e14ce73f8b357cb63b",
+              "ClientRectangle": "7.19,2.18,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "PRECIO NETO"
+              },
+              "Font": ";10;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "10": {
+              "Ident": "StiImage",
+              "Name": "Image1",
+              "ClientRectangle": "10.8,0.4,7.8,3.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "Stretch": true,
+              "ImageURL": {
+                "Value": "{root.IMAGENADJUNTA}"
+              },
+              "ImageBytes": ""
+            },
+            "11": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive1",
+              "ClientRectangle": "0.6,4.2,18,0.0254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            }
+          },
+          "DataSourceName": "root"
+        }
+      },
+      "PageWidth": 21,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

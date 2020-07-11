@@ -194,7 +194,7 @@
 
                             if (comandos[0] == 'buildsys') {
 
-                                term.echo('Processing...');
+                                term.echo('Procesando...');
 
 
                 $(document).ready(function () {
@@ -206,7 +206,7 @@
                         tablas = data.split(",");
 
                         //recreando la caché
-                        term.echo('Regeneting fields cache... ');
+                        term.echo('Regenerando caché de campos... ');
                         $.get('../../../cacheregen');
 
                        for(let i = 0; i < tablas.length; i++){
@@ -224,7 +224,7 @@
 
 
 
-                            term.echo('Command...' + command + ' done.');
+                            term.echo('Comando...' + command + ' procesado.');
 
                         } else if (command == "js") {
                             term.push(function (command, term) {

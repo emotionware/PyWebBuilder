@@ -623,7 +623,7 @@ window.parent.parent.addtabplus(data);
                 datatype: "json",
                 datafields: [
 
-                     {name: 'EDITAR', type:'string'},{name: 'IDBACKUP', type: 'string'},{name: 'FECHABACKUP', type: 'date', format: 'yyyy-MM-ddTHH:mm:ss-HH:mm'},{name: 'OBSERVACIONES', type: 'string'},{name: 'ELIMINADO', type: 'bool'},{name: 'BLOQUEADO', type: 'bool'},{name: 'FECHAALTA', type: 'date', format: 'yyyy-MM-ddTHH:mm:ss-HH:mm'},{name: 'PROPIETARIO', type: 'string'}
+                     {name: 'EDITAR', type:'string'},{name: 'IDBACKUP', type: 'float'},{name: 'IDBACKUP', type: 'string'},{name: 'FECHABACKUP', type: 'date', format: 'yyyy-MM-ddTHH:mm:ss-HH:mm'},{name: 'OBSERVACIONES', type: 'string'},{name: 'ELIMINADO', type: 'bool'},{name: 'BLOQUEADO', type: 'bool'},{name: 'FECHAALTA', type: 'date', format: 'yyyy-MM-ddTHH:mm:ss-HH:mm'},{name: 'PROPIETARIO', type: 'string'}
 
                 ],
                 id: 'IDBACKUP',
@@ -659,7 +659,7 @@ window.parent.parent.addtabplus(data);
 
                     columns: [
 
-                        { text: 'Edit', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass },{text: 'Idbackup', editable: false, columngroup: 'A.DATOS', datafield: 'IDBACKUP', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Fechabackup', editable: true , columngroup: 'A.DATOS', theme:theme  , filtertype: 'range',  datafield: 'FECHABACKUP', width: '110',  cellsformat: 'dd.MM.yyyy', columntype: 'datetimeinput', createeditor: function (rowIndex, cellValue, editor) { editor.jqxDateTimeInput({ min: new Date(1000, 1, 1), max: new Date(5100, 1, 1), culture: 'es-ES' }); }, initeditor: function (rowindex, cellvalue, editor) { editor.jqxDateTimeInput({ value: cellvalue });}  },{text: 'Observaciones', editable: true, columngroup: 'A.DATOS', datafield: 'OBSERVACIONES', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Eliminado', editable: false, columngroup: 'X.CONTROL', datafield: 'ELIMINADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Bloqueado', editable: false, columngroup: 'X.CONTROL', datafield: 'BLOQUEADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Fecha Alta', editable: false , columngroup: 'X.CONTROL', theme:theme  , filtertype: 'range',  datafield: 'FECHAALTA', width: '110',  cellsformat: 'dd.MM.yyyy', columntype: 'datetimeinput', createeditor: function (rowIndex, cellValue, editor) { editor.jqxDateTimeInput({ min: new Date(1000, 1, 1), max: new Date(5100, 1, 1), culture: 'es-ES' }); }, initeditor: function (rowindex, cellvalue, editor) { editor.jqxDateTimeInput({ value: cellvalue });}  },{text: 'Propietario', editable: true, columngroup: 'X.CONTROL', datafield: 'PROPIETARIO', theme:theme ,  columntype: 'text' , width: '110'}
+                        { text: 'Editar', datafield: 'EDITAR', width: 60,  filterable: false, textPosition: 'left', theme:theme, columntype:'text', cellclassname: cellclass },{text: 'Idbackup', editable: false, columngroup: 'A.DATOS', datafield: 'IDBACKUP', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Fechabackup', editable: true , columngroup: 'A.DATOS', theme:theme  , filtertype: 'range',  datafield: 'FECHABACKUP', width: '110',  cellsformat: 'dd.MM.yyyy', columntype: 'datetimeinput', createeditor: function (rowIndex, cellValue, editor) { editor.jqxDateTimeInput({ min: new Date(1000, 1, 1), max: new Date(5100, 1, 1), culture: 'es-ES' }); }, initeditor: function (rowindex, cellvalue, editor) { editor.jqxDateTimeInput({ value: cellvalue });}  },{text: 'Observaciones', editable: true, columngroup: 'A.DATOS', datafield: 'OBSERVACIONES', theme:theme ,  columntype: 'text' , width: '110'},{text: 'Eliminado', editable: false, columngroup: 'X.CONTROL', datafield: 'ELIMINADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Bloqueado', editable: false, columngroup: 'X.CONTROL', datafield: 'BLOQUEADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'Fecha Alta', editable: false , columngroup: 'X.CONTROL', theme:theme  , filtertype: 'range',  datafield: 'FECHAALTA', width: '110',  cellsformat: 'dd.MM.yyyy', columntype: 'datetimeinput', createeditor: function (rowIndex, cellValue, editor) { editor.jqxDateTimeInput({ min: new Date(1000, 1, 1), max: new Date(5100, 1, 1), culture: 'es-ES' }); }, initeditor: function (rowindex, cellvalue, editor) { editor.jqxDateTimeInput({ value: cellvalue });}  },{text: 'Propietario', editable: true, columngroup: 'X.CONTROL', datafield: 'PROPIETARIO', theme:theme ,  columntype: 'text' , width: '110'}
 
 
 
@@ -953,11 +953,11 @@ setTimeout(function(){
         </script>
         <div id='jqxWidget'>
             <div id="botonespostgrid">
-                <label id="pestananueva" style="font-size:10px; position:relative;top:-0px;left:11px" for="modoapertura">Open on new tab</label>
+                <label id="pestananueva" style="font-size:10px; position:relative;top:-0px;left:11px" for="modoapertura">Abrir en nueva pestaña</label>
                 <input style="font-size:10px; position:relative;top:3px;left:11px" type="checkbox" id="modoapertura" />
                 <label style="font-size:10px; position:relative;top:-0px;left:20px" id="numregistros"></label>
 
-                <label style="font-size:10px; position:relative;top:-0px;left:40px" id="lostemas">Themes</label>
+                <label style="font-size:10px; position:relative;top:-0px;left:40px" id="lostemas">Temas</label>
                 <select style="font-size:10px; position:relative;top:-0px;left:40px;width:100px;" id="cambiartema" onchange="cambiartema();return false">
                     <option value="darkblue">DarkBlue</option>
 
@@ -983,13 +983,13 @@ setTimeout(function(){
             <div style="position:relative;left:10px;top:-23px">
 
 
-                            <input id="refresh" type="button" style="width:120px" value="Refresh" />
+                            <input id="refresh" type="button" style="width:120px" value="Actualizar" />
 
                            <input id="buttonr" type="button" style="width:100px" value="Auto-Resize" />
-                 <input id="eliminar" type="button" style="width:120px" value="Delete" />
+                 <input id="eliminar" type="button" style="width:120px" value="Eliminar" />
 
-                            <input id="restaurar" type="button" style="width:120px" value="Restore" />
-                            <input id="purgar" type="button" style="width:120px" value="Empty Trash" />
+                            <input id="restaurar" type="button" style="width:120px" value="Restaurar" />
+                            <input id="purgar" type="button" style="width:120px" value="Vaciar Papelera" />
 
 
 

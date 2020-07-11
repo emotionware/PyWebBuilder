@@ -1,0 +1,447 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "1e472bd90fe939509c7e91ab4dc68888",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "responsivagral.mrt",
+  "ReportCreated": "/Date(1586289637000-0500)/",
+  "ReportChanged": "/Date(1586289637000-0500)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Name": "GUID",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "GUID",
+        "Type": "System.String"
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "EMAIL",
+            "Index": -1,
+            "NameInSource": "EMAIL",
+            "Alias": "EMAIL",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "GUID",
+            "Index": -1,
+            "NameInSource": "GUID",
+            "Alias": "GUID",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "IDSYSUSER",
+            "Index": -1,
+            "NameInSource": "IDSYSUSER",
+            "Alias": "IDSYSUSER",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "NAME",
+            "Index": -1,
+            "NameInSource": "NAME",
+            "Alias": "NAME",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "PASSWORD",
+            "Index": -1,
+            "NameInSource": "PASSWORD",
+            "Alias": "PASSWORD",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "USERNAME",
+            "Index": -1,
+            "NameInSource": "USERNAME",
+            "Alias": "USERNAME",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_responsiva_gral.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_responsiva_gral",
+        "Alias": "displayquery?query=view_responsiva_gral",
+        "PathData": "../../displayquery?query=view_responsiva_gral"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "d23e1215aac4bf90b322db386fbe96bd",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,1.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "c2e1a894fed51fb751afa7a032019059",
+              "ClientRectangle": "0.2,0.4,18.2,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "RESPONSIVA GENERAL"
+              },
+              "Font": ";18;Bold, Italic;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot",
+          "ClientRectangle": "0,2.8,19,14.4",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot_NAME",
+              "Guid": "5e2599246838404d609e5d28584a0993",
+              "CanGrow": true,
+              "ClientRectangle": "3.6,0.4,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.NAME}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot_EMAIL",
+              "Guid": "b81476d35a8eb9b6b20950dbc9dd1e93",
+              "CanGrow": true,
+              "ClientRectangle": "3.6,1.4,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.EMAIL}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "e96ebed96a9aa03ca6fe849c92fc1e93",
+              "ClientRectangle": "0.2,0.4,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "NOMBRE:"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "6567756922d93d61bcde3d7e319c9254",
+              "ClientRectangle": "0.2,1.39,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "EMAIL:"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "5ff2159b608a7ed4a2eb268a9ad87568",
+              "ClientRectangle": "0.2,2.38,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "USERNAME:"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "c01fa3d3f8d4014f98cd3dc178e861cc",
+              "CanGrow": true,
+              "ClientRectangle": "3.59,2.38,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.USERNAME}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "DataColumn"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "fd142f9e2059528a03a993e5e28e8e64",
+              "CanGrow": true,
+              "ClientRectangle": "3.58,3.37,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.PASSWORD}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "DataColumn"
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "8b7647267cf607508db1d917b9d2943a",
+              "ClientRectangle": "0.2,3.37,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "PASSWORD:"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            },
+            "8": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "Guid": "7ea9d9d94f825ebf6c13c728f407fe41",
+              "ClientRectangle": "0.2,4.36,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "FOLIO:"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            },
+            "9": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "Guid": "f7fd3bdc73b975fe1504ba6c4c21bc1a",
+              "CanGrow": true,
+              "ClientRectangle": "3.58,4.36,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.IDSYSUSER}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "DataColumn"
+            },
+            "10": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "Guid": "0da7209acdb21139f4ba530fcceffed2",
+              "CanGrow": true,
+              "ClientRectangle": "3.58,5.35,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.GUID}"
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "DataColumn"
+            },
+            "11": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "Guid": "6067878bfa21c7a22b5b81b85eda776d",
+              "ClientRectangle": "0.2,5.35,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "GUID:"
+              },
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "Type": "Expression"
+            },
+            "12": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "Guid": "1b1cbdc76bd556fd5a0a9a7d611746d5",
+              "ClientRectangle": "0.2,7,18.2,1.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Confirmo recepción de mis datos de acceso al sistema.\r\nMe comprometo a hacer buen uso del mismo  y entrego\r\nfirmada esta responsiva al área correspondiente para su control y registro."
+              },
+              "Font": ";12;;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "13": {
+              "Ident": "StiText",
+              "Name": "Text13",
+              "Guid": "890b5959cc67776bd404220ef5f103d7",
+              "CanGrow": true,
+              "ClientRectangle": "1.61,11.4,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.NAME}"
+              },
+              "HorAlignment": "Center",
+              "Font": ";10;Italic;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "14": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "Guid": "1751343c32c0a7a4270aab85a002e25d",
+              "ClientRectangle": "1.6,12.2,14.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Today}"
+              },
+              "HorAlignment": "Center",
+              "Font": ";10;Italic;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:68,114,196",
+              "TextFormat": {
+                "Ident": "StiDateFormatService",
+                "StringFormat": "D"
+              },
+              "Type": "SystemVariables"
+            }
+          },
+          "DataSourceName": "root",
+          "Filters": {
+            "0": {
+              "Ident": "StiFilter",
+              "Item": "Expression",
+              "Expression": {
+                "Value": "{GUID==root.GUID}"
+              }
+            }
+          }
+        }
+      },
+      "PageWidth": 21,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

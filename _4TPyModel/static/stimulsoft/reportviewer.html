@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Visor de Reportes</title>
+
+    <!-- Report viewer Office2013 style -->
+    <link href="/static/stimulsoft/styles/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
+
+    <!-- Stimusloft Reports.JS -->
+    <script src="/static/stimulsoft/scripts/stimulsoft.reports.js" type="text/javascript"></script>
+    <script src="/static/stimulsoft/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+<script>
+
+
+            //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null  ) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("../../login", "_self");
+        }
+
+        //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "../../validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("../../login", "_self");
+                        }
+
+                    });
+             });
+
+window.parent.parent.tabtible('Report-Viewer');
+</script>
+
+</head>
+
+<body>
+
+
+
+    <script type="text/javascript">
+
+        Stimulsoft.Base.StiLicense.key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHkcgIvwL0jnpsDqRpWg5FI5kt2G7A0tYIcUygBh1sPs7koivWV0htru4Pn2682yhdY3+9jxMCVTKcKAjiEjgJzqXgLFCpe62hxJ7/VJZ9Hq5l39md0pyydqd5Dc1fSWhCtYqC042BVmGNkukYJQN0ufCozjA/qsNxzNMyEql26oHE6wWE77pHutroj+tKfOO1skJ52cbZklqPm8OiH/9mfU4rrkLffOhDQFnIxxhzhr2BL5pDFFCZ7axXX12y/4qzn5QLPBn1AVLo3NVrSmJB2KiwGwR4RL4RsYVxGScsYoCZbwqK2YrdbPHP0t5vOiLjBQ+Oy6F4rNtDYHn7SNMpthfkYiRoOibqDkPaX+RyCany0Z+uz8bzAg0oprJEn6qpkQ56WMEppdMJ9/CBnEbTFwn1s/9s8kYsmXCvtI4iQcz+RkUWspLcBzlmj0lJXWjTKMRZz+e9PmY11Au16wOnBU3NHvRc9T/Zk0YFh439GKd/fRwQrk8nJevYU65ENdAOqiP5po7Vnhif5FCiHRpxgF";
+
+       // Stimulsoft.Base.Localization.StiLocalization.addLocalizationFile("Localization/es.xml", true, "es");
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var campofiltro = url.searchParams.get("campofiltro");
+        var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+        var reporte = url.searchParams.get("reporte");
+        var barra = url.searchParams.get("barravisible");
+
+ 
+
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var para = url.searchParams.get("para");
+        var asunto = url.searchParams.get("asunto");
+        var cuerpo = url.searchParams.get("cuerpo");
+
+
+
+        
+
+        var options = new Stimulsoft.Viewer.StiViewerOptions();
+		options.appearance.fullScreenMode = false;
+        options.toolbar.showSendEmailButton = true;
+        options.toolbar.showDesignButton = true;
+
+        
+        
+
+
+
+        if (barra == '0') {
+            options.toolbar.visible = false;
+        }
+
+
+
+        // Create the report viewer with default options and show it in this place
+        var viewer = new Stimulsoft.Viewer.StiViewer(options, "showSendEmailButton", true);
+
+
+ 
+     
+
+
+        // Create a new report instance
+        var report = new Stimulsoft.Report.StiReport();
+        // Load report from url
+        report.loadFile("/static/reports/" + reporte);
+        // Assign report to the viewer, the report will be built automatically after rendering the viewer
+        viewer.report = report;
+
+
+
+        options.email.defaultEmailAddress = para;
+        options.email.defaultEmailSubject = asunto;
+        options.email.defaultEmailMessage = cuerpo;
+
+
+
+ 
+        viewer.onDesignReport = function (args) {
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+ 
+        var reporte = url.searchParams.get("reporte");
+
+
+
+window.open("/static/stimulsoft/reportdesigner.html?reporte=" +reporte);
+
+}
+
+
+        viewer.onEmailReport = function (args) {
+            
+
+// args.settings -  send email form
+
+// args.settings.email  -  email adress
+
+// args.settings.subject  -  email subject
+
+// args.settings.message  -  email message
+
+ 
+
+// args.format  -  export format - PDF, HTML, HTML 5, Excel2007, Word2007, CSV
+
+// args.fileName - report file name (name of attachement)
+
+// args.data  -  byte array with exported report file ---------------> con este se envia por AJAX
+
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var para = url.searchParams.get("para");
+        var asunto = url.searchParams.get("asunto");
+        var cuerpo = url.searchParams.get("cuerpo");
+         
+
+
+var settings = new Stimulsoft.Report.Export.StiHtmlExportSettings();
+var service = new Stimulsoft.Report.Export.StiHtmlExportService();
+var textWriter = new Stimulsoft.System.IO.TextWriter();
+var htmlTextWriter = new
+Stimulsoft.Report.Export.StiHtmlTextWriter(textWriter);
+service.exportTo(report, htmlTextWriter, settings);
+            var resultHtml = textWriter.getStringBuilder().toString();
+
+
+           // Object.saveAs(args.data, args.fileName + ".pdf", "application/pdf");
+
+
+
+             $(document).ready(function () {
+                    $.ajax({
+                        url: "../../../enviarreporte?para=" + args.settings.email + "&asunto=" + args.settings.subject + "&mensaje=" + args.settings.message + "&formato=" + args.format + "&nombre=reportePDF_" + args.settings.email + "&reporte=" + encodeURIComponent(resultHtml)
+                    }).then(function (data) {
+
+
+                        window.open(data, '_self');
+
+                    });
+                 });
+
+
+
+
+
+
+        }
+
+
+
+
+        report.setVariable(campofiltro, idobjetofiltro);
+
+
+function saveReportPdf() {
+	// Create an PDF settings instance. You can change export settings.
+	var settings = new Stimulsoft.Report.Export.StiPdfExportSettings();
+	// Create an PDF service instance.
+	var service = new Stimulsoft.Report.Export.StiPdfExportService();
+	
+	// Create a MemoryStream object.
+	var stream = new Stimulsoft.System.IO.MemoryStream();
+	// Export PDF using MemoryStream.
+	service.exportTo(report, stream, settings);
+	
+	// Get PDF data from MemoryStream object
+	var data = stream.toArray();
+	// Get report file name
+	var fileName = String.isNullOrEmpty(report.reportAlias) ? report.reportName : report.reportAlias;
+	// Save data to file
+	Object.saveAs(data, fileName + ".pdf", "application/pdf");
+}
+
+
+
+function bin2String(array) {
+  var result = "";
+  for (var i = 0; i < array.length; i++) {
+    result += String.fromCharCode(parseInt(array[i], 2));
+  }
+  return result;
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,796 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "472fdb26c5d791aa0676db2ea6ec84e9",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "controlcotizacion.mrt",
+  "ReportCreated": "/Date(1583494070000-0600)/",
+  "ReportChanged": "/Date(1583494070000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "ID",
+            "Index": -1,
+            "NameInSource": "ID",
+            "Alias": "ID",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "Link",
+            "Index": -1,
+            "NameInSource": "Link",
+            "Alias": "Link",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_estatus_cotizaciones.root"
+      },
+      "1": {
+        "Ident": "StiDataTableSource",
+        "Name": "root2",
+        "Alias": "root2",
+        "Columns": {
+          "0": {
+            "Name": "IDCOTIZACION",
+            "Index": -1,
+            "NameInSource": "IDCOTIZACION",
+            "Alias": "IDCOTIZACION",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "IMPORTE",
+            "Index": -1,
+            "NameInSource": "IMPORTE",
+            "Alias": "IMPORTE",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_abiertas.root"
+      },
+      "2": {
+        "Ident": "StiDataTableSource",
+        "Name": "root3",
+        "Alias": "root3",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CANTIDAD",
+            "Index": -1,
+            "NameInSource": "CANTIDAD",
+            "Alias": "CANTIDAD",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "IDAGENTE",
+            "Index": -1,
+            "NameInSource": "IDAGENTE",
+            "Alias": "IDAGENTE",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_cotizaciones_por_agente.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_estatus_cotizaciones",
+        "Alias": "displayquery?query=view_estatus_cotizaciones",
+        "PathData": "../../displayquery?query=view_estatus_cotizaciones"
+      },
+      "1": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_abiertas",
+        "Alias": "displayquery?query=view_cotizaciones_abiertas",
+        "PathData": "../../displayquery?query=view_cotizaciones_abiertas"
+      },
+      "2": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_cotizaciones_por_agente",
+        "Alias": "displayquery?query=view_cotizaciones_por_agente",
+        "PathData": "../../displayquery?query=view_cotizaciones_por_agente"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "948dc2dbb2a85369f8bc157e65dd2a7d",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,1.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "2f0e46955cf0c9e298f3c5dc5ad6e7af",
+              "ClientRectangle": "0,0.2,12.4,1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "CONTROL GENERAL"
+              },
+              "Font": ";22;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand1",
+          "ClientRectangle": "0,2.4,19,0.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "949d215d823a861b10250da63a878ab1",
+              "ClientRectangle": "0,0.2,9.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "COTIZACIONES POR ESTATUS"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive1",
+              "ClientRectangle": "0,0.8,19,0.0254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot",
+          "ClientRectangle": "0,4,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot_ESTATUS",
+              "Guid": "b55ac559751d2c11ce3a5feaba52da9a",
+              "CanGrow": true,
+              "ClientRectangle": "0,0,3.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.ESTATUS}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot_CANTIDAD",
+              "Guid": "85f55c9bf905db758084b797b501b76f",
+              "CanGrow": true,
+              "ClientRectangle": "4.2,0,1.6,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root.CANTIDAD}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Dataroot_Link",
+              "Guid": "08921f5a50ce98cf916553de3fe1ade4",
+              "CanGrow": true,
+              "ClientRectangle": "7.4,0.2,3.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Hyperlink": {
+                "Value": "../../rendergrid?grid=tables/tblcotizacion&campofiltro=IDESTATUS_tblcotizacion&idobjetofiltro={root.ID}"
+              },
+              "Text": {
+                "Value": "<span size=\"12\">Mostrar Registros</span>"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "root"
+        },
+        "3": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand4",
+          "ClientRectangle": "0,5.6,19,8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiChart",
+              "Name": "Chart1",
+              "ClientRectangle": "0.4,0.2,9,7.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:255,255,255",
+              "Series": {
+                "0": {
+                  "Ident": "StiPieSeries",
+                  "ShowSeriesLabels": "FromSeries",
+                  "ShowShadow": false,
+                  "SeriesLabels": {
+                    "Ident": "StiInsideEndPieLabels",
+                    "MarkerSize": {
+                      "Width": 8,
+                      "Height": 6
+                    },
+                    "ValueType": "Argument",
+                    "ValueTypeSeparator": "-",
+                    "LabelColor": "105,105,105",
+                    "BorderColor": "105,105,105",
+                    "Brush": "solid:White"
+                  },
+                  "ValueDataColumn": "root.CANTIDAD",
+                  "ArgumentDataColumn": "root.ESTATUS",
+                  "Argument": {
+                    "Value": "root.ESTATUS"
+                  },
+                  "Title": {
+                    "Value": "Series 1"
+                  },
+                  "BorderColor": "155,28,0",
+                  "Brush": "gradient:255,128,0:205,78,0:"
+                }
+              },
+              "Area": {
+                "Ident": "StiPieArea",
+                "BorderColor": "105,105,105",
+                "Brush": "gradient:255,255,255::90"
+              },
+              "Table": {
+                "GridLineColor": "105,105,105",
+                "Header": {
+                  "Brush": "solid:White"
+                },
+                "DataCells": {
+                  "TextColor": "105,105,105"
+                }
+              },
+              "SeriesLabels": {
+                "Ident": "StiTwoColumnsPieLabels",
+                "MarkerSize": {
+                  "Width": 8,
+                  "Height": 6
+                },
+                "ValueTypeSeparator": "-",
+                "LabelColor": "105,105,105",
+                "BorderColor": "105,105,105",
+                "Brush": "solid:White",
+                "LineColor": "105,105,105"
+              },
+              "Legend": {
+                "ShowShadow": false,
+                "BorderColor": "105,105,105",
+                "Brush": "gradient:255,255,255::90",
+                "TitleColor": "105,105,105",
+                "LabelsColor": "105,105,105",
+                "MarkerSize": {
+                  "Width": 10,
+                  "Height": 10
+                },
+                "Columns": 0,
+                "Size": "0,0"
+              },
+              "Title": {
+                "Text": "Cotizaciones por Estatus",
+                "Brush": "solid:105,105,105",
+                "Visible": true
+              },
+              "Style": {
+                "Ident": "StiStyle16"
+              }
+            },
+            "1": {
+              "Ident": "StiChart",
+              "Name": "Chart2",
+              "Guid": "d70d37ba2e7d01f8cf48e8e6295c5be0",
+              "ClientRectangle": "9.59,0.19,9,7.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:255,255,255",
+              "Series": {
+                "0": {
+                  "Ident": "StiPieSeries",
+                  "ShowSeriesLabels": "FromSeries",
+                  "ShowShadow": false,
+                  "SeriesLabels": {
+                    "Ident": "StiInsideEndPieLabels",
+                    "MarkerSize": {
+                      "Width": 8,
+                      "Height": 6
+                    },
+                    "ValueType": "ArgumentValue",
+                    "ValueTypeSeparator": "-",
+                    "LabelColor": "105,105,105",
+                    "BorderColor": "105,105,105",
+                    "Brush": "solid:White"
+                  },
+                  "ValueDataColumn": "root2.IMPORTE",
+                  "ArgumentDataColumn": "root2.IDCOTIZACION",
+                  "Title": {
+                    "Value": "Series 1"
+                  },
+                  "BorderColor": "155,28,0",
+                  "Brush": "gradient:255,128,0:205,78,0:"
+                }
+              },
+              "Area": {
+                "Ident": "StiPieArea",
+                "BorderColor": "105,105,105",
+                "Brush": "gradient:255,255,255::90"
+              },
+              "Table": {
+                "GridLineColor": "105,105,105",
+                "Header": {
+                  "Brush": "solid:White"
+                },
+                "DataCells": {
+                  "TextColor": "105,105,105"
+                }
+              },
+              "SeriesLabels": {
+                "Ident": "StiTwoColumnsPieLabels",
+                "MarkerSize": {
+                  "Width": 8,
+                  "Height": 6
+                },
+                "ValueTypeSeparator": "-",
+                "LabelColor": "105,105,105",
+                "BorderColor": "105,105,105",
+                "Brush": "solid:White",
+                "LineColor": "105,105,105"
+              },
+              "Legend": {
+                "ShowShadow": false,
+                "BorderColor": "105,105,105",
+                "Brush": "gradient:255,255,255::90",
+                "TitleColor": "105,105,105",
+                "LabelsColor": "105,105,105",
+                "MarkerSize": {
+                  "Width": 10,
+                  "Height": 10
+                },
+                "Columns": 0,
+                "Size": "0,0"
+              },
+              "Title": {
+                "Text": "Cotizaciones Abiertas por Importe",
+                "Brush": "solid:105,105,105",
+                "Visible": true
+              },
+              "Style": {
+                "Ident": "StiStyle16"
+              }
+            },
+            "2": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive2",
+              "Guid": "ee7afcada52ef2971b0294005338ec0d",
+              "ClientRectangle": "0,-0.4,19,0.0254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            }
+          }
+        },
+        "4": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand2",
+          "ClientRectangle": "0,14.4,19,0.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "cb797e9941bb07a8bf0fc0d2666fed37",
+              "ClientRectangle": "0,0.19,9.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "COTIZACIONES ABIERTAS POR IMPORTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive4",
+              "Guid": "e45b522dfa21adda19ebcf1e518d5259",
+              "ClientRectangle": "0,0.8,19,0.0254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            }
+          }
+        },
+        "5": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot2",
+          "ClientRectangle": "0,16,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot2_IDCOTIZACION",
+              "Guid": "4a96f6b84df26f0f9ca60f32c827ddc4",
+              "CanGrow": true,
+              "ClientRectangle": "0,0,3.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root2.IDCOTIZACION}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot2_IMPORTE",
+              "Guid": "cb860edec7c4bd489c3b1c0748822d26",
+              "CanGrow": true,
+              "ClientRectangle": "4.2,0,1.6,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root2.IMPORTE}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiCurrencyFormatService",
+                "NegativePattern": 8,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "PositivePattern": 0
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "aacbc1efbeacf9c200824fbfd60ec101",
+              "CanGrow": true,
+              "ClientRectangle": "7.39,0.19,3.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Hyperlink": {
+                "Value": "../../formrender?form=tables/tblcotizacion_form&idobjeto={root2.IDCOTIZACION}"
+              },
+              "Text": {
+                "Value": "<span size=\"12\">Mostrar Registro</span>"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "276f1b3f94323cc7d59a131f0e6fbdb9",
+              "CanGrow": true,
+              "ClientRectangle": "11.98,0.19,3.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Hyperlink": {
+                "Value": "../../static/stimulsoft/reportviewer.html?reporte=cotizacion.mrt&campofiltro=IDCOTIZACION&idobjetofiltro={root2.IDCOTIZACION}"
+              },
+              "Text": {
+                "Value": "<span size=\"12\">Mostrar Reporte</span>"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "root2"
+        },
+        "6": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand3",
+          "ClientRectangle": "0,17.6,19,0.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "feba32ea3f92c76c06b1bef47bc86606",
+              "ClientRectangle": "0,0.19,9.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "COTIZACIONES POR AGENTE"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive3",
+              "Guid": "927d7a73e042ff6203293007ce970679",
+              "ClientRectangle": "0,0.8,19,0.0254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            }
+          }
+        },
+        "7": {
+          "Ident": "StiDataBand",
+          "Name": "Dataroot3",
+          "ClientRectangle": "0,19.2,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:Transparent",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Dataroot3_AGENTE",
+              "Guid": "2523e9860ab1e5ee5fca471ba2409543",
+              "CanGrow": true,
+              "ClientRectangle": "0,0,6.4,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root3.AGENTE}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Dataroot3_ESTATUS",
+              "Guid": "575deaec99710861691770f7cea85d1f",
+              "CanGrow": true,
+              "ClientRectangle": "6.4,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root3.ESTATUS}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Dataroot3_CANTIDAD",
+              "Guid": "f33f30fe0c8a15c597670fe9b2b893c6",
+              "CanGrow": true,
+              "ClientRectangle": "9.2,0,2.4,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{root3.CANTIDAD}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "4869a415301e5f85f1ae5fc72c083032",
+              "CanGrow": true,
+              "ClientRectangle": "11.99,0.19,3.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Hyperlink": {
+                "Value": "../../formrender?form=tables/tblagente_form&idobjeto={root3.IDAGENTE}"
+              },
+              "Text": {
+                "Value": "<span size=\"12\">Mostrar Agente</span>"
+              },
+              "VertAlignment": "Center",
+              "Font": ";11;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:Transparent",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextQuality": "Wysiwyg",
+              "AllowHtmlTags": true,
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "root3"
+        }
+      },
+      "PageWidth": 21,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

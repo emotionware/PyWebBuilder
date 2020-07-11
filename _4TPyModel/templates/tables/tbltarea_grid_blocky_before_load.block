@@ -1,0 +1,9 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="text_print" id="q87cOS7O_d]zC0]0Ho-[" x="150" y="70">
+    <value name="TEXT">
+      <block type="text" id="1RlBvG(M@`cnlVx-tSm7">
+        <field name="TEXT">before</field>
+      </block>
+    </value>
+  </block>
+</xml>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Visor de Dashboard</title>
+
+    <!-- Dashboard viewer Office2013 style -->
+    <link href="/static/stimulsoft/styles/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
+
+    <!-- Stimusloft Dashboards.JS -->
+    <script src="/static/stimulsoft/scripts/stimulsoft.reports.js" type="text/javascript"></script>
+    <script src="/static/stimulsoft/scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
+    <script src="/static/stimulsoft/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+
+
+        <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+<script>
+
+
+            //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null  ) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("../../login", "_self");
+        }
+
+
+        //validando TOKEN  Cookies.get('token')
+             $(document).ready(function () {
+                 $.ajax({
+                        url: "../../validartoken" + '?token=' + Cookies.get('token')
+                    }).then(function (data) {
+
+                       // if (data=='valido'){}
+
+                     if (data=='novalido'){
+                            window.open("../../login", "_self");
+                        }
+
+                    });
+             });
+
+</script>
+
+
+</head>
+
+<body>
+
+
+
+
+    <script type="text/javascript">
+    // Create the dashboard viewer with default options and show it in this place
+
+        Stimulsoft.Base.StiLicense.key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHkcgIvwL0jnpsDqRpWg5FI5kt2G7A0tYIcUygBh1sPs7koivWV0htru4Pn2682yhdY3+9jxMCVTKcKAjiEjgJzqXgLFCpe62hxJ7/VJZ9Hq5l39md0pyydqd5Dc1fSWhCtYqC042BVmGNkukYJQN0ufCozjA/qsNxzNMyEql26oHE6wWE77pHutroj+tKfOO1skJ52cbZklqPm8OiH/9mfU4rrkLffOhDQFnIxxhzhr2BL5pDFFCZ7axXX12y/4qzn5QLPBn1AVLo3NVrSmJB2KiwGwR4RL4RsYVxGScsYoCZbwqK2YrdbPHP0t5vOiLjBQ+Oy6F4rNtDYHn7SNMpthfkYiRoOibqDkPaX+RyCany0Z+uz8bzAg0oprJEn6qpkQ56WMEppdMJ9/CBnEbTFwn1s/9s8kYsmXCvtI4iQcz+RkUWspLcBzlmj0lJXWjTKMRZz+e9PmY11Au16wOnBU3NHvRc9T/Zk0YFh439GKd/fRwQrk8nJevYU65ENdAOqiP5po7Vnhif5FCiHRpxgF";
+
+       var url_string = window.location.href;
+        var url = new URL(url_string);
+        var dashboard = url.searchParams.get("dashboard");
+
+        var campofiltro = url.searchParams.get("campofiltro");
+        var idobjetofiltro = url.searchParams.get("idobjetofiltro");
+
+        var viewer = new Stimulsoft.Viewer.StiViewer();
+        // Create a new dashboard instance
+        var report = Stimulsoft.Report.StiReport.createNewDashboard();
+        // Load dashboard from url
+        report.loadFile("/static/dashboards/" + dashboard  );
+        // Assign dashboard to the viewer
+        viewer.report = report;
+
+       
+
+window.parent.parent.tabtible('DashBoard-Viewer');
+    </script>
+</body>
+
+</html>

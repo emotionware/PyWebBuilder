@@ -1,0 +1,238 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "bf372499c2d21e26586118700d2d4ec1",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "prospectos.mrt",
+  "ReportCreated": "/Date(1585750926000-0600)/",
+  "ReportChanged": "/Date(1585750926000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Dictionary": {
+    "DataSources": {
+      "0": {
+        "Ident": "StiDataTableSource",
+        "Name": "root",
+        "Alias": "root",
+        "Columns": {
+          "0": {
+            "Name": "AGENTE",
+            "Index": -1,
+            "NameInSource": "AGENTE",
+            "Alias": "AGENTE",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "APELLIDO",
+            "Index": -1,
+            "NameInSource": "APELLIDO",
+            "Alias": "APELLIDO",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "ESTATUS",
+            "Index": -1,
+            "NameInSource": "ESTATUS",
+            "Alias": "ESTATUS",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "IDPROSPECTO",
+            "Index": -1,
+            "NameInSource": "IDPROSPECTO",
+            "Alias": "IDPROSPECTO",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "NOMBRE",
+            "Index": -1,
+            "NameInSource": "NOMBRE",
+            "Alias": "NOMBRE",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "ORIGENPROSPECTO",
+            "Index": -1,
+            "NameInSource": "ORIGENPROSPECTO",
+            "Alias": "ORIGENPROSPECTO",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "USERNAME",
+            "Index": -1,
+            "NameInSource": "USERNAME",
+            "Alias": "USERNAME",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "USUARIO",
+            "Index": -1,
+            "NameInSource": "USUARIO",
+            "Alias": "USUARIO",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "displayquery?query=view_pertenencia.root"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiJsonDatabase",
+        "Name": "displayquery?query=view_pertenencia",
+        "Alias": "displayquery?query=view_pertenencia",
+        "PathData": "../../displayquery?query=view_pertenencia"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiDashboard",
+      "Name": "Dashboard1",
+      "Guid": "fee30500379921435177e031737943bf",
+      "Brush": "solid:Transparent",
+      "Components": {
+        "0": {
+          "Ident": "StiTextElement",
+          "Name": "TextElement1",
+          "Guid": "50a0f36f705e20032fac2a93c742878a",
+          "ClientRectangle": "0,0,960,40",
+          "Padding": {
+            "Left": 0,
+            "Top": 0,
+            "Right": 0,
+            "Bottom": 0
+          },
+          "Border": ";;;;",
+          "DashboardInteraction": {
+            "Ident": "Text",
+            "OnHover": "ShowToolTip",
+            "OnClick": "OpenHyperlink",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Text": "<font face=\"Arial\" size=\"14\"><text-align=\"Center\"><b><i>PROSPECTOS</i></b></text-align></font>",
+          "Title": {
+            "Text": "Text",
+            "Visible": false
+          }
+        },
+        "1": {
+          "Ident": "StiChartElement",
+          "Name": "ChartElement1",
+          "Guid": "3f490d1e1e34a4c6f2a519f4ff462b98",
+          "ClientRectangle": "0,40,960,440",
+          "Border": ";;;;",
+          "Values": {
+            "0": {
+              "Ident": "ValueChartMeter",
+              "Key": "98f37801460b250ddce93ebad5b5aa84",
+              "Expression": "Count(root.NOMBRE)",
+              "Label": "NOMBRE",
+              "SeriesType": "Pie"
+            }
+          },
+          "Arguments": {
+            "0": {
+              "Ident": "ArgumentChartMeter",
+              "Key": "114e3be409abc5fd6d578f0b1aba8812",
+              "Expression": "root.ESTATUS",
+              "Label": "ESTATUS"
+            }
+          },
+          "DashboardInteraction": {
+            "Ident": "Chart",
+            "OnHover": "ShowToolTip",
+            "OnClick": "ApplyFilter",
+            "HyperlinkDestination": "NewTab"
+          },
+          "Title": {
+            "Text": "Chart"
+          },
+          "ArgumentFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "ValueFormat": {
+            "Ident": "StiGeneralFormatService"
+          },
+          "Area": {
+            "GridLinesHor": {
+              "Color": "Transparent",
+              "Visible": true
+            },
+            "GridLinesVert": {
+              "Color": "Transparent"
+            },
+            "InterlacingHor": {
+              "Color": "Transparent"
+            },
+            "InterlacingVert": {
+              "Color": "Transparent"
+            }
+          },
+          "Labels": {
+            "Position": "Center"
+          }
+        },
+        "2": {
+          "Ident": "StiTreeViewElement",
+          "Name": "TreeViewElement1",
+          "Guid": "fdb50150eb3677531a02c7f236c70367",
+          "ClientRectangle": "960,0,240,120",
+          "Border": ";;;;",
+          "KeyMeters": {
+            "0": {
+              "Ident": "KeyTreeViewMeter",
+              "Key": "4d5aadca787e6784794455acf6d9723d",
+              "Expression": "root.AGENTE",
+              "Label": "AGENTE"
+            }
+          },
+          "Title": {
+            "Text": "Tree View",
+            "Visible": false
+          }
+        },
+        "3": {
+          "Ident": "StiTreeViewElement",
+          "Name": "TreeViewElement2",
+          "Guid": "b6ebbfd70de66352d029e33b31c9d1bf",
+          "ClientRectangle": "960,120,240,220",
+          "Border": ";;;;",
+          "KeyMeters": {
+            "0": {
+              "Ident": "KeyTreeViewMeter",
+              "Key": "87eae7c7ff70a38e672816179a128e8a",
+              "Expression": "root.ESTATUS",
+              "Label": "ESTATUS"
+            }
+          },
+          "Title": {
+            "Text": "Tree View",
+            "Visible": false
+          }
+        },
+        "4": {
+          "Ident": "StiTreeViewElement",
+          "Name": "TreeViewElement3",
+          "Guid": "0e2a93a10d8fd89aeb5c446cebdddfeb",
+          "ClientRectangle": "960,340,240,140",
+          "Border": ";;;;",
+          "KeyMeters": {
+            "0": {
+              "Ident": "KeyTreeViewMeter",
+              "Key": "b5835124fc26ebe402861a14a70ed00e",
+              "Expression": "root.ORIGENPROSPECTO",
+              "Label": "ORIGENPROSPECTO"
+            }
+          },
+          "Title": {
+            "Text": "Tree View",
+            "Visible": false
+          }
+        }
+      },
+      "Border": ";;2;;;;;solid:Black"
+    }
+  }
+}

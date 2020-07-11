@@ -1,0 +1,14 @@
+Ajustes a la base de datos
+
+Una vez identificado el usuario principal de la conexión, ejecutar
+el siguiente comando como root.
+
+
+Cambiando el definer
+UPDATE mysql.proc SET definer = 'root@localhost' where db='4tpycrm';
+
+En el caso de servidores Linux es importante agregar al archivo
+de configuración de Linux
+
+sql_mode=''
+

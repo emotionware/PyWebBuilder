@@ -1,0 +1,1 @@
+select * from tblaltanotify_tblsysconfig order by IDALTANOTIFY_tblsysconfig ASC 

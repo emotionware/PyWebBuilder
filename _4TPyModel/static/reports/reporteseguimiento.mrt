@@ -1,0 +1,36 @@
+{
+  "ReportVersion": "2020.1.1",
+  "ReportGuid": "478eb92ce5197490b4d202c78850710b",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "reporteseguimiento.mrt",
+  "ReportCreated": "/Date(1584369605000-0600)/",
+  "ReportChanged": "/Date(1584369605000-0600)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "ReportUnit": "Centimeters",
+  "PreviewSettings": 268435455,
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "ddf51aa3aed3bdc1fa8af9651bddf06b",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:Transparent",
+      "PageWidth": 21,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1,
+        "Right": 1,
+        "Top": 1,
+        "Bottom": 1
+      }
+    }
+  }
+}

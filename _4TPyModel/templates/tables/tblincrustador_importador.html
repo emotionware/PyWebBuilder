@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Incrustador</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="/static/themes/cerulean/bootstrap.css" media="screen">
+
+    <!-- add one of the jQWidgets styles -->
+    <link rel="stylesheet"
+          href="/static/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!-- Themes for jqwidget-->
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-green.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.material-purple.css" type="text/css" />
+
+
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-start.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-redmond.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/styles/jqx.ui-sunny.css" type="text/css" />
+
+
+    <!--Localization-->
+    <script type="text/javascript" src="/static/jqwidgets/globalization/globalize.js"></script>
+
+
+
+    <!-- add the jQuery script -->
+    <script src="/static/scripts/jquery.min.js"></script>
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="/static/jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="/static/jqwidgets/jqx-all.js"></script>
+
+
+    <!--Js Demos-->
+    <script type="text/javascript" src="/static/scripts/demos.js"></script>
+
+    <!--Exportadores-->
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxexport.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqxgrid.sort.js"></script>
+
+
+
+    <!-- JSZip -->
+    <script type="text/javascript" src="/static/scripts/jszip.min.js"></script>
+
+
+    <!-- Cookie Control -->
+    <script src="/static/scripts/js.cookie.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.export.js"></script>
+
+
+    <script type="text/javascript" src="/static/jqwidgets/jqxdata.js"></script>
+
+
+    <style type="text/css">
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+    </style>
+
+    <style>
+
+
+        @font-face {
+            font-family: pompadour;
+            src: url(/static/fonts/02_APompadourTextSample.ttf);
+        }
+
+
+
+        html {
+            visibility: hidden;
+        }
+    </style>
+
+
+    <style>
+
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: oldlace;
+            text-decoration: none;
+        }
+
+        button {
+            border-radius: 4px;
+        }
+    </style>
+
+
+    <script>
+
+
+        theme = Cookies.get('theme');
+
+        if (theme == null || theme == '' || theme == 'start') {
+
+            Cookies.set('theme', 'darkblue', { expires: 90 });
+
+        }
+
+
+
+
+
+
+
+
+        $(document).ready(function () {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+
+
+
+
+        //check log in/////////////
+        if (Cookies.get('username') != null && Cookies.get('esadmin') != null && Cookies.get('token') != null) {
+            //Show the page
+
+        }
+        else {
+            //Redirect to login
+            window.open("login", "_self");
+        }
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+            // renderer for grid cells.
+            var numberrenderer = function (row, column, value) {
+                return '<div style="text-align: center; margin-top: 5px;">' + (1 + value) + '</div>';
+            }
+            // create Grid datafields and columns arrays.
+            var datafields = [
+
+
+
+                {name: 'IDINCRUSTADOR', type: 'string'},{name: 'IDSYSCOMPONENT', type: 'string'},{name: 'TABLA', type: 'string'},{name: 'CAMPO', type: 'string'},{name: 'ARRIBA', type: 'bool'},{name: 'ENMEDIO', type: 'bool'},{name: 'ABAJO', type: 'bool'},{name: 'OBSERVACIONES', type: 'string'},{name: 'ELIMINADO', type: 'bool'},{name: 'BLOQUEADO', type: 'bool'},{name: 'FECHAALTA', type: 'string'},{name: 'PROPIETARIO', type: 'string'}
+
+
+            ];
+        var columns = [
+
+
+
+              {text: 'IDINCRUSTADOR', datafield: 'IDINCRUSTADOR', theme:theme ,  columntype: 'text' , width: '110'},{text: 'IDSYSCOMPONENT', datafield: 'IDSYSCOMPONENT', theme:theme ,  columntype: 'text' , width: '110'},{text: 'TABLA', datafield: 'TABLA', theme:theme ,  columntype: 'text' , width: '110'},{text: 'CAMPO', datafield: 'CAMPO', theme:theme ,  columntype: 'text' , width: '110'},{text: 'ARRIBA', datafield: 'ARRIBA', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'ENMEDIO', datafield: 'ENMEDIO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'ABAJO', datafield: 'ABAJO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'OBSERVACIONES', datafield: 'OBSERVACIONES', theme:theme ,  columntype: 'text' , width: '110'},{text: 'ELIMINADO', datafield: 'ELIMINADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'BLOQUEADO', datafield: 'BLOQUEADO', theme:theme , columntype: 'checkbox' , width: '110'},{text: 'FECHAALTA', theme:theme  ,datafield: 'FECHAALTA', theme:theme ,  columntype: 'string' , width: '110'},{text: 'PROPIETARIO', datafield: 'PROPIETARIO', theme:theme ,  columntype: 'text' , width: '110'}
+
+
+        ];
+            for (var i = 0; i < 26; i++) {
+                var text = String.fromCharCode(65 + i);
+                if (i == 0) {
+                    var cssclass = 'jqx-widget-header';
+                    if (theme != '') cssclass += ' jqx-widget-header-' + theme;
+                    columns[columns.length] = { pinned: true, exportable: false, text: "", columntype: 'number', cellclassname: cssclass, cellsrenderer: numberrenderer };
+                }
+                datafields[datafields.length] = { name: text };
+                columns[columns.length] = { text: text, datafield: text, width: 60, align: 'center' };
+            }
+            var source =
+            {
+                unboundmode: true,
+                totalrecords: 100,
+                datafields: datafields,
+                updaterow: function (rowid, rowdata) {
+                    // synchronize with the server - send update command
+                }
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            // initialize jqxGrid
+            $("#grid").jqxGrid(
+                {
+                    width: '100%',
+                    height:'450',
+                    source: dataAdapter,
+                    editable: true,
+                    columnsresize: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    columns: columns
+                });
+
+        var linkrenderer = function (row, column, value) {
+            if (value.indexOf('#') != -1) {
+                value = value.substring(0, value.indexOf('#'));
+            }
+            var format = { target: '"_blank"', style: 'border-radius: 4px;' };
+            var html = $.jqx.dataFormat.formatlink(value, format);
+            return html;
+        }
+
+
+
+        $("#grid").on('cellendedit', function (event) {
+            // event arguments.
+            var args = event.args;
+            // column data field.
+            var dataField = event.args.datafield;
+            // row's bound index.
+            var rowBoundIndex = event.args.rowindex;
+            // cell value
+            var value = args.value;
+            // cell old value.
+            var oldvalue = args.oldvalue;
+            // row's data.
+            var rowData = args.row;
+
+            var elvalor = '';
+
+            if (dataField == 'IDINCRUSTADOR' && value!=null  ) {
+
+                //leer datos en la fila - volcar 
+
+$.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  IDSYSCOMPONENT  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "IDSYSCOMPONENT", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  TABLA  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "TABLA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  CAMPO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "CAMPO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ARRIBA  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ARRIBA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ENMEDIO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ENMEDIO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ABAJO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ABAJO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  OBSERVACIONES  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "OBSERVACIONES", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ELIMINADO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ELIMINADO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  BLOQUEADO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "BLOQUEADO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  concat(FECHAALTA,' +06:00' ) from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "FECHAALTA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });   $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  PROPIETARIO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "PROPIETARIO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });   
+
+
+              //  $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "NOMBRE_TAREA",'CAPULLO'  ); 
+       
+
+            }
+
+        });
+
+
+
+
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var indices = url.searchParams.get("indices");
+            
+        if (indices != null) {
+
+            //precargando
+               partes = String(indices).split(",");
+
+
+
+               var arrayLength = partes.length;
+               for (var i = 0; i < arrayLength; i++) {
+                   console.log(partes[i]);
+
+                   var rowID = $('#grid').jqxGrid('getrowid', partes[i]);
+                   var data = $('#grid').jqxGrid('getrowdatabyid', rowID);
+
+                  $("#grid").jqxGrid('setcellvalue', i, "IDINCRUSTADOR", partes[i]);
+
+                   var value = partes[i];
+                   var rowBoundIndex = i;
+
+
+                   $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  IDSYSCOMPONENT  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "IDSYSCOMPONENT", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  TABLA  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "TABLA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  CAMPO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "CAMPO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ARRIBA  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ARRIBA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ENMEDIO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ENMEDIO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ABAJO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ABAJO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  OBSERVACIONES  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "OBSERVACIONES", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ELIMINADO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ELIMINADO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  BLOQUEADO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "BLOQUEADO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  concat(FECHAALTA,' +06:00' ) from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "FECHAALTA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });   $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  PROPIETARIO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "PROPIETARIO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });   
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+        $("#Afectar").jqxButton({ theme: theme });
+        $("#Afectar").click(function () {
+
+            //parse files check if there is any selected field inside
+            var cells = $('#grid').jqxGrid('getselectedcells');
+
+            var cellInfo = "";
+            for (var i = 0; i < cells.length; i++) {
+                var cell = cells[i];
+              //  cellInfo += "\nRow: " + cell.rowindex + ", " + cell.datafield;
+
+                //check if first columnd of every selected row is empty
+
+                var valorid= $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'IDINCRUSTADOR');
+                var value = $('#grid').jqxGrid('getcellvalue', cell.rowindex, cell.datafield);
+
+
+                if (valorid == '') {
+                    //insert
+                   // alert('insert' + cell.rowindex);
+
+
+
+
+                      var cadenainsert = '';
+                    cadenainsert = cadenainsert + ' insert into tblincrustador (IDSYSCOMPONENT,TABLA,CAMPO,ARRIBA,ENMEDIO,ABAJO,OBSERVACIONES,ELIMINADO,BLOQUEADO,FECHAALTA,PROPIETARIO) values (';
+
+                    cadenainsert = cadenainsert + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'IDSYSCOMPONENT') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'TABLA') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'CAMPO') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ARRIBA') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ENMEDIO') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ABAJO') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'OBSERVACIONES') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ELIMINADO') + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'BLOQUEADO') + "'" + ","  + "'" + formatDate( new Date( checarnulos( 'date',   $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'FECHAALTA')) ).toISOString() )  + "'" + ","  + "'" + $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'PROPIETARIO') + "'" + ","  ;
+
+               // cadenainsert = cadenainsert + ' where IDINCRUSTADOR=' + $('#grid').jqxGrid('getcellvalue', cell.rowindex, "IDINCRUSTADOR");
+
+
+                cadenainsert = cadenainsert + ')';
+
+                cadenainsert = cadenainsert.replace(',)', ')');
+
+                cadenainsert = cadenainsert.replace("'undefined'", "Null");
+               
+                console.log(cadenainsert);
+
+               
+
+
+                //guardando
+                $.ajax({
+                     async:false,
+                    url: "/sqlexec2" + '?idusername=' + Cookies.get('idusername') + '&tablename=tblincrustador&sentencia=' + cadenainsert
+                }).then(function (data) {
+
+                     //recuperando el id para la primer columna
+                    $("#grid").jqxGrid('setcellvalue', cell.rowindex, "IDINCRUSTADOR", data);
+
+
+                     $('#mensaje').val(data);
+
+
+                    //recuperando datos
+                    var value = data;
+                var rowBoundIndex = cell.rowindex;
+                    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  IDSYSCOMPONENT  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "IDSYSCOMPONENT", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  TABLA  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "TABLA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  CAMPO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "CAMPO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ARRIBA  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ARRIBA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ENMEDIO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ENMEDIO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ABAJO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ABAJO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  OBSERVACIONES  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "OBSERVACIONES", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  ELIMINADO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "ELIMINADO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  BLOQUEADO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "BLOQUEADO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });    $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  concat(FECHAALTA,' +06:00' ) from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "FECHAALTA", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });   $.ajax({async: false,url: "/obtenervalor" + "?sentencia=select  PROPIETARIO  from tblincrustador where IDINCRUSTADOR=" + value }).then(function (data) { $("#grid").jqxGrid('setcellvalue', rowBoundIndex, "PROPIETARIO", String(data).replace("None",""));  $("#mensaje").val("Leyendo registros...espere..." + data);     });   
+
+
+
+                });
+
+
+
+                $('#mensaje').val('Guardado Terminado');
+
+
+
+                }
+
+                if (valorid != '') {
+                    //update
+
+                    //  alert('update' + cell.rowindex);
+
+
+                    var cadenaupdate = '';
+                    cadenaupdate = cadenaupdate + ' update tblincrustador set ';
+
+                    cadenaupdate = cadenaupdate + 'IDSYSCOMPONENT=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'IDSYSCOMPONENT')).replace('null','').replace('undefined','') + "'" + ","  + 'TABLA=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'TABLA')).replace('null','').replace('undefined','') + "'" + ","  + 'CAMPO=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'CAMPO')).replace('null','').replace('undefined','') + "'" + ","  + 'ARRIBA=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ARRIBA')).replace('null','').replace('undefined','') + "'" + ","  + 'ENMEDIO=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ENMEDIO')).replace('null','').replace('undefined','') + "'" + ","  + 'ABAJO=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ABAJO')).replace('null','').replace('undefined','') + "'" + ","  + 'OBSERVACIONES=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'OBSERVACIONES')).replace('null','').replace('undefined','') + "'" + ","  + 'ELIMINADO=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'ELIMINADO')).replace('null','').replace('undefined','') + "'" + ","  + 'BLOQUEADO=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'BLOQUEADO')).replace('null','').replace('undefined','') + "'" + ","  + 'FECHAALTA=' + "'" + formatDate( new Date( $('#grid').jqxGrid('getcellvalue', cell.rowindex, 'FECHAALTA')  ).toISOString() )  + "'" + ","  + 'PROPIETARIO=' + "'" + String($('#grid').jqxGrid('getcellvalue', cell.rowindex, 'PROPIETARIO')).replace('null','').replace('undefined','') + "'" + ","  ;
+
+                cadenaupdate = cadenaupdate + ' where IDINCRUSTADOR=' + $('#grid').jqxGrid('getcellvalue', cell.rowindex, "IDINCRUSTADOR");
+
+            cadenaupdate = cadenaupdate.replace(', where', ' where ');
+
+
+
+
+            cadenaupdate = cadenaupdate.replace("=''", "=Null");
+
+
+                console.log(cadenaupdate);
+
+
+                
+
+                //guardando
+            $.ajax({
+                     async:false,
+                    url: "/sqlexec" + '?idobjeto=' + valorid + '&tablename=tblincrustador&sentencia=' + cadenaupdate
+                }).then(function (data) {
+
+                    var res = data;
+
+                    $('#mensaje').val('Afectando ID ' + valorid);
+
+                });
+
+
+
+            }
+
+
+             $('#mensaje').val('Guardado Terminado');
+
+        }
+
+        });
+
+
+
+
+
+
+        });
+
+        function checarnulos(tipo,valor) {
+
+            if (tipo == 'date') {
+
+                if (valor == null || valor=='') {
+
+                    return '1970-01-01T12:00:00Z';
+                    
+            }
+
+            }
+
+           
+            if (tipo != 'date') {
+
+                if (valor == null) {
+
+                    return '';
+                    
+            }
+
+            }
+
+
+        }
+
+
+ function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+
+    </script>
+
+</head>
+<body class='default'>
+
+
+    <div id="zonamenu">
+        <div id='jqxMenu'>
+    <ul>
+    	 
+    	
+        <li><a href="javascript:addtabplustitle('home','Home')">Home</a></li>
+        
+        
+       
+       
+         
+        
+        
+        <li><a href="javascript:addtabplus('rendergrid?grid=tables/tbltarea')">Tareas</a></li>
+         <li><a href="javascript:addtabplus('agenda')">Agenda</a></li>
+      
+      
+      
+       
+        
+       
+         	<li><a href="javascript:addtabplus('adminzone')">Admin Zona</a></li>
+         	<li>
+         		<a href="javascript:startRecording('action');">Voice Action</a>
+         		</li>
+         	
+         	
+         	<li>Ayuda
+         	<ul>
+         <li> <a href="javascript:addtabplustitle('/static/notas/tbldocumentacioninterna/2/notas.html','Dictado por Voz')">Dictado por Voz</a>  </li>
+          <li> <a href="javascript:addtabplustitle('/static/notas/tbldocumentacioninterna/1/notas.html','Voice Actions')">Voice Actions</a>  </li>
+         	</ul>
+         	</li>
+         	
+         	<li><a href="login">Login</a></li>
+         	
+         	
+         		<li><a href="javascript:cerrartodo();">Cerrar Todo</a></li>
+         		
+         		
+            </ul>
+        </li>
+     
+     
+      
+        
+      
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+
+
+    theme = Cookies.get('theme');
+
+    if (theme == null || theme == '' || theme == 'start') {
+
+        Cookies.set('theme', 'darkblue', { expires: 90 });
+
+    }
+
+    
+
+
+    $(document).ready(function () {
+        $("#jqxMenu").jqxMenu({ width: '100%', height: '30px', theme: theme });
+        var centerItems = function () {
+            var firstItem = $($("#jqxMenu ul:first").children()[0]);
+            firstItem.css('margin-left', 0);
+            var width = 0;
+            var borderOffset = 2;
+            $.each($("#jqxMenu ul:first").children(), function () {
+                width += $(this).outerWidth(true) + borderOffset;
+            });
+            var menuWidth = $("#jqxMenu").outerWidth();
+            firstItem.css('margin-left', (menuWidth / 2) - (width / 2));
+        }
+        centerItems();
+        $(window).resize(function () {
+            centerItems();
+        });
+
+        //$("#jqxMenu").jqxMenu('minimize');
+    });
+</script>
+    </div>
+
+
+    <div id='jqxWidget'>
+        <div id="encabezado">
+
+            <input id="mensaje" type="text" style="width:100%;height:20px;"  />
+
+        </div>
+        <div id="grid"></div>
+        <div style='margin-top: 20px;'>
+            <div style='float: left;'>
+               
+
+                <input type="button" value="Afectar" id='Afectar' />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
